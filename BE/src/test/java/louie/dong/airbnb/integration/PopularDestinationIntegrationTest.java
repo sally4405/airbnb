@@ -48,7 +48,7 @@ class PopularDestinationIntegrationTest {
             .filter(document("get-popular-destination", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
 
             .when()
-            .get("/popular-destinations")
+            .get("/travel/popular")
 
             .then()
             .statusCode(HttpStatus.OK.value())

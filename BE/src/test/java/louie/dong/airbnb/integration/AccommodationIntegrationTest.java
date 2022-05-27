@@ -51,7 +51,7 @@ class AccommodationIntegrationTest {
             .filter(document("get-search-country", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
 
             .when()
-            .get("/accommodations?country=양재동")
+            .get("/regions/search?country=양재동")
 
             .then()
             .statusCode(HttpStatus.OK.value())
