@@ -13,8 +13,8 @@ public class RegionController {
 	private final MockRegionService mockRegionService;
 
 	@GetMapping("/regions/search")
-	public List<SearchRegionResponse> getSearchRegions() {
-		return mockRegionService.findByRegion();
+	public List<SearchRegionResponse> getSearchRegions(String country) {
+		return mockRegionService.findByRegion(country);
 	}
 
 }
