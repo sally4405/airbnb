@@ -34,6 +34,9 @@ class LocationResultViewController: UITableViewController {
         searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
+        self.navigationItem.searchController?.searchBar.placeholder = "어디로 여행가세요?"
+        self.navigationItem.searchController?.searchBar.showsCancelButton = false
         self.navigationItem.searchController?.searchBar.text = keyword
         
         let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
