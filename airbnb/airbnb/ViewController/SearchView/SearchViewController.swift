@@ -133,7 +133,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         print("입력시작")
-        searchBar.endEditing(true)
+        removeAutoFocusFromSearchBar()
         let pushVC = LocationTableViewController()
         self.navigationController?.pushViewController(pushVC, animated: true)
         
@@ -159,7 +159,9 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
     @objc func removeAutoFocusFromSearchBar() {
         print("포커스 해제")
         self.searchBar.endEditing(true)
-        self.searchBar.resignFirstResponder()
+        DispatchQueue.main.async {
+            self.searchBar.resignFirstResponder()
+        }
     }
 
     // 검색내용 기반으로 검색 결과 업데이트
