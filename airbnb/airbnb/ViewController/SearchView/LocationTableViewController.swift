@@ -6,8 +6,6 @@ class LocationTableViewController: UITableViewController {
     var imageList: [String] = ["seoul", "gwangju"]
     
     private var searchText = ""
-    
-    private let resultController = LocationResultViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +48,10 @@ class LocationTableViewController: UITableViewController {
 
     private func setUI() {
         self.navigationItem.title = "숙소 찾기"
+        self.navigationItem.backButtonTitle = "뒤로"
         
-        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
-        resultController.navigationItem.rightBarButtonItem = rightBarButtonItem
-        let searchController = UISearchController(searchResultsController: resultController)
+//        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
+        let searchController = UISearchController(searchResultsController: nil)
         
         searchController.delegate = self
         searchController.searchBar.delegate = self
@@ -80,6 +78,11 @@ extension LocationTableViewController: UISearchControllerDelegate, UISearchBarDe
     
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard searchText != "" else {
+            return
+        }
+        navigationController?.pushViewController(LocationResultViewController(keyword: searchText), animated: false)
+        self.navigationItem.searchController?.searchBar.text = ""
     }
 }
 

@@ -143,19 +143,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         return true
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("텍스트수정 시작")
-    }
-    
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        print("입력끝")
-        return true // false: 자동으로 돌아오진 않는데 다시 돌아오지도 않음
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("텍스트수정 끝")
-    }
-    
     @objc func removeAutoFocusFromSearchBar() {
         print("포커스 해제")
         self.searchBar.endEditing(true)
