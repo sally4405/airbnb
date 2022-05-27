@@ -1,9 +1,8 @@
-package louie.dong.airbnb.controller;
+package louie.dong.airbnb.accommodation;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import louie.dong.airbnb.dto.SearchCountryResponse;
-import louie.dong.airbnb.service.MockAccommodationService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

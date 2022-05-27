@@ -1,11 +1,11 @@
-package louie.dong.airbnb.service;
+package louie.dong.airbnb.travel;
 
 import java.util.List;
 import louie.dong.airbnb.dto.PopularDestinationResponse;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MockPopularDestinationService {
+public class MockTravelService {
 
     public List<PopularDestinationResponse> findAll() {
         return List.of(

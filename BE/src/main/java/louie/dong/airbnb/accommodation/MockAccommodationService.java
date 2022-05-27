@@ -1,4 +1,4 @@
-package louie.dong.airbnb.service;
+package louie.dong.airbnb.accommodation;
 
 import java.util.List;
 import louie.dong.airbnb.dto.SearchCountryResponse;
