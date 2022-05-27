@@ -27,3 +27,11 @@ include::{snippets}/get-search-country/http-request.adoc[]
 
 === Response
 include::{snippets}/get-search-country/http-response.adoc[]
+
+== 위시리스트 삭제
+
+=== Request
+include::{snippets}/delete-wishlist/http-request.adoc[]
+
+=== Response
+include::{snippets}/delete-wishlist/http-response.adoc[]
