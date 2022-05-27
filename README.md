@@ -18,14 +18,16 @@
 - 검색 탭 첫 화면 구성 
 - 검색 탭바의 위치 입력 화면 구성(진행 중) 고민과 해결 
 - UIImageView.image에 넣을 원본 이미지를 화면 크기에 맞게 적절히 비율 조정하기 
+- UISearchController와 UINavigationController 활용해 위치 검색 화면 구성
 
 ---
 
 ## 결과물
 
+### iOS
 |메인 화면과 검색창 클릭시 화면 이동|
 |---|
-|<img width="320" src="https://user-images.githubusercontent.com/45891045/170411527-038ad1d6-ac60-4583-81d6-e635fe920eba.gif">|
+|<img width="320" src="https://user-images.githubusercontent.com/67407678/170634454-f3055aca-2e6c-4c8f-bdff-fbebccb1cd43.gif">|
 
 ---
 
