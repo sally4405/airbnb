@@ -453,7 +453,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /main HTTP/1.1
 Accept: application/json
-Host: localhost:56509</code></pre>
+Host: localhost:62275</code></pre>
 </div>
 </div>
 </div>
@@ -464,7 +464,7 @@ Host: localhost:56509</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 24 May 2022 08:59:14 GMT
+Date: Fri, 27 May 2022 03:25:33 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 124
@@ -484,9 +484,9 @@ Content-Length: 124
 <h3 id="_request_2">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /popular-destinations HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /travel/popular HTTP/1.1
 Accept: application/json
-Host: localhost:56509</code></pre>
+Host: localhost:62275</code></pre>
 </div>
 </div>
 </div>
@@ -497,7 +497,7 @@ Host: localhost:56509</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 24 May 2022 08:59:14 GMT
+Date: Fri, 27 May 2022 03:25:33 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 714
@@ -547,9 +547,9 @@ Content-Length: 714
 <h3 id="_request_3">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations?country=%EC%96%91%EC%9E%AC%EB%8F%99 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /regions/search?country=양재동 HTTP/1.1
 Accept: application/json
-Host: localhost:56509</code></pre>
+Host: localhost:62275</code></pre>
 </div>
 </div>
 </div>
@@ -560,7 +560,7 @@ Host: localhost:56509</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 24 May 2022 08:59:13 GMT
+Date: Fri, 27 May 2022 03:25:31 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 323
@@ -583,11 +583,37 @@ Content-Length: 323
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_위시리스트_삭제">위시리스트 삭제</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_4">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /wishlists/1 HTTP/1.1
+Accept: application/json
+Host: localhost:62275</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_4">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Date: Fri, 27 May 2022 03:25:33 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-24 17:58:30 +0900
+Last updated 2022-05-27 12:21:59 +0900
 </div>
 </div>
 </body>
