@@ -31,9 +31,9 @@ class LocationCalenderViewController: UIViewController {
         
         calendarVC.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            calendarVC.view.topAnchor.constraint(equalTo: self.view.topAnchor),
-            calendarVC.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            calendarVC.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            calendarVC.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            calendarVC.view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            calendarVC.view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             calendarVC.view.heightAnchor.constraint(equalToConstant: self.view.bounds.width)
         ])
         calendarVC.view.backgroundColor = .gray
