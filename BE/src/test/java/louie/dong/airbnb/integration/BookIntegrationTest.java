@@ -11,6 +11,7 @@ import static org.springframework.restdocs.restassured3.RestAssuredRestDocumenta
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
+import java.io.Serializable;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,6 +40,42 @@ class BookIntegrationTest {
         documentationSpec = new RequestSpecBuilder()
             .addFilter(documentationConfiguration(restDocumentation))
             .build();
+    }
+
+    @Test
+    void 예약_저장() {
+        Map<String, Object> content = Map.of(
+            "accommodationId", 1L,
+            "checkIn", "2022-03-05",
+            "checkOut", "2022-03-11",
+            "guestCount", 3
+        );
+
+        given(documentationSpec)
+            .body(content)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .filter(document("save-books", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+
+            .when()
+            .post("/books")
+
+            .then()
+            .statusCode(HttpStatus.CREATED.value());
+    }
+
+    @Test
+    void 예약_목록_조회() {
+        given(documentationSpec)
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .filter(document("get-books-list", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+
+            .when()
+            .get("/books")
+
+            .then()
+            .statusCode(HttpStatus.OK.value())
+            .body("", hasSize(3));
     }
 
     @Test

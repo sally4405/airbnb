@@ -453,7 +453,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /main HTTP/1.1
 Accept: application/json
-Host: localhost:49896</code></pre>
+Host: localhost:61719</code></pre>
 </div>
 </div>
 </div>
@@ -464,7 +464,7 @@ Host: localhost:49896</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Mon, 30 May 2022 03:00:49 GMT
+Date: Mon, 30 May 2022 07:33:49 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 124
@@ -486,7 +486,7 @@ Content-Length: 124
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /travel/popular HTTP/1.1
 Accept: application/json
-Host: localhost:49896</code></pre>
+Host: localhost:61719</code></pre>
 </div>
 </div>
 </div>
@@ -497,7 +497,7 @@ Host: localhost:49896</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Mon, 30 May 2022 03:00:49 GMT
+Date: Mon, 30 May 2022 07:33:49 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 714
@@ -549,7 +549,7 @@ Content-Length: 714
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /regions/search?country=양재동 HTTP/1.1
 Accept: application/json
-Host: localhost:49896</code></pre>
+Host: localhost:61719</code></pre>
 </div>
 </div>
 </div>
@@ -560,7 +560,7 @@ Host: localhost:49896</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Mon, 30 May 2022 03:00:48 GMT
+Date: Mon, 30 May 2022 07:33:48 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 323
@@ -592,7 +592,7 @@ Content-Length: 323
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /wishlists HTTP/1.1
 Accept: application/json
-Host: localhost:49896</code></pre>
+Host: localhost:61719</code></pre>
 </div>
 </div>
 </div>
@@ -603,7 +603,7 @@ Host: localhost:49896</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Mon, 30 May 2022 03:00:49 GMT
+Date: Mon, 30 May 2022 07:33:50 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 333
@@ -640,12 +640,12 @@ Content-Length: 333
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /wishlists HTTP/1.1
 Accept: application/json
 Content-Type: application/json
-Host: localhost:49896
+Host: localhost:61719
 Content-Length: 48
 
 {
-  "accommodationId" : 1,
-  "memberId" : 1
+  "memberId" : 1,
+  "accommodationId" : 1
 }</code></pre>
 </div>
 </div>
@@ -655,7 +655,7 @@ Content-Length: 48
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
-Date: Mon, 30 May 2022 03:00:49 GMT
+Date: Mon, 30 May 2022 07:33:50 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive</code></pre>
 </div>
@@ -672,7 +672,7 @@ Connection: keep-alive</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /wishlists/1 HTTP/1.1
 Accept: application/json
-Host: localhost:49896</code></pre>
+Host: localhost:61719</code></pre>
 </div>
 </div>
 </div>
@@ -681,9 +681,96 @@ Host: localhost:49896</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Date: Mon, 30 May 2022 03:00:49 GMT
+Date: Mon, 30 May 2022 07:33:50 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_예약_저장">예약 저장</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_7">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /books HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Host: localhost:61719
+Content-Length: 109
+
+{
+  "accommodationId" : 1,
+  "checkIn" : "2022-03-05",
+  "checkOut" : "2022-03-11",
+  "guestCount" : 3
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_7">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Date: Mon, 30 May 2022 07:33:49 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_예약_목록_조회">예약 목록 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_8">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /books HTTP/1.1
+Accept: application/json
+Host: localhost:61719</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_8">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 30 May 2022 07:33:49 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 758
+
+[ {
+  "bookId" : 1,
+  "accommodationImageUrl" : "http://~~~~~ 1",
+  "checkIn" : "2022-03-05",
+  "checkOut" : "2022-03-11",
+  "accommodationCountry" : "서초구, 서울, 한국",
+  "accommodationName" : "Spacious and Comfortable cozy house #1"
+}, {
+  "bookId" : 2,
+  "accommodationImageUrl" : "http://~~~~~ 2",
+  "checkIn" : "2022-03-11",
+  "checkOut" : "2022-03-17",
+  "accommodationCountry" : "서초구, 서울, 한국",
+  "accommodationName" : "Spacious and Comfortable cozy house #2"
+}, {
+  "bookId" : 3,
+  "accommodationImageUrl" : "http://~~~~~ 3",
+  "checkIn" : "2022-03-22",
+  "checkOut" : "2022-03-25",
+  "accommodationCountry" : "서초구, 서울, 한국",
+  "accommodationName" : "Spacious and Comfortable cozy house #3"
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -693,23 +780,23 @@ Connection: keep-alive</code></pre>
 <h2 id="_예약_상세_조회">예약 상세 조회</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_request_7">Request</h3>
+<h3 id="_request_9">Request</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /books/1 HTTP/1.1
 Accept: application/json
-Host: localhost:49896</code></pre>
+Host: localhost:61719</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_response_7">Response</h3>
+<h3 id="_response_9">Response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Mon, 30 May 2022 03:00:49 GMT
+Date: Mon, 30 May 2022 07:33:49 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
 Content-Length: 426
@@ -735,21 +822,21 @@ Content-Length: 426
 <h2 id="_예약_취소">예약 취소</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_request_8">Request</h3>
+<h3 id="_request_10">Request</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /books/1 HTTP/1.1
 Accept: application/json
-Host: localhost:49896</code></pre>
+Host: localhost:61719</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_response_8">Response</h3>
+<h3 id="_response_10">Response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Date: Mon, 30 May 2022 03:00:49 GMT
+Date: Mon, 30 May 2022 07:33:49 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive</code></pre>
 </div>
@@ -761,7 +848,7 @@ Connection: keep-alive</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-30 12:00:08 +0900
+Last updated 2022-05-30 12:25:40 +0900
 </div>
 </div>
 </body>
