@@ -125,41 +125,23 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // 검색키워드에 따라 테이블뷰 리로드
-        print(searchText)
-    }
-    
+
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        print("입력시작")
-        searchBar.endEditing(true)
-        let pushVC = LocationTableViewController()
+        removeAutoFocusFromSearchBar()
+        let pushVC = LocationResultViewController()
         self.navigationController?.pushViewController(pushVC, animated: true)
         
-        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(removeAutoFocusFromSearchBar))
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
         
         return true
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("텍스트수정 시작")
-    }
-    
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        print("입력끝")
-        return true // false: 자동으로 돌아오진 않는데 다시 돌아오지도 않음
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("텍스트수정 끝")
-    }
-    
     @objc func removeAutoFocusFromSearchBar() {
-        print("포커스 해제")
         self.searchBar.endEditing(true)
-        self.searchBar.resignFirstResponder()
+        DispatchQueue.main.async {
+            self.searchBar.resignFirstResponder()
+        }
     }
 
     // 검색내용 기반으로 검색 결과 업데이트
