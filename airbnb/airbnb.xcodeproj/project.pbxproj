@@ -22,7 +22,7 @@
 		008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74D283DD94E002441E5 /* WishViewController.swift */; };
 		008FD750283DD96F002441E5 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74F283DD96F002441E5 /* UserViewController.swift */; };
 		6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */; };
-		6F351360283DFEEE00018A57 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35135F283DFEEE00018A57 /* LocationTableViewController.swift */; };
+		6F3513682844E60C00018A57 /* PopularLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3513672844E60C00018A57 /* PopularLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 		008FD74D283DD94E002441E5 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		008FD74F283DD96F002441E5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationTableViewCell.swift; path = airbnb/View/LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		6F35135F283DFEEE00018A57 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		6F3513672844E60C00018A57 /* PopularLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				00489B83283CC26E00201F55 /* SearchViewController.swift */,
-				6F35135F283DFEEE00018A57 /* LocationTableViewController.swift */,
 				0040918A283F4A000055B0D0 /* LocationResultViewController.swift */,
 				0040918E283F62720055B0D0 /* LocationCalenderViewController.swift */,
 			);
@@ -72,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */,
+				6F3513672844E60C00018A57 /* PopularLocationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,8 +211,8 @@
 				0040918B283F4A000055B0D0 /* LocationResultViewController.swift in Sources */,
 				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,
 				00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */,
-				6F351360283DFEEE00018A57 /* LocationTableViewController.swift in Sources */,
 				0040918F283F62720055B0D0 /* LocationCalenderViewController.swift in Sources */,
+				6F3513682844E60C00018A57 /* PopularLocationView.swift in Sources */,
 				00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */,
 				008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */,
 				00489B63283CA53F00201F55 /* SceneDelegate.swift in Sources */,
