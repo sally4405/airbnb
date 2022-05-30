@@ -1,6 +1,7 @@
 package louie.dong.airbnb.integration;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
@@ -10,6 +11,7 @@ import static org.springframework.restdocs.restassured3.RestAssuredRestDocumenta
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,16 +42,38 @@ class WishListIntegrationTest {
     }
 
     @Test
-    void 위시리스트_저장() {
+    void 위시리스트_조회() {
         given(documentationSpec)
             .accept(MediaType.APPLICATION_JSON_VALUE)
-            .filter(document("delete-wishlist", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+            .filter(document("get-wishlist-list", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+
+            .when()
+            .get("/wishlists")
+
+            .then()
+            .statusCode(HttpStatus.OK.value())
+            .assertThat()
+            .body("", hasSize(2));
+    }
+
+    @Test
+    void 위시리스트_저장() {
+        Map<String, Long> content = Map.of(
+            "memberId", 1L,
+            "accommodationId", 1L);
+
+        given(documentationSpec)
+            .body(content)
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .filter(document("delete-wishlist", preprocessRequest(prettyPrint()),
+                preprocessResponse(prettyPrint())))
 
             .when()
             .post("/wishlists")
 
             .then()
-            .statusCode(HttpStatus.OK.value());
+            .statusCode(HttpStatus.CREATED.value());
     }
 
     @Test
