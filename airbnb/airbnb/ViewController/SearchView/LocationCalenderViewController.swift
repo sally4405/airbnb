@@ -8,9 +8,35 @@
 import UIKit
 
 class LocationCalenderViewController: UIViewController {
+    
+    private let calendarVC = CalendarViewController()
+    private let searchTableView = SearchTableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUI()
+        
         self.view.backgroundColor = .systemBlue
     }
+    
+    private func setUI() {
+        setCalendarView()
+    }
+    
+    private func setCalendarView() {
+        self.view.addSubview(calendarVC.view)
+        self.addChild(calendarVC)
+        calendarVC.didMove(toParent: self)
+        
+        calendarVC.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            calendarVC.view.topAnchor.constraint(equalTo: self.view.topAnchor),
+            calendarVC.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            calendarVC.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            calendarVC.view.heightAnchor.constraint(equalToConstant: self.view.bounds.width)
+        ])
+        calendarVC.view.backgroundColor = .gray
+    }
 }
+
