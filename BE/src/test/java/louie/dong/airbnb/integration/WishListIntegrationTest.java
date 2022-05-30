@@ -1,8 +1,6 @@
 package louie.dong.airbnb.integration;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
@@ -39,6 +37,19 @@ class WishListIntegrationTest {
         documentationSpec = new RequestSpecBuilder()
             .addFilter(documentationConfiguration(restDocumentation))
             .build();
+    }
+
+    @Test
+    void 위시리스트_저장() {
+        given(documentationSpec)
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .filter(document("delete-wishlist", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+
+            .when()
+            .post("/wishlists")
+
+            .then()
+            .statusCode(HttpStatus.OK.value());
     }
 
     @Test
