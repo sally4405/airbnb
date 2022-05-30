@@ -2,6 +2,7 @@ package louie.dong.airbnb.accommodation;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationPriceResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,12 @@ public class AccommodationController {
 	@GetMapping("/{id}")
 	public AccommodationDetailResponse getAccommodationDetail(@PathVariable Long id) {
 		return mockAccommodationService.findById(id);
+	}
+
+	@GetMapping("/{id}/detail-price")
+	public AccommodationDetailPriceResponse getDetailPrice(@PathVariable Long id,
+		String checkIn, String checkOut, int guestCount) {
+		return mockAccommodationService.findDetailPrice(id, checkIn, checkOut, guestCount);
 	}
 
 }
