@@ -1,14 +1,21 @@
 import UIKit
+import RxSwift
+import MapKit
 
 class LocationResultViewController: UIViewController {
     
-    private var resultList: [String] = ["결과1", "결과2"]
-
     private var popularLocationView = PopularLocationView()
+    private var resultList: [MKLocalSearchCompletion] = []
+
+    private lazy var searchCompleter: MKLocalSearchCompleter = {
+        let completer = MKLocalSearchCompleter()
+        completer.delegate = self
+        completer.resultTypes = .pointOfInterest
+        return completer
+    }()
 
     private lazy var searchController: UISearchController = {
         var searchController = UISearchController()
-        searchController.delegate = self
         searchController.searchBar.delegate = self
 
         searchController.hidesNavigationBarDuringPresentation = false
@@ -31,6 +38,9 @@ class LocationResultViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         setConstraints()
+        DispatchQueue.main.async {
+            self.searchController.resignFirstResponder()
+        }
     }
     
     private func setUI() {
@@ -63,7 +73,7 @@ class LocationResultViewController: UIViewController {
     }
 }
 
-extension LocationResultViewController: UISearchControllerDelegate, UISearchBarDelegate {
+extension LocationResultViewController: UISearchBarDelegate, MKLocalSearchCompleterDelegate {
 
     @objc func eraseButtonClicked() {
         self.navigationItem.searchController?.searchBar.text = ""
@@ -76,6 +86,12 @@ extension LocationResultViewController: UISearchControllerDelegate, UISearchBarD
             return
         }
         popularLocationView.isHidden = true
+        searchCompleter.queryFragment = searchText
+    }
+
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        resultList = completer.results
+        tableView.reloadData()
     }
 
 }
@@ -89,7 +105,7 @@ extension LocationResultViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        let location = resultList[indexPath.row]
+        let location = resultList[indexPath.row].title
         cell.setTitle(location)
         return cell
     }
