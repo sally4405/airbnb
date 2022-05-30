@@ -4,3 +4,20 @@ spring:
     url: jdbc:mysql://localhost:3306/airbnb
     username: loudong
     password: '0524'
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+
+logging:
+  level:
+    org.hibernate.SQL: debug
