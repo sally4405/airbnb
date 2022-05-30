@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ExtendWith({RestDocumentationExtension.class})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
-class WishListIntegrationTest {
+class BookIntegrationTest {
 
     @LocalServerPort
     int port;
@@ -42,48 +42,26 @@ class WishListIntegrationTest {
     }
 
     @Test
-    void 위시리스트_조회() {
+    void 예약_상세_조회() {
         given(documentationSpec)
             .accept(MediaType.APPLICATION_JSON_VALUE)
-            .filter(document("get-wishlist-list", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+            .filter(document("get-books-detail", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
 
             .when()
-            .get("/wishlists")
+            .get("/books/1")
 
             .then()
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("", hasSize(2));
+            .statusCode(HttpStatus.OK.value());
     }
 
     @Test
-    void 위시리스트_저장() {
-        Map<String, Long> content = Map.of(
-            "memberId", 1L,
-            "accommodationId", 1L);
-
-        given(documentationSpec)
-            .body(content)
-            .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .accept(MediaType.APPLICATION_JSON_VALUE)
-            .filter(document("save-wishlist", preprocessRequest(prettyPrint()),
-                preprocessResponse(prettyPrint())))
-
-            .when()
-            .post("/wishlists")
-
-            .then()
-            .statusCode(HttpStatus.CREATED.value());
-    }
-
-    @Test
-    void 위시리스트_삭제() {
+    void 예약_취소() {
         given(documentationSpec)
             .accept(MediaType.APPLICATION_JSON_VALUE)
-            .filter(document("delete-wishlist", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+            .filter(document("cancel-books", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
 
             .when()
-            .delete("/wishlists/1")
+            .delete("/books/1")
 
             .then()
             .statusCode(HttpStatus.OK.value());
