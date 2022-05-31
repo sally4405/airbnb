@@ -1,7 +1,7 @@
 package louie.dong.airbnb.accommodation;
 
-import java.util.List;
 import lombok.RequiredArgsConstructor;
+import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationPriceResponse;
@@ -29,8 +29,8 @@ public class AccommodationController {
 
 	@GetMapping("/{id}/detail-price")
 	public AccommodationDetailPriceResponse getDetailPrice(@PathVariable Long id,
-		String checkIn, String checkOut, int guestCount) {
-		return mockAccommodationService.findDetailPrice(id, checkIn, checkOut, guestCount);
+		AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
+		return mockAccommodationService.findDetailPrice(id, accommodationDetailPriceRequest);
 	}
 
 }

@@ -1,6 +1,7 @@
 package louie.dong.airbnb.accommodation;
 
 import java.util.List;
+import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationPriceResponse;
@@ -32,7 +33,7 @@ public class MockAccommodationService {
 		);
 	}
 
-	public AccommodationDetailPriceResponse findDetailPrice(Long id, String checkIn, String checkOut, int guestCount) {
+	public AccommodationDetailPriceResponse findDetailPrice(Long id, AccommodationDetailPriceRequest accommodationRequest) {
 		return new AccommodationDetailPriceResponse(71466, 18, 1322396, 4, 55948, 25996, 8188, 819,
 			1488195);
 	}
