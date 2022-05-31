@@ -3,7 +3,7 @@ import UIKit
 class SearchTableView: UIView {
 
     private let titleList = ["위치", "체크인/체크아웃", "요금", "인원"]
-    private var contentList: [String] = ["양재", "양재", "양재", "양재"]
+    private var contentList: [String] = []
 
     private lazy var tableView: UITableView = {
         var table = UITableView()
@@ -40,6 +40,11 @@ class SearchTableView: UIView {
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+    }
+
+    func setContentList(_ list: [String]) {
+        contentList = list
+        tableView.reloadData()
     }
 
 }

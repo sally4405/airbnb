@@ -9,6 +9,12 @@ class LocationCalenderViewController: UIViewController {
         super.viewDidLoad()
         setUI()
     }
+
+    convenience init(_ contentList: [String]) {
+        self.init()
+        searchTableView.setContentList(contentList)
+    }
+
     private func setUI() {
         setCalendarView()
         setSearchTabelView()

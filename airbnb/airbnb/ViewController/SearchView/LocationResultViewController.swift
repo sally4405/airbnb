@@ -111,7 +111,7 @@ extension LocationResultViewController: UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(LocationCalenderViewController(), animated: true)
+        navigationController?.pushViewController(LocationCalenderViewController([resultList[indexPath.row].title, "", "", ""]), animated: true)
     }
 
 }

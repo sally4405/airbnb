@@ -13,7 +13,7 @@ class SearchTableFooterView: UIView {
     }
 
     private lazy var eraseButton: UIButton = {
-        var button = UIButton(configuration: buttonConfiguration("지우기", false))
+        var button = UIButton(configuration: buttonConfiguration("건너뛰기", false))
         return button
     }()
 
