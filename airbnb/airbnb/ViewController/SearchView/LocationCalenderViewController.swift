@@ -22,7 +22,7 @@ class LocationCalenderViewController: UIViewController {
             searchTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             searchTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 1),
             searchTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -1),
-            searchTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            searchTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
 

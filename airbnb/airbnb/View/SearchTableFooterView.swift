@@ -2,32 +2,23 @@ import UIKit
 
 class SearchTableFooterView: UIView {
 
-//    private lazy var eraseButton: UIButton = {
-//        var button = UIButton()
-//        button.titleLabel?.text = "지우기"
-//        button.titleLabel?.font = .systemFont(ofSize: 17)
-//        return button
-//    }()
-//
-//    private lazy var nextButton: UIButton = {
-//        var button = UIButton()
-//        button.titleLabel?.text = "다음"
-//        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)
-//        button.isEnabled = false
-//        return button
-//    }()
+    private var buttonConfiguration = { (title: String, isBold: Bool) -> UIButton.Configuration in
+        var config = UIButton.Configuration.plain()
+        var container = AttributeContainer()
+        container.font = UIFont.systemFont(ofSize: 17, weight: isBold ? .bold : .regular)
+        container.foregroundColor = UIColor.black
+        config.attributedTitle = AttributedString(title, attributes: container)
+        config.contentInsets = .zero
+        return config
+    }
 
-    private lazy var eraseButton: UILabel = {
-        var button = UILabel()
-        button.text = "지우기"
-        button.font = .systemFont(ofSize: 17)
+    private lazy var eraseButton: UIButton = {
+        var button = UIButton(configuration: buttonConfiguration("지우기", false))
         return button
     }()
 
-    private lazy var nextButton: UILabel = {
-        var button = UILabel()
-        button.text = "다음"
-        button.font = .systemFont(ofSize: 17, weight: .bold)
+    private lazy var nextButton: UIButton = {
+        var button = UIButton(configuration: buttonConfiguration("다음", true))
         button.isEnabled = false
         return button
     }()
@@ -66,7 +57,7 @@ class SearchTableFooterView: UIView {
     }
 
     func toggleEraseButton() {
-//        eraseButton.titleLabel?.text = eraseButton.titleLabel?.text == "지우기" ? "건너뛰기" : "지우기"
+        eraseButton.setTitle(eraseButton.titleLabel?.text == "지우기" ? "건너뛰기" : "지우기", for: .normal)
     }
 
     func toggleNextButton() {

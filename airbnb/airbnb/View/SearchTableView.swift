@@ -3,6 +3,7 @@ import UIKit
 class SearchTableView: UIView {
 
     private let titleList = ["위치", "체크인/체크아웃", "요금", "인원"]
+    private var contentList: [String] = ["양재", "양재", "양재", "양재"]
 
     private lazy var tableView: UITableView = {
         var table = UITableView()
@@ -53,7 +54,7 @@ extension SearchTableView: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.setTitle(titleList[indexPath.row])
-        cell.setContent("양재")
+        cell.setContent(contentList[indexPath.row])
         return cell
     }
 
