@@ -1,10 +1,3 @@
-//
-//  CalenderController.swift
-//  airbnb
-//
-//  Created by Bibi on 2022/05/30.
-//
-
 import UIKit
 
 class CalendarViewController: UIViewController {
@@ -130,7 +123,7 @@ class CalendarViewController: UIViewController {
         self.view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            calendarView.topAnchor.constraint(equalTo: yearMonthLabel.bottomAnchor),
+            calendarView.topAnchor.constraint(equalTo: yearMonthLabel.bottomAnchor, constant: spacing),
             calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             calendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             calendarView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),

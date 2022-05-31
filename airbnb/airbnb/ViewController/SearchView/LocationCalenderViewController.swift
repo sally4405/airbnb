@@ -8,13 +8,11 @@ class LocationCalenderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setConstraint()
     }
-    
     private func setUI() {
-        self.view.backgroundColor = .white
-        self.view.addSubview(searchTableView)
         setCalendarView()
+        setSearchTabelView()
+        self.view.backgroundColor = .systemBackground
     }
     
     private func setCalendarView() {
@@ -31,14 +29,15 @@ class LocationCalenderViewController: UIViewController {
         ])
     }
 
-    private func setConstraint() {
+    private func setSearchTabelView() {
+        self.view.addSubview(searchTableView)
         searchTableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            searchTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             searchTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 1),
             searchTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -1),
             searchTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            searchTableView.heightAnchor.constraint(equalToConstant: 260)
         ])
     }
 
