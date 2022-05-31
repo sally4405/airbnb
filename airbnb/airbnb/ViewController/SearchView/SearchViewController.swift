@@ -75,10 +75,15 @@ class SearchViewController: UIViewController {
         
         setUp()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     private func setUp() {
         self.view.backgroundColor = .systemBackground
-        
+
         self.navigationController?.navigationBar.backgroundColor = .systemGray6
         self.navigationItem.titleView = searchBar
 
