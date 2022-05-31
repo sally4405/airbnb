@@ -1,5 +1,4 @@
 import UIKit
-import RxSwift
 import MapKit
 
 class LocationResultViewController: UIViewController {
@@ -48,6 +47,7 @@ class LocationResultViewController: UIViewController {
         self.view.addSubview(tableView)
         self.view.addSubview(popularLocationView)
         self.navigationItem.title = "숙소 찾기"
+        self.tabBarController?.tabBar.isHidden = true
 
         let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
