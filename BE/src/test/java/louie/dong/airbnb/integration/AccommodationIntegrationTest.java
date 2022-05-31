@@ -44,7 +44,7 @@ class AccommodationIntegrationTest {
     }
 
     @Test
-    void 숙소_요금_조회() {
+    void 특정_지역의_숙소_요금_정보_조회() {
         given(documentationSpec)
             .urlEncodingEnabled(false)
             .accept(MediaType.APPLICATION_JSON_VALUE)
@@ -123,10 +123,10 @@ class AccommodationIntegrationTest {
             .body("country", equalTo("서초구, 서울, 한국"))
             .body("hostName", equalTo("Jong"))
             .body("hostImageUrl", equalTo("http://~~~~~~~~~"))
-            .body("maxGuestCount", equalTo(3))
-            .body("roomCount", equalTo("원룸"))
-            .body("bedroomCount", equalTo(1))
-            .body("bathroomCount", equalTo(1));
+            .body("roomInformation.maxGuestCount", equalTo(3))
+            .body("roomInformation.roomType", equalTo("APARTMENT"))
+            .body("roomInformation.bedroomCount", equalTo(1))
+            .body("roomInformation.bathroomCont", equalTo(1));
     }
 
     @Test
