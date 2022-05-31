@@ -73,29 +73,23 @@ class SearchViewController: UIViewController {
         self.searchBar.delegate = self
         self.searchBar.resignFirstResponder()
         
-        setUI()
-        setConstraints()
+        setUp()
     }
     
-    private func setUI() {
+    private func setUp() {
         self.view.backgroundColor = .systemBackground
         
         self.navigationController?.navigationBar.backgroundColor = .systemGray6
         self.navigationItem.titleView = searchBar
-        
+
+        setHeroImageView()
+        setHeroLabels()
+    }
+
+    private func setHeroImageView() {
         self.view.addSubview(heroImageView)
-        self.view.addSubview(titleLabel)
-        self.view.addSubview(contentLabel)
-        self.view.addSubview(ideaButton)
-    }
-    
-    private func setConstraints() {
-        configureHeroImageViewConstraint()
-        configureHeroLabelsConstraint()
-    }
-    
-    private func configureHeroImageViewConstraint() {
         heroImageView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             heroImageView.topAnchor.constraint(equalTo: self.view.topAnchor),
             heroImageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -103,10 +97,15 @@ class SearchViewController: UIViewController {
         ])
     }
     
-    private func configureHeroLabelsConstraint() {
+    private func setHeroLabels() {
+        self.view.addSubview(titleLabel)
+        self.view.addSubview(contentLabel)
+        self.view.addSubview(ideaButton)
+
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
         ideaButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: heroImageView.topAnchor, constant: topSpace),
             titleLabel.leadingAnchor.constraint(equalTo: heroImageView.leadingAnchor, constant: labelSpace),

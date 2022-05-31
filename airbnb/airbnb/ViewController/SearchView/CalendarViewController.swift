@@ -43,11 +43,10 @@ class CalendarViewController: UIViewController {
         self.calendarView.delegate = self
         self.calendarView.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalendarViewCell.identifier)
         
-        setView()
+        setUp()
     }
     
-    private func setView() {
-        
+    private func setUp() {
         setCalendarFirstDay()
         calculateCalendar()
         

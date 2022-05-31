@@ -35,17 +35,14 @@ class LocationResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
-        setConstraints()
+        setUp()
         DispatchQueue.main.async {
             self.searchController.resignFirstResponder()
         }
     }
-    
-    private func setUI() {
+
+    private func setUp() {
         self.view.backgroundColor = .systemBackground
-        self.view.addSubview(tableView)
-        self.view.addSubview(popularLocationView)
         self.navigationItem.title = "숙소 찾기"
         self.tabBarController?.tabBar.isHidden = true
 
@@ -53,24 +50,35 @@ class LocationResultViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+
+        setTableView()
+        setPopularLocationView()
     }
 
-    private func setConstraints() {
-        popularLocationView.translatesAutoresizingMaskIntoConstraints = false
+    private func setTableView() {
+        self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            popularLocationView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            popularLocationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            popularLocationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            popularLocationView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-
             tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40)
         ])
     }
+
+    private func setPopularLocationView() {
+        self.view.addSubview(popularLocationView)
+        popularLocationView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            popularLocationView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            popularLocationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            popularLocationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            popularLocationView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+    }
+
 }
 
 extension LocationResultViewController: UISearchBarDelegate, MKLocalSearchCompleterDelegate {

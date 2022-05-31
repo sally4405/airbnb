@@ -20,15 +20,15 @@ class CalendarViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
+        setUp()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUI()
+        setUp()
     }
     
-    private func setUI() {
+    private func setUp() {
         setDateLabel()
     }
     

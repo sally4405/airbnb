@@ -19,33 +19,38 @@ class SearchTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUI()
-        setConstraint()
+        setUp()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUI()
-        setConstraint()
+        setUp()
     }
 
-    private func setUI() {
+    private func setUp() {
+        setTitleLabel()
+        setContentLabel()
+    }
+
+    private func setTitleLabel() {
         addSubview(titleLabel)
-        addSubview(contentLabel)
-    }
-
-    private func setConstraint() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 11),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -11),
+            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -11)
+        ])
+    }
 
+    private func setContentLabel() {
+        addSubview(contentLabel)
+        contentLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
             contentLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 11),
             contentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            contentLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -11),
+            contentLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -11)
         ])
     }
 

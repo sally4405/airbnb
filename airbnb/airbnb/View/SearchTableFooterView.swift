@@ -25,34 +25,38 @@ class SearchTableFooterView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
-        setConstraint()
+        setUp()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUI()
-        setConstraint()
+        setUp()
     }
 
-    private func setUI() {
+    private func setUp() {
         backgroundColor = .systemGray6
-        addSubview(eraseButton)
-        addSubview(nextButton)
+        setEraseButton()
+        setNextButton()
     }
 
-    private func setConstraint() {
+    private func setEraseButton() {
+        addSubview(eraseButton)
         eraseButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             eraseButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 14),
             eraseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            eraseButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -47),
+            eraseButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -47)        ])
+    }
 
+    private func setNextButton() {
+        addSubview(nextButton)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
             nextButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 14),
             nextButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -47),
+            nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -47)
         ])
     }
 

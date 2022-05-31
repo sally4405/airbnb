@@ -7,7 +7,7 @@ class LocationCalenderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setUp()
     }
 
     convenience init(_ contentList: [String]) {
@@ -15,7 +15,7 @@ class LocationCalenderViewController: UIViewController {
         searchTableView.setContentList(contentList)
     }
 
-    private func setUI() {
+    private func setUp() {
         setCalendarView()
         setSearchTabelView()
         self.view.backgroundColor = .systemBackground

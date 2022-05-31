@@ -16,22 +16,21 @@ class PopularLocationView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
-        setConstraints()
+        setUp()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUI()
-        setConstraints()
+        setUp()
     }
 
-    private func setUI() {
+    private func setUp() {
         backgroundColor = .systemBackground
-        addSubview(tableView)
+        setTableView()
     }
 
-    private func setConstraints() {
+    private func setTableView() {
+        addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -41,6 +40,7 @@ class PopularLocationView: UIView {
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40)
         ])
     }
+
 }
 
 extension PopularLocationView: UITableViewDelegate, UITableViewDataSource {

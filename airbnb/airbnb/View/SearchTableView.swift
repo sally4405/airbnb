@@ -15,23 +15,22 @@ class SearchTableView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
-        setConstraint()
+        setUp()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUI()
-        setConstraint()
+        setUp()
     }
 
-    private func setUI() {
+    private func setUp() {
+        setTableView()
+    }
+
+    private func setTableView() {
         addSubview(tableView)
         tableView.isScrollEnabled = false
-        
-    }
 
-    private func setConstraint() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
