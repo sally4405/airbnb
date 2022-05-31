@@ -28,6 +28,39 @@ include::{snippets}/get-search-country/http-request.adoc[]
 === Response
 include::{snippets}/get-search-country/http-response.adoc[]
 
+== 특정 지역의 숙소 요금 정보 조회
+
+=== Request
+include::{snippets}/get-search-prices/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-search-prices/http-response.adoc[]
+
+== 입력한 값에 맞는 모든 숙소를 조회
+
+=== Request
+include::{snippets}/get-accommodation-search/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-accommodation-search/http-response.adoc[]
+
+== 숙소 상세 정보 조회
+
+=== Request
+include::{snippets}/get-accommodation-detail/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-accommodation-detail/http-response.adoc[]
+
+== 숙소 예약 요금 상세 조회
+
+=== Request
+include::{snippets}/get-accommodation-detail-price/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-accommodation-detail-price/http-response.adoc[]
+
+
 == 위시리스트 조회
 
 === Request
