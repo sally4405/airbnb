@@ -2,6 +2,7 @@ package louie.dong.airbnb.integration;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
@@ -25,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ExtendWith({RestDocumentationExtension.class})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
-class MainIntegrationTest {
+class TravelIntegrationTest {
 
     @LocalServerPort
     int port;
@@ -41,18 +42,23 @@ class MainIntegrationTest {
     }
 
     @Test
-    void 메인_히어로_이미지_조회() {
+    void 인기_여행지_조회() {
         given(documentationSpec)
             .accept(MediaType.APPLICATION_JSON_VALUE)
-            .filter(document("get-hero-image", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
+            .filter(document("get-popular-destination", preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
 
             .when()
-            .get("/main")
+            .get("/travel/popular")
 
             .then()
             .statusCode(HttpStatus.OK.value())
             .assertThat()
-            .body("imageUrl", equalTo(
-                "https://user-images.githubusercontent.com/92966772/169965428-e12f898a-1f72-4510-8ddb-8086519366c0.PNG"));
+            .body("", hasSize(8))
+            .body("[0].name", equalTo("서울"))
+            .body("[0].imageUrl", equalTo(""))
+            .body("[0].distance", equalTo("차로 30분 거리"))
+            .body("[1].name", equalTo("광주"))
+            .body("[1].imageUrl", equalTo(""))
+            .body("[1].distance", equalTo("차로 4시간 거리"));
     }
 }
