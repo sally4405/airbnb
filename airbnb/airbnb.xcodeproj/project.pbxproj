@@ -19,7 +19,6 @@
 		00489B78283CA5CC00201F55 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B77283CA5CC00201F55 /* RxSwift */; };
 		00489B7B283CA61800201F55 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B7A283CA61800201F55 /* Alamofire */; };
 		00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B83283CC26E00201F55 /* SearchViewController.swift */; };
-		005159912844568F00C4C0EC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005159902844568F00C4C0EC /* CalendarView.swift */; };
 		00515993284456A200C4C0EC /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00515992284456A200C4C0EC /* CalendarViewCell.swift */; };
 		00515995284456FF00C4C0EC /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00515994284456FF00C4C0EC /* SearchTableView.swift */; };
 		0051599728445FBE00C4C0EC /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0051599628445FBE00C4C0EC /* CalendarViewController.swift */; };
@@ -41,7 +40,6 @@
 		00489B6C283CA54000201F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00489B6E283CA54000201F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00489B83283CC26E00201F55 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		005159902844568F00C4C0EC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		00515992284456A200C4C0EC /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		00515994284456FF00C4C0EC /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		0051599628445FBE00C4C0EC /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */,
-				005159902844568F00C4C0EC /* CalendarView.swift */,
 				00515992284456A200C4C0EC /* CalendarViewCell.swift */,
 				00515994284456FF00C4C0EC /* SearchTableView.swift */,
 			);
@@ -218,7 +215,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				005159912844568F00C4C0EC /* CalendarView.swift in Sources */,
 				00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */,
 				6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */,
 				0051599728445FBE00C4C0EC /* CalendarViewController.swift in Sources */,

@@ -12,6 +12,7 @@ class CalendarViewController: UIViewController {
     private var yearMonthLabel: UILabel = {
         var label = UILabel()
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
     }()
     
@@ -27,10 +28,11 @@ class CalendarViewController: UIViewController {
         return button
     }()
     
-    private let calendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())// CalendarView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private let calendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    private let spacing: CGFloat = 10
     
     private let now = Date()
-//    private let now = Calendar.current.date(byAdding: .day, value: 31, to: Date()) ?? Date()
     private var calendar = Calendar.current
     private let dateFormatter = DateFormatter()
     private var components = DateComponents()
@@ -53,10 +55,7 @@ class CalendarViewController: UIViewController {
     
     private func setView() {
         
-        dateFormatter.dateFormat = "yyyy년 M월" // 월 표시 포맷 설정
-        components.year = calendar.component(.year, from: now)
-        components.month = calendar.component(.month, from: now)
-        components.day = 1
+        setCalendarFirstDay()
         calculateCalendar()
         
         setYearMonthLabel()
@@ -65,26 +64,24 @@ class CalendarViewController: UIViewController {
         setCalendarView()
     }
     
+    private func setCalendarFirstDay() {
+        dateFormatter.dateFormat = "yyyy년 M월" // 월 표시 포맷 설정
+        components.year = calendar.component(.year, from: now)
+        components.month = calendar.component(.month, from: now)
+        components.day = 1
+    }
+    
     private func calculateCalendar() { // 월별 일 수 계산
-        
         let firstDayOfMonth = calendar.date(from: components)
-        let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth!) // 요일. 1 = 일요일, 7 = 토요일
+        let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth!) // 1 = 일요일, 7 = 토요일
         daysCountInMonth = calendar.range(of: .day, in: .month, for: firstDayOfMonth!)!.count
-        weekdayAdding = 2 - firstWeekday // 이 과정을 해주는 이유는 예를 들어 2020년 4월이라 하면 4월 1일은 수요일 즉, 수요일이 달의 첫날이 됩니다.  수요일은 component의 4 이므로 CollectionView에서 앞의 3일은 비울 필요가 있으므로 인덱스가 1일부터 시작할 수 있도록 해줍니다. 그래서 2 - 4 해서 -2부터 시작하게 되어  정확히 3일 후부터 1일이 시작하게 됩니다.
-        //    1  일요일 2 - 1  -> 0번 인덱스부터 1일 시작
-        //    2 월요일 2 - 2  -> 1번 인덱스부터 1일 시작
-        //    3 화요일 2 - 3  -> 2번 인덱스부터 1일 시작
-        //    4 수요일 2 - 4  -> 3번 인덱스부터 1일 시작
-        //    5 목요일 2 - 5  -> 4번 인덱스부터 1일 시작
-        //    6 금요일 2 - 6  -> 5번 인덱스부터 1일 시작
-        //    7 토요일 2 - 7  -> 6번 인덱스부터 1일 시작
-        
+        weekdayAdding = 2 - firstWeekday
         
         self.yearMonthLabel.text = dateFormatter.string(from: firstDayOfMonth!)
         self.days.removeAll()
         
         for day in weekdayAdding...daysCountInMonth {
-            if day < 1 { // 1보다 작을 경우는 비워줘야 하기 때문에 빈 값을 넣어준다.
+            if day < 1 { // 1보다 작을 경우는 빈칸
                 self.days.append("")
             } else {
                 self.days.append(String(day))
@@ -104,39 +101,35 @@ class CalendarViewController: UIViewController {
         NSLayoutConstraint.activate([
             yearMonthLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             yearMonthLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-//            yearMonthLabel.widthAnchor.constraint(equalToConstant: 300),
-//            yearMonthLabel.heightAnchor.constraint(equalToConstant: 100)
         ])
-        yearMonthLabel.backgroundColor = .red
     }
     
     private func setPreviousButton() {
         self.view.addSubview(previousButton)
+        previousButton.addTarget(self, action: #selector(previousButtonTouched), for: .touchUpInside)
         previousButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            previousButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            previousButton.trailingAnchor.constraint(equalTo: yearMonthLabel.leadingAnchor),
+            previousButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: spacing),
+            previousButton.trailingAnchor.constraint(equalTo: yearMonthLabel.leadingAnchor, constant: spacing * -1),
+            previousButton.centerYAnchor.constraint(equalTo: yearMonthLabel.centerYAnchor)
         ])
-        previousButton.addTarget(self, action: #selector(previousButtonTouched), for: .touchUpInside)
     }
     
     private func setNextButton() {
         self.view.addSubview(nextButton)
+        nextButton.addTarget(self, action: #selector(nextButtonTouched), for: .touchUpInside)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nextButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-//            nextButton.bottomAnchor.constraint(equalTo: calendarView.topAnchor),
-            nextButton.leadingAnchor.constraint(equalTo: yearMonthLabel.trailingAnchor),
-//            nextButton.centerXAnchor.constraint(equalTo: yearMonthLabel.centerXAnchor)
+            nextButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: spacing),
+            nextButton.leadingAnchor.constraint(equalTo: yearMonthLabel.trailingAnchor, constant: spacing),
+            nextButton.centerYAnchor.constraint(equalTo: yearMonthLabel.centerYAnchor)
         ])
-        nextButton.addTarget(self, action: #selector(nextButtonTouched), for: .touchUpInside)
     }
     
     private func setCalendarView() {
         self.view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            //calendarView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             calendarView.topAnchor.constraint(equalTo: yearMonthLabel.bottomAnchor),
             calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             calendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -151,7 +144,6 @@ class CalendarViewController: UIViewController {
             return
         }
         components.month = currentMonth - 1
-        print(components.month)
         calculateCalendar()
         DispatchQueue.main.async {
             self.calendarView.reloadData()
@@ -172,7 +164,7 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2 // 요일 + 일
+        return 2 // 요일, 일
 //        return 1 + weeksCountWithSpace // 요일 + 주
     }
     
@@ -191,8 +183,6 @@ extension CalendarViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-//        cell.setDateLabelText(days[indexPath.item]) // 일
-        
         switch indexPath.section {
         case 0:
             cell.setDateLabelText(weeks[indexPath.row]) // 요일
@@ -207,7 +197,6 @@ extension CalendarViewController: UICollectionViewDataSource {
         } else { // 평일
             cell.setDateLabelColor(.black)
         }
-//        cell.backgroundColor = .systemPink
         return cell
     }
 }

@@ -19,6 +19,7 @@ class LocationCalenderViewController: UIViewController {
     }
     
     private func setUI() {
+        self.view.backgroundColor = .white
         setCalendarView()
     }
     
