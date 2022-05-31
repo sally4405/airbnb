@@ -453,7 +453,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /main HTTP/1.1
 Accept: application/json
-Host: localhost:56509</code></pre>
+Host: localhost:51703</code></pre>
 </div>
 </div>
 </div>
@@ -464,10 +464,10 @@ Host: localhost:56509</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 24 May 2022 08:59:14 GMT
+Date: Tue, 31 May 2022 07:18:22 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 124
+Content-Length: 122
 
 {
   "imageUrl" : "https://user-images.githubusercontent.com/92966772/169965428-e12f898a-1f72-4510-8ddb-8086519366c0.PNG"
@@ -484,9 +484,9 @@ Content-Length: 124
 <h3 id="_request_2">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /popular-destinations HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /travel/popular HTTP/1.1
 Accept: application/json
-Host: localhost:56509</code></pre>
+Host: localhost:51703</code></pre>
 </div>
 </div>
 </div>
@@ -497,10 +497,10 @@ Host: localhost:56509</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 24 May 2022 08:59:14 GMT
+Date: Tue, 31 May 2022 07:18:22 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 714
+Content-Length: 682
 
 [ {
   "name" : "서울",
@@ -547,9 +547,9 @@ Content-Length: 714
 <h3 id="_request_3">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations?country=%EC%96%91%EC%9E%AC%EB%8F%99 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /regions/search?country=양재동 HTTP/1.1
 Accept: application/json
-Host: localhost:56509</code></pre>
+Host: localhost:51703</code></pre>
 </div>
 </div>
 </div>
@@ -560,10 +560,10 @@ Host: localhost:56509</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 24 May 2022 08:59:13 GMT
+Date: Tue, 31 May 2022 07:18:22 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 323
+Content-Length: 311
 
 [ {
   "country" : "양재동, 서초구, 서울특별시",
@@ -583,11 +583,452 @@ Content-Length: 323
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_특정_지역의_숙소_요금_정보_조회">특정 지역의 숙소 요금 정보 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_4">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations/prices?country=양재동 HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_4">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 31 May 2022 07:18:21 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 69
+
+{
+  "average" : 165556,
+  "prices" : [ 12345, 56780, 12455, 12350 ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_입력한_값에_맞는_모든_숙소를_조회">입력한 값에 맞는 모든 숙소를 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_5">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations?country=양재동&amp;checkIn=2022-05-17&amp;checkOut=2022-06-12&amp;minPrice=10000&amp;maxPrice=100000&amp;guestCount=3 HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_5">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 31 May 2022 07:18:21 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 572
+
+{
+  "count" : 300,
+  "accommodations" : [ {
+    "id" : 1,
+    "name" : "숙소 이름",
+    "imageUrl" : "https://~~~",
+    "rating" : 4.8,
+    "reviewCount" : 127,
+    "price" : 82953,
+    "totalPrice" : 1493159,
+    "wishlist" : false,
+    "latitude" : 32.12332561,
+    "longitude" : 107.21512421
+  }, {
+    "id" : 2,
+    "name" : "숙소 이름 2",
+    "imageUrl" : "https://~~~~~~~",
+    "rating" : 4.35,
+    "reviewCount" : 105,
+    "price" : 333,
+    "totalPrice" : 1333332,
+    "wishlist" : true,
+    "latitude" : 32.33256112,
+    "longitude" : 107.33333321
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_숙소_상세_정보_조회">숙소 상세 정보 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_6">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations/1 HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_6">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 31 May 2022 07:18:21 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 567
+
+{
+  "id" : 1,
+  "name" : "숙소 이름",
+  "imageUrl" : "https://~~~",
+  "rating" : 4.8,
+  "reviewCount" : 127,
+  "country" : "서초구, 서울, 한국",
+  "hostName" : "Jong",
+  "hostImageUrl" : "http://~~~~~~~~~",
+  "roomInformation" : {
+    "maxGuestCount" : 3,
+    "roomType" : "APARTMENT",
+    "bedroomCount" : 1,
+    "bathroomCont" : 1
+  },
+  "description" : "강남역 5번 출구에서 도보로 이동 가능합니다. 지하철, 버스 노선이 다양하고 맛집, 마트 등 주변 시설이 풍부합니다.",
+  "price" : 82953,
+  "wishlist" : false
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_숙소_예약_요금_상세_조회">숙소 예약 요금 상세 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_7">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations/1/detail-price?checkIn=2022-10-23&amp;checkOut=2022-10-30&amp;guestCount=3 HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_7">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 31 May 2022 07:18:21 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 213
+
+{
+  "price" : 71466,
+  "date" : 18,
+  "totalPrice" : 1322396,
+  "discountRate" : 4,
+  "discountPrice" : 55948,
+  "cleaningFee" : 25996,
+  "serviceFee" : 8188,
+  "accommodationFee" : 819,
+  "finalPrice" : 1488195
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_위시리스트_조회">위시리스트 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_8">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /wishlists HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_8">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 31 May 2022 07:18:22 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 317
+
+[ {
+  "id" : 1,
+  "name" : "숙소 이름",
+  "imageUrl" : "https://~~~",
+  "rating" : 4.8,
+  "reviewCount" : 127,
+  "price" : 82953,
+  "wishlist" : true
+}, {
+  "id" : 2,
+  "name" : "숙소 이름 2",
+  "imageUrl" : "https://~~~~~~~",
+  "rating" : 4.35,
+  "reviewCount" : 105,
+  "price" : 333,
+  "wishlist" : true
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_위시리스트_저장">위시리스트 저장</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_9">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /wishlists HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Host: localhost:51703
+Content-Length: 45
+
+{
+  "memberId" : 1,
+  "accommodationId" : 1
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_9">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Date: Tue, 31 May 2022 07:18:22 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_위시리스트_삭제">위시리스트 삭제</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_10">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /wishlists/1 HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_10">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Date: Tue, 31 May 2022 07:18:22 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_예약_저장">예약 저장</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_11">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /books HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Host: localhost:51703
+Content-Length: 104
+
+{
+  "accommodationId" : 1,
+  "checkIn" : "2022-03-05",
+  "checkOut" : "2022-03-11",
+  "guestCount" : 3
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_11">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Date: Tue, 31 May 2022 07:18:22 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_예약_목록_조회">예약 목록 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_12">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /books HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_12">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 31 May 2022 07:18:22 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 737
+
+[ {
+  "bookId" : 1,
+  "accommodationImageUrl" : "http://~~~~~ 1",
+  "checkIn" : "2022-03-05",
+  "checkOut" : "2022-03-11",
+  "accommodationCountry" : "서초구, 서울, 한국",
+  "accommodationName" : "Spacious and Comfortable cozy house #1"
+}, {
+  "bookId" : 2,
+  "accommodationImageUrl" : "http://~~~~~ 2",
+  "checkIn" : "2022-03-11",
+  "checkOut" : "2022-03-17",
+  "accommodationCountry" : "서초구, 서울, 한국",
+  "accommodationName" : "Spacious and Comfortable cozy house #2"
+}, {
+  "bookId" : 3,
+  "accommodationImageUrl" : "http://~~~~~ 3",
+  "checkIn" : "2022-03-22",
+  "checkOut" : "2022-03-25",
+  "accommodationCountry" : "서초구, 서울, 한국",
+  "accommodationName" : "Spacious and Comfortable cozy house #3"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_예약_상세_조회">예약 상세 조회</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_13">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /books/1 HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_13">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Tue, 31 May 2022 07:18:22 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 415
+
+{
+  "bookId" : 1,
+  "accommodationImageUrls" : [ "http://~~~~~ 1", "http://~~~~~ 2", "http://~~~~~ 3", "http://~~~~~ 4" ],
+  "checkIn" : "2022-03-05T16:00:00",
+  "checkOut" : "2022-03-11T10:00:00",
+  "accommodationCountry" : "서초구, 서울, 한국",
+  "accommodationName" : "Spacious and Comfortable cozy house #1",
+  "guestCount" : 3,
+  "roomCount" : "원룸",
+  "hostName" : "Jong",
+  "finalPrice" : 1488195
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_예약_취소">예약 취소</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_request_14">Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /books/1 HTTP/1.1
+Accept: application/json
+Host: localhost:51703</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_14">Response</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Date: Tue, 31 May 2022 07:18:22 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-24 17:58:30 +0900
+Last updated 2022-05-31 16:15:58 +0900
 </div>
 </div>
 </body>
