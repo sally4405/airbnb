@@ -5,6 +5,10 @@ import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationPriceResponse;
+import louie.dong.airbnb.accommodation.dto.AccommodationResponse;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchRequest;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchResponse;
+import org.springframework.data.geo.Point;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -36,5 +40,13 @@ public class MockAccommodationService {
 	public AccommodationDetailPriceResponse findDetailPrice(Long id, AccommodationDetailPriceRequest accommodationRequest) {
 		return new AccommodationDetailPriceResponse(71466, 18, 1322396, 4, 55948, 25996, 8188, 819,
 			1488195);
+	}
+
+	public AccommodationSearchResponse findAccommodations(
+		AccommodationSearchRequest accommodationSearchRequest) {
+		return new AccommodationSearchResponse(300,
+			List.of(
+				new AccommodationResponse(1L, "숙소 이름", "https://~~~", 4.80, 127, 82953, 1493159, false, new Point(107.21512421, 32.12332561)),
+				new AccommodationResponse(2L, "숙소 이름 2", "https://~~~~~~~", 4.35, 105, 333, 1333332, true, new Point(107.33333321, 32.33256112))));
 	}
 }

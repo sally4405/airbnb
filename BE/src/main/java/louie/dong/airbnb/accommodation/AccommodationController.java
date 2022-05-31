@@ -5,6 +5,8 @@ import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationPriceResponse;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchRequest;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,12 @@ public class AccommodationController {
 	@GetMapping("/prices")
 	public AccommodationPriceResponse getAccommodationPrice(String country) {
 		return mockAccommodationService.findPrices(country);
+	}
+
+	@GetMapping
+	public AccommodationSearchResponse getAccommodationSearch(
+		AccommodationSearchRequest accommodationSearchRequest) {
+		return mockAccommodationService.findAccommodations(accommodationSearchRequest);
 	}
 
 	@GetMapping("/{id}")
