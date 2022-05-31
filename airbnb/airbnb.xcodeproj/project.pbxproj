@@ -19,6 +19,7 @@
 		00489B78283CA5CC00201F55 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B77283CA5CC00201F55 /* RxSwift */; };
 		00489B7B283CA61800201F55 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B7A283CA61800201F55 /* Alamofire */; };
 		00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B83283CC26E00201F55 /* SearchViewController.swift */; };
+		004DACF12845FFB100FB1D34 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF02845FFB100FB1D34 /* NetworkManager.swift */; };
 		00515993284456A200C4C0EC /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00515992284456A200C4C0EC /* CalendarViewCell.swift */; };
 		0051599728445FBE00C4C0EC /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0051599628445FBE00C4C0EC /* CalendarViewController.swift */; };
 		008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74D283DD94E002441E5 /* WishViewController.swift */; };
@@ -42,6 +43,7 @@
 		00489B6C283CA54000201F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00489B6E283CA54000201F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00489B83283CC26E00201F55 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		004DACF02845FFB100FB1D34 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		00515992284456A200C4C0EC /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		00515994284456FF00C4C0EC /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		0051599628445FBE00C4C0EC /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -112,9 +114,12 @@
 		00489B5F283CA53F00201F55 /* airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				004DACED2845FE8C00FB1D34 /* Utility */,
 				00409191283F789E0055B0D0 /* View */,
 				00489B7E283CC1A800201F55 /* ViewController */,
-				00489B7D283CC19F00201F55 /* ViewModel */,
+				00489B7D283CC19F00201F55 /* Model */,
+				004DACE92845FE0600FB1D34 /* Repository */,
+				004DACEA2845FE2500FB1D34 /* Service */,
 				00489B60283CA53F00201F55 /* AppDelegate.swift */,
 				00489B62283CA53F00201F55 /* SceneDelegate.swift */,
 				00489B66283CA53F00201F55 /* Main.storyboard */,
@@ -125,11 +130,13 @@
 			path = airbnb;
 			sourceTree = "<group>";
 		};
-		00489B7D283CC19F00201F55 /* ViewModel */ = {
+		00489B7D283CC19F00201F55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				004DACEC2845FE6600FB1D34 /* Domain */,
+				004DACEB2845FE5100FB1D34 /* Entity */,
 			);
-			path = ViewModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		00489B7E283CC1A800201F55 /* ViewController */ = {
@@ -141,6 +148,42 @@
 				008FD74F283DD96F002441E5 /* UserViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		004DACE92845FE0600FB1D34 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				004DACF02845FFB100FB1D34 /* NetworkManager.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		004DACEA2845FE2500FB1D34 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		004DACEB2845FE5100FB1D34 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		004DACEC2845FE6600FB1D34 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		004DACED2845FE8C00FB1D34 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		6FD6D9F62845DFAE004A5D94 /* Recovered References */ = {
@@ -235,6 +278,7 @@
 				6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */,
 				0051599728445FBE00C4C0EC /* CalendarViewController.swift in Sources */,
 				0040918B283F4A000055B0D0 /* LocationResultViewController.swift in Sources */,
+				004DACF12845FFB100FB1D34 /* NetworkManager.swift in Sources */,
 				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,
 				6F35136E2845B2D700018A57 /* SearchTableFooterView.swift in Sources */,
 				00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */,
