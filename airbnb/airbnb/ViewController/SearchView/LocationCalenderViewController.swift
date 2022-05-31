@@ -16,8 +16,6 @@ class LocationCalenderViewController: UIViewController {
         super.viewDidLoad()
         
         setUI()
-        
-        self.view.backgroundColor = .systemBlue
     }
     
     private func setUI() {
@@ -36,7 +34,6 @@ class LocationCalenderViewController: UIViewController {
             calendarVC.view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             calendarVC.view.heightAnchor.constraint(equalToConstant: self.view.bounds.width)
         ])
-        calendarVC.view.backgroundColor = .gray
     }
 }
 

@@ -6,6 +6,7 @@ class CalendarViewCell: UICollectionViewCell {
     
     private var dateLabel: UILabel = {
         var label = UILabel()
+        label.text = "date"
         return label
     }()
     
