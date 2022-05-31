@@ -27,3 +27,59 @@ include::{snippets}/get-search-country/http-request.adoc[]
 
 === Response
 include::{snippets}/get-search-country/http-response.adoc[]
+
+== 위시리스트 조회
+
+=== Request
+include::{snippets}/get-wishlist-list/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-wishlist-list/http-response.adoc[]
+
+== 위시리스트 저장
+
+=== Request
+include::{snippets}/save-wishlist/http-request.adoc[]
+
+=== Response
+include::{snippets}/save-wishlist/http-response.adoc[]
+
+== 위시리스트 삭제
+
+=== Request
+include::{snippets}/delete-wishlist/http-request.adoc[]
+
+=== Response
+include::{snippets}/delete-wishlist/http-response.adoc[]
+
+== 예약 저장
+
+=== Request
+include::{snippets}/save-books/http-request.adoc[]
+
+=== Response
+include::{snippets}/save-books/http-response.adoc[]
+
+== 예약 목록 조회
+
+=== Request
+include::{snippets}/get-books-list/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-books-list/http-response.adoc[]
+
+== 예약 상세 조회
+
+=== Request
+include::{snippets}/get-books-detail/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-books-detail/http-response.adoc[]
+
+== 예약 취소
+
+=== Request
+include::{snippets}/cancel-books/http-request.adoc[]
+
+=== Response
+include::{snippets}/cancel-books/http-response.adoc[]
