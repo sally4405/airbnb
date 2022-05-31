@@ -1,5 +1,4 @@
 import UIKit
-import SwiftUI
 
 class LocationTableViewCell: UITableViewCell {
 
