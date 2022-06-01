@@ -29,6 +29,7 @@ public class ImageCacheManager {
         // 해당 이미지가 캐시되어 있다면 찾은 이미지를 반환합니다.
         if let cachedImage = getCachedImage(url: url) {
             DispatchQueue.main.async { // 왜 비동기?
+                imageItem.image = cachedImage
                 completion(imageItem, cachedImage)
             }
             return

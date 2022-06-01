@@ -25,7 +25,8 @@
 		004C48312847089C002728FF /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C48302847089C002728FF /* JSONConverter.swift */; };
 		004C4833284708B5002728FF /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C4832284708B5002728FF /* ImageCacheManager.swift */; };
 		004C48352847090E002728FF /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C48342847090E002728FF /* ImageItem.swift */; };
-		004DACF12845FFB100FB1D34 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF02845FFB100FB1D34 /* NetworkManager.swift */; };
+		004C483A28470E6F002728FF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C483928470E6F002728FF /* SearchViewModel.swift */; };
+		004C483C2847119E002728FF /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C483B2847119E002728FF /* SearchView.swift */; };
 		004DACF52846331C00FB1D34 /* HeroImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF42846331C00FB1D34 /* HeroImage.swift */; };
 		004DACF72846356B00FB1D34 /* PopularLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF62846356B00FB1D34 /* PopularLocation.swift */; };
 		004DACF92846383300FB1D34 /* SearchRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF82846383300FB1D34 /* SearchRegion.swift */; };
@@ -40,6 +41,7 @@
 		004DAD0B28463FD300FB1D34 /* WishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DAD0A28463FD300FB1D34 /* WishRequest.swift */; };
 		00515993284456A200C4C0EC /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00515992284456A200C4C0EC /* CalendarViewCell.swift */; };
 		0051599728445FBE00C4C0EC /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0051599628445FBE00C4C0EC /* CalendarViewController.swift */; };
+		0061237E2847446F002E17C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061237D2847446F002E17C7 /* UIImageExtension.swift */; };
 		008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74D283DD94E002441E5 /* WishViewController.swift */; };
 		008FD750283DD96F002441E5 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74F283DD96F002441E5 /* UserViewController.swift */; };
 		6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */; };
@@ -69,7 +71,8 @@
 		004C48302847089C002728FF /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		004C4832284708B5002728FF /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		004C48342847090E002728FF /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
-		004DACF02845FFB100FB1D34 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		004C483928470E6F002728FF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		004C483B2847119E002728FF /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		004DACF42846331C00FB1D34 /* HeroImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImage.swift; sourceTree = "<group>"; };
 		004DACF62846356B00FB1D34 /* PopularLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularLocation.swift; sourceTree = "<group>"; };
 		004DACF82846383300FB1D34 /* SearchRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRegion.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		00515992284456A200C4C0EC /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		00515994284456FF00C4C0EC /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		0051599628445FBE00C4C0EC /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		0061237D2847446F002E17C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		008FD74D283DD94E002441E5 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		008FD74F283DD96F002441E5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationTableViewCell.swift; path = airbnb/View/LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -124,6 +128,7 @@
 		00409191283F789E0055B0D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				004C483B2847119E002728FF /* SearchView.swift */,
 				6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */,
 				6F3513672844E60C00018A57 /* PopularLocationView.swift */,
 				6F35136B2845AABC00018A57 /* SearchTableViewCell.swift */,
@@ -154,6 +159,7 @@
 		00489B5F283CA53F00201F55 /* airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				004C483628470C64002728FF /* ViewModel */,
 				004DACED2845FE8C00FB1D34 /* Utility */,
 				00409191283F789E0055B0D0 /* View */,
 				00489B7E283CC1A800201F55 /* ViewController */,
@@ -203,10 +209,17 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		004C483628470C64002728FF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				004C483928470E6F002728FF /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		004DACE92845FE0600FB1D34 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				004DACF02845FFB100FB1D34 /* NetworkManager.swift */,
 				6FD6D9F82846DDE0004A5D94 /* NetworkResult.swift */,
 				6FD6D9FA2846DEF7004A5D94 /* RemoteRepository.swift */,
 			);
@@ -249,6 +262,7 @@
 		004DACED2845FE8C00FB1D34 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				0061237D2847446F002E17C7 /* UIImageExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -354,6 +368,7 @@
 				00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */,
 				004DACF92846383300FB1D34 /* SearchRegion.swift in Sources */,
 				6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */,
+				004C483A28470E6F002728FF /* SearchViewModel.swift in Sources */,
 				004DAD0728463E9000FB1D34 /* ReservationDetail.swift in Sources */,
 				004DACF52846331C00FB1D34 /* HeroImage.swift in Sources */,
 				004DACFB2846390000FB1D34 /* AccommodationPrices.swift in Sources */,
@@ -362,13 +377,14 @@
 				6FD6D9FB2846DEF7004A5D94 /* RemoteRepository.swift in Sources */,
 				004DACF72846356B00FB1D34 /* PopularLocation.swift in Sources */,
 				004DAD0128463C4000FB1D34 /* AccommodationPriceDetail.swift in Sources */,
+				0061237E2847446F002E17C7 /* UIImageExtension.swift in Sources */,
 				0040918B283F4A000055B0D0 /* LocationResultViewController.swift in Sources */,
-				004DACF12845FFB100FB1D34 /* NetworkManager.swift in Sources */,
 				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,
 				004C482F28470861002728FF /* HTTPMethod.swift in Sources */,
 				6F35136E2845B2D700018A57 /* SearchTableFooterView.swift in Sources */,
 				004DACFF28463B5700FB1D34 /* AccommodationDetail.swift in Sources */,
 				00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */,
+				004C483C2847119E002728FF /* SearchView.swift in Sources */,
 				00515993284456A200C4C0EC /* CalendarViewCell.swift in Sources */,
 				004DAD0928463F0B00FB1D34 /* WishList.swift in Sources */,
 				004C482B284707EB002728FF /* NetworkManager.swift in Sources */,
