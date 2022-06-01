@@ -10,22 +10,26 @@
 
 ---
 
-## 작업 내용
+## 작업 내용 
+- 프로젝트 셋팅 : SPM 설정 (RxSwift, Alamofire)
+- 탭 바 컨트롤러에 3개의 VC 추가 
+- 검색 탭의 NavigationBar에 SearchBar 추가 
+- Mapkit 사용하여 지역 검색 기능 추가
+- CalendarView 추가 
+  - 날짜 선택 기능은 미완성 
 
-- 프로젝트 셋팅 
-- SwiftPackageManager로 RxSwift, Alamofire 추가 
-- 검색 탭바에 대한 SearchViewController 만들기 시작 
-- 검색 탭 첫 화면 구성 
-- 검색 탭바의 위치 입력 화면 구성(진행 중) 고민과 해결 
-- UIImageView.image에 넣을 원본 이미지를 화면 크기에 맞게 적절히 비율 조정하기 
+- 검색 뷰의 '근처 인기 여행지'화면을 뷰컨트롤러가 아닌 뷰(`PopularLocationView`)로 변경 
+  - LocationResultView에서 searchBar.text에 따라 show/hide하도록 변경 
+- 검색 화면의 위치, 날짜, 요금, 인원을 표시하는 테이블뷰와 지우기/다음 버튼 추가 
 
 ---
 
 ## 결과물
 
-|메인 화면과 검색창 클릭시 화면 이동|
-|---|
-|<img width="320" src="https://user-images.githubusercontent.com/45891045/170411527-038ad1d6-ac60-4583-81d6-e635fe920eba.gif">|
+### iOS
+|근처의 인기 여행지 화면과 지역 입력 화면|지역 검색 결과가 포함된 날짜 입력 화면|
+|---|---|
+|<img width="320" src="https://user-images.githubusercontent.com/45891045/171108401-e1671d38-e4a8-4c4e-ba0d-748eafea96b9.gif">|<img width="320" src="https://user-images.githubusercontent.com/45891045/171108407-c35b1d20-bd6a-44c3-8f57-9454f017d784.gif">|
 
 ---
 
