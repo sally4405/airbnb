@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TravelController {
 
-    @GetMapping("/travel/popular")
+    @GetMapping("/travels/popular")
     public List<PopularTravelResponse> getPopularDestinations() {
         return List.of(
             new PopularTravelResponse("서울", "", "차로 30분 거리"),
