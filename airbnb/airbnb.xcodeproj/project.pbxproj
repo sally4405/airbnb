@@ -19,6 +19,12 @@
 		00489B78283CA5CC00201F55 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B77283CA5CC00201F55 /* RxSwift */; };
 		00489B7B283CA61800201F55 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B7A283CA61800201F55 /* Alamofire */; };
 		00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B83283CC26E00201F55 /* SearchViewController.swift */; };
+		004C482B284707EB002728FF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C482A284707EB002728FF /* NetworkManager.swift */; };
+		004C482D2847084B002728FF /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C482C2847084B002728FF /* HTTPManager.swift */; };
+		004C482F28470861002728FF /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C482E28470861002728FF /* HTTPMethod.swift */; };
+		004C48312847089C002728FF /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C48302847089C002728FF /* JSONConverter.swift */; };
+		004C4833284708B5002728FF /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C4832284708B5002728FF /* ImageCacheManager.swift */; };
+		004C48352847090E002728FF /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C48342847090E002728FF /* ImageItem.swift */; };
 		004DACF12845FFB100FB1D34 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF02845FFB100FB1D34 /* NetworkManager.swift */; };
 		004DACF52846331C00FB1D34 /* HeroImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF42846331C00FB1D34 /* HeroImage.swift */; };
 		004DACF72846356B00FB1D34 /* PopularLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DACF62846356B00FB1D34 /* PopularLocation.swift */; };
@@ -57,6 +63,12 @@
 		00489B6C283CA54000201F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00489B6E283CA54000201F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00489B83283CC26E00201F55 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		004C482A284707EB002728FF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		004C482C2847084B002728FF /* HTTPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
+		004C482E28470861002728FF /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		004C48302847089C002728FF /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
+		004C4832284708B5002728FF /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		004C48342847090E002728FF /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		004DACF02845FFB100FB1D34 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		004DACF42846331C00FB1D34 /* HeroImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImage.swift; sourceTree = "<group>"; };
 		004DACF62846356B00FB1D34 /* PopularLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularLocation.swift; sourceTree = "<group>"; };
@@ -147,6 +159,7 @@
 				00489B7E283CC1A800201F55 /* ViewController */,
 				00489B7D283CC19F00201F55 /* Model */,
 				004DACE92845FE0600FB1D34 /* Repository */,
+				004C4829284707C7002728FF /* Network */,
 				004DACEA2845FE2500FB1D34 /* Service */,
 				00489B60283CA53F00201F55 /* AppDelegate.swift */,
 				00489B62283CA53F00201F55 /* SceneDelegate.swift */,
@@ -176,6 +189,18 @@
 				008FD74F283DD96F002441E5 /* UserViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		004C4829284707C7002728FF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				004C482A284707EB002728FF /* NetworkManager.swift */,
+				004C482E28470861002728FF /* HTTPMethod.swift */,
+				004C482C2847084B002728FF /* HTTPManager.swift */,
+				004C48302847089C002728FF /* JSONConverter.swift */,
+				004C4832284708B5002728FF /* ImageCacheManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		004DACE92845FE0600FB1D34 /* Repository */ = {
@@ -216,6 +241,7 @@
 		004DACEC2845FE6600FB1D34 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				004C48342847090E002728FF /* ImageItem.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -324,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				004C48352847090E002728FF /* ImageItem.swift in Sources */,
 				00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */,
 				004DACF92846383300FB1D34 /* SearchRegion.swift in Sources */,
 				6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */,
@@ -331,22 +358,27 @@
 				004DACF52846331C00FB1D34 /* HeroImage.swift in Sources */,
 				004DACFB2846390000FB1D34 /* AccommodationPrices.swift in Sources */,
 				0051599728445FBE00C4C0EC /* CalendarViewController.swift in Sources */,
+				004C482D2847084B002728FF /* HTTPManager.swift in Sources */,
 				6FD6D9FB2846DEF7004A5D94 /* RemoteRepository.swift in Sources */,
 				004DACF72846356B00FB1D34 /* PopularLocation.swift in Sources */,
 				004DAD0128463C4000FB1D34 /* AccommodationPriceDetail.swift in Sources */,
 				0040918B283F4A000055B0D0 /* LocationResultViewController.swift in Sources */,
 				004DACF12845FFB100FB1D34 /* NetworkManager.swift in Sources */,
 				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,
+				004C482F28470861002728FF /* HTTPMethod.swift in Sources */,
 				6F35136E2845B2D700018A57 /* SearchTableFooterView.swift in Sources */,
 				004DACFF28463B5700FB1D34 /* AccommodationDetail.swift in Sources */,
 				00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */,
 				00515993284456A200C4C0EC /* CalendarViewCell.swift in Sources */,
 				004DAD0928463F0B00FB1D34 /* WishList.swift in Sources */,
+				004C482B284707EB002728FF /* NetworkManager.swift in Sources */,
 				0040918F283F62720055B0D0 /* LocationCalenderViewController.swift in Sources */,
+				004C4833284708B5002728FF /* ImageCacheManager.swift in Sources */,
 				6F3513682844E60C00018A57 /* PopularLocationView.swift in Sources */,
 				004DAD0328463D9C00FB1D34 /* ReservationRequest.swift in Sources */,
 				004DAD0B28463FD300FB1D34 /* WishRequest.swift in Sources */,
 				6FD6D9F92846DDE0004A5D94 /* NetworkResult.swift in Sources */,
+				004C48312847089C002728FF /* JSONConverter.swift in Sources */,
 				00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */,
 				6F35136A2845A94600018A57 /* SearchTableView.swift in Sources */,
 				004DACFD28463ABB00FB1D34 /* FilteredAccommodationPrices.swift in Sources */,
