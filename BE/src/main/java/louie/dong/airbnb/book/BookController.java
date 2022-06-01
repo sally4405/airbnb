@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BookController {
 
-	private final MockBockService mockBockService;
+	private final MockBookService mockBockService;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)

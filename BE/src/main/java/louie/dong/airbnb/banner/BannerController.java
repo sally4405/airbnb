@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BannerController {
 
-    private static final String MAIN_IMAGE_URL = "https://user-images.githubusercontent.com/92966772/169965428-e12f898a-1f72-4510-8ddb-8086519366c0.PNG";
+    private static final String MAIN_IMAGE_URL = "https://user-images.githubusercontent.com/73376468/171333357-01d5146b-bdf2-45a0-a49d-234ee9f133b7.jpeg";
 
-    @GetMapping("/main")
+    @GetMapping("/banners/main")
     public Map<String, String> getMainImage() {
         return Collections.singletonMap("imageUrl", MAIN_IMAGE_URL);
     }
