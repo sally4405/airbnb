@@ -1,7 +1,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
+
     private var searchBar: UISearchBar = {
         var searchBar = UISearchBar()
         searchBar.placeholder = "어디로 여행가세요?"
@@ -10,10 +10,11 @@ class SearchViewController: UIViewController {
     
     private lazy var heroImageView: UIImageView = {
         var imageView = UIImageView()
+
         guard let image = UIImage(named: "heroImage") else {
             return imageView
         }
-        
+
         imageView.contentMode = .top
         
         let widthScaleRatio = self.view.bounds.width / image.size.width

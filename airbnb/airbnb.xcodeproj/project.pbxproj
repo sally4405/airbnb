@@ -41,6 +41,8 @@
 		6F35136A2845A94600018A57 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3513692845A94600018A57 /* SearchTableView.swift */; };
 		6F35136C2845AABC00018A57 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35136B2845AABC00018A57 /* SearchTableViewCell.swift */; };
 		6F35136E2845B2D700018A57 /* SearchTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35136D2845B2D700018A57 /* SearchTableFooterView.swift */; };
+		6FD6D9F92846DDE0004A5D94 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6D9F82846DDE0004A5D94 /* NetworkResult.swift */; };
+		6FD6D9FB2846DEF7004A5D94 /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6D9FA2846DEF7004A5D94 /* RemoteRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		6F3513692845A94600018A57 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		6F35136B2845AABC00018A57 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		6F35136D2845B2D700018A57 /* SearchTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableFooterView.swift; sourceTree = "<group>"; };
+		6FD6D9F82846DDE0004A5D94 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		6FD6D9FA2846DEF7004A5D94 /* RemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				004DACF02845FFB100FB1D34 /* NetworkManager.swift */,
+				6FD6D9F82846DDE0004A5D94 /* NetworkResult.swift */,
+				6FD6D9FA2846DEF7004A5D94 /* RemoteRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 				004DACF52846331C00FB1D34 /* HeroImage.swift in Sources */,
 				004DACFB2846390000FB1D34 /* AccommodationPrices.swift in Sources */,
 				0051599728445FBE00C4C0EC /* CalendarViewController.swift in Sources */,
+				6FD6D9FB2846DEF7004A5D94 /* RemoteRepository.swift in Sources */,
 				004DACF72846356B00FB1D34 /* PopularLocation.swift in Sources */,
 				004DAD0128463C4000FB1D34 /* AccommodationPriceDetail.swift in Sources */,
 				0040918B283F4A000055B0D0 /* LocationResultViewController.swift in Sources */,
@@ -339,6 +346,7 @@
 				6F3513682844E60C00018A57 /* PopularLocationView.swift in Sources */,
 				004DAD0328463D9C00FB1D34 /* ReservationRequest.swift in Sources */,
 				004DAD0B28463FD300FB1D34 /* WishRequest.swift in Sources */,
+				6FD6D9F92846DDE0004A5D94 /* NetworkResult.swift in Sources */,
 				00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */,
 				6F35136A2845A94600018A57 /* SearchTableView.swift in Sources */,
 				004DACFD28463ABB00FB1D34 /* FilteredAccommodationPrices.swift in Sources */,
