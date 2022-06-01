@@ -8,7 +8,7 @@ class SearchViewController: UIViewController {
         return searchBar
     }()
     
-    private let searchView = SearchView()
+    // private let searchView = SearchView()
     private let networkManager = NetworkManager.publicNetworkManager
     private let imageCacheManager = ImageCacheManager.publicCacheManager
     
@@ -36,20 +36,24 @@ class SearchViewController: UIViewController {
     }
     
     private func setSearchView() {
+        
+        let searchView = SearchView()
+        let searchViewModel = SearchViewModel()
+        searchViewModel.configure(searchView)
         self.view.addSubview(searchView)
         
-        networkManager.getHeroImage { heroImage in
-            guard let heroImage = heroImage,
-                  let heroImageURL = URL(string: heroImage.imageURL) else {
-                return
-            }
-            let heroImageItem = ImageItem(image: nil, url: heroImageURL)
-            self.imageCacheManager.loadImage(url: heroImageURL as NSURL, imageItem: heroImageItem) { imageItem, uiImage in
-                if let uiImage = uiImage {
-                    self.searchView.setHeroImage(uiImage)
-                }
-            }
-        }
+//        networkManager.getHeroImage { heroImage in
+//            guard let heroImage = heroImage,
+//                  let heroImageURL = URL(string: heroImage.imageURL) else {
+//                return
+//            }
+//            let heroImageItem = ImageItem(image: nil, url: heroImageURL)
+//            self.imageCacheManager.loadImage(url: heroImageURL as NSURL, imageItem: heroImageItem) { imageItem, uiImage in
+//                if let uiImage = uiImage {
+//                    self.searchView.setHeroImage(uiImage)
+//                }
+//            }
+//        }
         
         searchView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
