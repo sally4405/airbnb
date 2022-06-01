@@ -2,7 +2,7 @@ package louie.dong.airbnb.accommodation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-정import louie.dong.airbnb.accommodation.RoomInformation;
+import louie.dong.airbnb.accommodation.RoomInformation;
 
 @Getter
 @AllArgsConstructor
