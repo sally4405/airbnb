@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class WishListResponse {
+public class WishResponse {
 
 	private Long id;
 	private String name;
