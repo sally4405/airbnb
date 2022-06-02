@@ -42,7 +42,7 @@ public class AccommodationController {
 	@GetMapping("/{id}/detail-price")
 	public AccommodationDetailPriceResponse getDetailPrice(@PathVariable Long id,
 		AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
-		return mockAccommodationService.findDetailPrice(id, accommodationDetailPriceRequest);
+		return accommodationService.findDetailPrice(id, accommodationDetailPriceRequest);
 	}
 
 }
