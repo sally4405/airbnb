@@ -15,5 +15,5 @@ public class RoomInformation {
 	private int maxGuestCount;
 	private RoomType roomType;
 	private int bedroomCount;
-	private int bathroomCont;
+	private int bathroomCount;
 }
