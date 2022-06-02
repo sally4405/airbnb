@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import lombok.Getter;
 import org.springframework.data.geo.Point;
 
+@Getter
 @Entity
 @Getter
 public class Accommodation {
@@ -33,7 +34,7 @@ public class Accommodation {
 
 	private String country;
 	private int price;
-	private String imageUrl;
+
 	private double rating;
 	private int reviewCount;
 	private Point point;

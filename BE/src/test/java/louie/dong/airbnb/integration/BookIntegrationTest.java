@@ -1,6 +1,7 @@
 package louie.dong.airbnb.integration;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
@@ -11,7 +12,6 @@ import static org.springframework.restdocs.restassured3.RestAssuredRestDocumenta
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
-import java.io.Serializable;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -88,7 +88,18 @@ class BookIntegrationTest {
             .get("/books/1")
 
             .then()
-            .statusCode(HttpStatus.OK.value());
+            .statusCode(HttpStatus.OK.value())
+            .assertThat()
+            .body("bookId", equalTo(1))
+            .body("accommodationImageUrls", hasSize(0))
+            .body("checkIn", equalTo("2022-03-05T16:00:00"))
+            .body("checkOut", equalTo("2022-03-11T12:00:00"))
+            .body("accommodationCountry", equalTo("서초구, 서울, 한국"))
+            .body("accommodationName", equalTo("Spacious and Comfortable cozy house #1"))
+            .body("guestCount", equalTo(2))
+            .body("roomType", equalTo("PENSION"))
+            .body("hostName", equalTo("Jong"))
+            .body("finalPrice", equalTo(393793));
     }
 
     @Test

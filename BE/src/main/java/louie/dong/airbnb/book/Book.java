@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import lombok.Getter;
 import louie.dong.airbnb.accommodation.Accommodation;
 
+@Getter
 @Entity
 public class Book {
 
@@ -22,4 +24,5 @@ public class Book {
 	private LocalDateTime checkIn;
 	private LocalDateTime checkOut;
 	private int guestCount;
+	private int finalPrice;
 }

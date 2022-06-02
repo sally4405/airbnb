@@ -1,18 +1,25 @@
 package louie.dong.airbnb.book;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
+import lombok.RequiredArgsConstructor;
 import louie.dong.airbnb.book.dto.BookDetailResponse;
 import louie.dong.airbnb.book.dto.BookResponse;
 import louie.dong.airbnb.book.dto.BookSaveRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@RequiredArgsConstructor
+@Transactional(readOnly = true)
 @Service
-public class MockBookService {
+public class BookService {
 
-	public void save(BookSaveRequest bookSaveRequest) {
+	private final BookRepository bookRepository;
 
+	public BookDetailResponse findById(Long id) {
+		Book book = bookRepository.findById(id).orElseThrow(NoSuchElementException::new);
+		return new BookDetailResponse(book);
 	}
 
 	public List<BookResponse> findAll() {
@@ -39,17 +46,8 @@ public class MockBookService {
 			));
 	}
 
-	public BookDetailResponse findById(Long id) {
-		return new BookDetailResponse(1L,
-			List.of("https://a0.muscache.com/im/pictures/8a5dded5-25fb-4686-90fd-c4f916fcb9fb.jpg", "https://a0.muscache.com/im/pictures/miso/Hosting-48760969/original/09926f6f-92b8-4341-8bcf-e0b6660d3c24.jpeg", "https://a0.muscache.com/im/pictures/0b313b69-79ac-41f4-a520-79e06063c17f.jpg"),
-			LocalDateTime.of(2022, 3, 5, 16, 0),
-			LocalDateTime.of(2022, 3, 11, 10, 0),
-			"서초구, 서울, 한국",
-			"Spacious and Comfortable cozy house #1",
-			3,
-			"원룸",
-			"Jong",
-			1488195);
+	public void save(BookSaveRequest bookSaveRequest) {
+
 	}
 
 	public void delete(Long id) {
