@@ -14,7 +14,6 @@ import org.springframework.data.geo.Point;
 
 @Getter
 @Entity
-@Getter
 public class Accommodation {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)	// mysql에 autoincrement 가능하게 하는 옵션

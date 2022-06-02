@@ -25,7 +25,7 @@ public class AccommodationDetailResponse {
 	public AccommodationDetailResponse(Accommodation accommodation, boolean wish) {
 		this.id = accommodation.getId();
 		this.name = accommodation.getName();
-		this.imageUrl = accommodation.getImageUrl();
+		this.imageUrl = accommodation.getAccommodationImages().get(0).getImageUrl();
 		this.rating = accommodation.getRating();
 		this.reviewCount = accommodation.getReviewCount();
 		this.country = accommodation.getCountry();

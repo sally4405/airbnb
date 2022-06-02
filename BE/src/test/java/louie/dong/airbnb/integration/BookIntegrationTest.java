@@ -91,7 +91,7 @@ class BookIntegrationTest {
             .statusCode(HttpStatus.OK.value())
             .assertThat()
             .body("bookId", equalTo(1))
-            .body("accommodationImageUrls", hasSize(0))
+            .body("accommodationImageUrls", hasSize(1))
             .body("checkIn", equalTo("2022-03-05T16:00:00"))
             .body("checkOut", equalTo("2022-03-11T12:00:00"))
             .body("accommodationCountry", equalTo("서초구, 서울, 한국"))
