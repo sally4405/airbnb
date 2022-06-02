@@ -27,7 +27,7 @@ public class MockAccommodationService {
 			"서초구, 서울, 한국",
 			"Jong",
 			"https://user-images.githubusercontent.com/92966772/171337583-5428b133-eea4-4f02-9f27-7a53a414842f.png",
-			new RoomInformation(3, RoomType.APARTMENT, 1, 1),
+			new RoomInformation(RoomType.APARTMENT, 3, 1, 1),
 			"강남역 5번 출구에서 도보로 이동 가능합니다. 지하철, 버스 노선이 다양하고 맛집, 마트 등 주변 시설이 풍부합니다.",
 			82953,
 			false
