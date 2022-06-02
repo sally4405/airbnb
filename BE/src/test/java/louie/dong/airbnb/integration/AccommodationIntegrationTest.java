@@ -57,12 +57,11 @@ class AccommodationIntegrationTest {
             .then()
             .statusCode(HttpStatus.OK.value())
             .assertThat()
-            .body("prices", hasSize(4))
-            .body("average", equalTo(165556))
-            .body("prices[0]", equalTo(12345))
-            .body("prices[1]", equalTo(56780))
-            .body("prices[2]", equalTo(12455))
-            .body("prices[3]", equalTo(12350));
+            .body("prices", hasSize(3))
+            .body("average", equalTo(33333))
+            .body("prices[0]", equalTo(50000))
+            .body("prices[1]", equalTo(30000))
+            .body("prices[2]", equalTo(20000));
     }
 
     @Test
@@ -124,9 +123,9 @@ class AccommodationIntegrationTest {
             .body("hostName", equalTo("Jong"))
             .body("hostImageUrl", equalTo("https://user-images.githubusercontent.com/92966772/171337583-5428b133-eea4-4f02-9f27-7a53a414842f.png"))
             .body("roomInformation.maxGuestCount", equalTo(3))
-            .body("roomInformation.roomType", equalTo("APARTMENT"))
+            .body("roomInformation.roomType", equalTo("PENSION"))
             .body("roomInformation.bedroomCount", equalTo(1))
-            .body("roomInformation.bathroomCont", equalTo(1));
+            .body("roomInformation.bathroomCount", equalTo(1));
     }
 
     @Test
@@ -143,12 +142,12 @@ class AccommodationIntegrationTest {
             .statusCode(HttpStatus.OK.value())
             .assertThat()
             .body("price", equalTo(71466))
-            .body("totalPrice", equalTo(1322396))
+            .body("totalPrice", equalTo(500262))
             .body("discountRate", equalTo(4))
-            .body("discountPrice", equalTo(55948))
+            .body("discountPrice", equalTo(20010))
             .body("cleaningFee", equalTo(25996))
             .body("serviceFee", equalTo(8188))
             .body("accommodationFee", equalTo(819))
-            .body("finalPrice", equalTo(1488195));
+            .body("finalPrice", equalTo(515255));
     }
 }
