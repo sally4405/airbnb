@@ -1,6 +1,8 @@
 package louie.dong.airbnb.accommodation;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
@@ -12,16 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RequestMapping("/accommodations")
 @RequiredArgsConstructor
 @RestController
 public class AccommodationController {
 
 	private final MockAccommodationService mockAccommodationService;
+	private final AccommodationService accommodationService;
 
 	@GetMapping("/prices")
-	public AccommodationPriceResponse getAccommodationPrice(String country) {
-		return mockAccommodationService.findPrices(country);
+	public AccommodationPriceResponse getAccommodationPrices(String country) {
+		return accommodationService.findPrices(country);
 	}
 
 	@GetMapping
