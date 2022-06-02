@@ -25,4 +25,9 @@ public class Book {
 	private LocalDateTime checkOut;
 	private int guestCount;
 	private int finalPrice;
+	private boolean isCanceled;
+
+	public void changeCanceled(boolean isCanceled) {
+		this.isCanceled = isCanceled;
+	}
 }
