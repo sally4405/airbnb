@@ -70,7 +70,7 @@ class WishListIntegrationTest {
                 preprocessResponse(prettyPrint())))
 
             .when()
-            .post("/wishlists")
+            .patch("/wishlists")
 
             .then()
             .statusCode(HttpStatus.CREATED.value());

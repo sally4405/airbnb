@@ -7,9 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import louie.dong.airbnb.accommodation.Accommodation;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
 public class Wish {
@@ -21,6 +24,8 @@ public class Wish {
 	@JoinColumn
 	private Accommodation accommodation;
 
-	private boolean isDeleted;
+	public Wish(Accommodation accommodation) {
+		this.accommodation = accommodation;
+	}
 
 }
