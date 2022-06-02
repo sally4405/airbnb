@@ -8,10 +8,6 @@ class SearchViewController: UIViewController {
         return searchBar
     }()
     
-    // private let searchView = SearchView()
-    private let networkManager = NetworkManager.publicNetworkManager
-    private let imageCacheManager = ImageCacheManager.publicCacheManager
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,19 +38,6 @@ class SearchViewController: UIViewController {
         searchViewModel.configure(searchView)
         self.view.addSubview(searchView)
         
-//        networkManager.getHeroImage { heroImage in
-//            guard let heroImage = heroImage,
-//                  let heroImageURL = URL(string: heroImage.imageURL) else {
-//                return
-//            }
-//            let heroImageItem = ImageItem(image: nil, url: heroImageURL)
-//            self.imageCacheManager.loadImage(url: heroImageURL as NSURL, imageItem: heroImageItem) { imageItem, uiImage in
-//                if let uiImage = uiImage {
-//                    self.searchView.setHeroImage(uiImage)
-//                }
-//            }
-//        }
-        
         searchView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             searchView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -69,7 +52,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
+extension SearchViewController: UISearchBarDelegate {
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         removeAutoFocusFromSearchBar()
@@ -88,10 +71,4 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
             self.searchBar.resignFirstResponder()
         }
     }
-
-    // 검색내용 기반으로 검색 결과 업데이트
-    func updateSearchResults(for searchController: UISearchController) {
-
-    }
-
 }

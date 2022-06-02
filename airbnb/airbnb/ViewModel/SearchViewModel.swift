@@ -5,7 +5,6 @@
 //  Created by Bibi on 2022/06/01.
 //
 
-import Foundation
 import UIKit
 
 class SearchViewModel { // 모델을 통해 받아온 데이터를 가공
