@@ -19,21 +19,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WishController {
 
-    private final MockWishService mockWishService;
+    private final WishService wishService;
 
     @GetMapping
     public List<WishResponse> getWishlist() {
-        return mockWishService.findAll();
+        return wishService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody WishSaveRequest wishSaveRequest) {
-        mockWishService.save(wishSaveRequest);
+        wishService.save(wishSaveRequest);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        mockWishService.delete(id);
+        wishService.delete(id);
     }
 }
