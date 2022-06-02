@@ -1,13 +1,15 @@
 package louie.dong.airbnb.book.dto;
 
 import java.time.LocalDate;
+import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Setter
+@Getter
 public class BookSaveRequest {
 
-	private String accommodationId;
+	private Long accommodationId;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate checkIn;
@@ -16,4 +18,5 @@ public class BookSaveRequest {
 	private LocalDate checkOut;
 
 	private int guestCount;
+	private int finalPrice;
 }
