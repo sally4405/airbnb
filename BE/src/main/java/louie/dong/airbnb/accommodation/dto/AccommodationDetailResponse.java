@@ -22,7 +22,7 @@ public class AccommodationDetailResponse {
 	private int price;
 	private boolean wishlist;
 
-	public AccommodationDetailResponse(Accommodation accommodation) {
+	public AccommodationDetailResponse(Accommodation accommodation, boolean wish) {
 		this.id = accommodation.getId();
 		this.name = accommodation.getName();
 		this.imageUrl = accommodation.getImageUrl();
@@ -34,6 +34,6 @@ public class AccommodationDetailResponse {
 		this.roomInformation = accommodation.getRoomInformation();
 		this.description = accommodation.getDescription();
 		this.price = accommodation.getPrice();
-//		this.wishlist = isWishlist();
+		this.wishlist = wish;
 	}
 }
