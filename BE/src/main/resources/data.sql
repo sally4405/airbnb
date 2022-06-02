@@ -21,6 +21,6 @@ VALUES
 INSERT INTO wish (accommodation_id, is_deleted) VALUES (1, false);
 
 INSERT INTO book
-    (id, check_in, check_out, final_price, guest_count, accommodation_id)
+    (id, is_canceled, check_in, check_out, final_price, guest_count, accommodation_id)
 VALUES
-    (1, '2022-3-5-16-00', '2022-3-11-12-00', 393793, 2, 1);
+    (1, false, '2022-3-5-16-00', '2022-3-11-12-00', 393793, 2, 1);

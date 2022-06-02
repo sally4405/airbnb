@@ -46,11 +46,13 @@ public class BookService {
 			));
 	}
 
-	public void save(BookSaveRequest bookSaveRequest) {
-
+	@Transactional
+	public void cancel(Long id) {
+		Book book = bookRepository.findById(id).orElseThrow(NoSuchElementException::new);
+		book.changeCanceled(true);
 	}
 
-	public void delete(Long id) {
+	public void save(BookSaveRequest bookSaveRequest) {
 
 	}
 }
