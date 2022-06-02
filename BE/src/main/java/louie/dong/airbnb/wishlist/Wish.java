@@ -7,8 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import lombok.Getter;
 import louie.dong.airbnb.accommodation.Accommodation;
 
+@Getter
 @Entity
 public class Wish {
 
