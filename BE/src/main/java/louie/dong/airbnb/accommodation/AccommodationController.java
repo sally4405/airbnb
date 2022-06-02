@@ -36,7 +36,7 @@ public class AccommodationController {
 
 	@GetMapping("/{id}")
 	public AccommodationDetailResponse getAccommodationDetail(@PathVariable Long id) {
-		return mockAccommodationService.findById(id);
+		return accommodationService.findById(id);
 	}
 
 	@GetMapping("/{id}/detail-price")
