@@ -1,8 +1,6 @@
 package louie.dong.airbnb.accommodation;
 
-import java.util.List;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RequestMapping("/accommodations")
 @RequiredArgsConstructor
 @RestController
