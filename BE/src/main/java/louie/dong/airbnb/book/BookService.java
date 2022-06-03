@@ -31,10 +31,7 @@ public class BookService {
 		List<BookResponse> bookResponses = new ArrayList<>();
 
 		for (Book book : books) {
-			bookResponses.add(new BookResponse(book.getId(),
-				book.getAccommodation().getAccommodationImages().get(0).getImageUrl(),
-				book.getCheckIn(), book.getCheckOut(), book.getAccommodation().getCountry(),
-				book.getAccommodation().getName()));
+			bookResponses.add(new BookResponse(book));
 		}
 		return bookResponses;
 	}
