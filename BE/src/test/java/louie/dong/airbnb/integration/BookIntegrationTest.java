@@ -75,7 +75,8 @@ class BookIntegrationTest {
 
             .then()
             .statusCode(HttpStatus.OK.value())
-            .body("", hasSize(3));
+            .body("", hasSize(1));
+//            .body("books[0].book_id", equalTo(1L));
     }
 
     @Test
