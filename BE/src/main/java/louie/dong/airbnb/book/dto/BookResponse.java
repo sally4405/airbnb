@@ -1,6 +1,6 @@
 package louie.dong.airbnb.book.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,8 +10,8 @@ public class BookResponse {
 
 	private Long bookId;
 	private String accommodationImageUrl;
-	private LocalDate checkIn;
-	private LocalDate checkOut;
+	private LocalDateTime checkIn;
+	private LocalDateTime checkOut;
 	private String accommodationCountry;
 	private String accommodationName;
 }
