@@ -8,11 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import louie.dong.airbnb.accommodation.Accommodation;
 
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Book {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +29,15 @@ public class Book {
 	private int guestCount;
 	private int finalPrice;
 	private boolean isCanceled;
+
+	public Book(Accommodation accommodation, LocalDateTime checkIn, LocalDateTime checkOut,
+		int guestCount, int finalPrice) {
+		this.accommodation = accommodation;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		this.guestCount = guestCount;
+		this.finalPrice = finalPrice;
+	}
 
 	public void changeCanceled(boolean isCanceled) {
 		this.isCanceled = isCanceled;
