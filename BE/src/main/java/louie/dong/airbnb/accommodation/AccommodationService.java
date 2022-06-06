@@ -7,12 +7,16 @@ import static louie.dong.airbnb.accommodation.DiscountPolicy.YEARLY;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationPriceResponse;
+import louie.dong.airbnb.accommodation.dto.AccommodationResponse;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchRequest;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchResponse;
 import louie.dong.airbnb.wishlist.WishRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,7 +46,7 @@ public class AccommodationService {
 		LocalDate checkIn = accommodationDetailPriceRequest.getCheckIn();
 		LocalDate checkOut = accommodationDetailPriceRequest.getCheckOut();
 
-		int date = (int) checkIn.until(checkOut, ChronoUnit.DAYS);
+		int date = getDate(checkIn, checkOut);
 		int totalPrice = accommodation.getPrice() * date;
 		double discountRate = getDiscountRate(date) * 0.01;
 		int discountPrice = (int) (totalPrice * discountRate);
@@ -52,6 +56,45 @@ public class AccommodationService {
 		return new AccommodationDetailPriceResponse(accommodation.getPrice(), date, totalPrice,
 			WEEKLY.getDiscountRate(), discountPrice, accommodation.getCleaningFee(),
 			accommodation.getServiceFee(), accommodation.getAccommodationFee(), finalPrice);
+	}
+
+	private int getDate(LocalDate checkIn, LocalDate checkOut) {
+		int date = (int) checkIn.until(checkOut, ChronoUnit.DAYS);
+		return date;
+	}
+
+	@Transactional
+	public AccommodationSearchResponse findAccommodations(
+		AccommodationSearchRequest accommodationSearchRequest) {
+		List<Accommodation> accommodations = accommodationRepository.findByAccommodations(accommodationSearchRequest.getCountry());
+		List<AccommodationResponse> accommodationResponses = new ArrayList<>();
+
+		for (Accommodation accommodation : accommodations) {
+
+			if (accommodation.getRoomInformation().getMaxGuestCount()
+				< accommodationSearchRequest.getGuestCount()) {
+				continue;
+			}
+
+			if (accommodationSearchRequest.getMinPrice() > accommodation.getPrice()
+				&& accommodationSearchRequest.getMaxPrice() < accommodation.getPrice()) {
+				continue;
+			}
+
+			int date = getDate(accommodationSearchRequest.getCheckIn(),
+				accommodationSearchRequest.getCheckOut());
+			int totalPrice = date * accommodation.getPrice();
+
+			AccommodationResponse accommodationResponse = new AccommodationResponse(
+				accommodation.getId(), accommodation.getName(),
+				accommodation.getAccommodationImages().get(0).getImageUrl(),
+				accommodation.getRating(), accommodation.getReviewCount(), accommodation.getPrice(),
+				totalPrice, wishRepository.existsByAccommodationId(accommodation.getId()),
+				accommodation.getPoint());
+
+			accommodationResponses.add(accommodationResponse);
+		}
+		return new AccommodationSearchResponse(accommodations.size(), accommodationResponses);
 	}
 
 	private Accommodation getAccommodation(Long id) {

@@ -1,8 +1,7 @@
 package louie.dong.airbnb.accommodation.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.data.geo.Point;
+import org.locationtech.jts.geom.Point;
 
 @Getter
 public class AccommodationResponse {

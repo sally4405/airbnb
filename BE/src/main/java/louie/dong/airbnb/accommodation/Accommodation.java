@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Getter;
-import org.springframework.data.geo.Point;
+import org.locationtech.jts.geom.Point;
 
 @Getter
 @Entity
@@ -31,12 +31,13 @@ public class Accommodation {
 	@OneToMany(mappedBy = "accommodation")
 	private List<AccommodationImage> accommodationImages;
 
+	@Column(columnDefinition = "point")
+	private Point point;
+
 	private String country;
 	private int price;
-
 	private double rating;
 	private int reviewCount;
-	private Point point;
 	private String hostName;
 	private String hostImageUrl;
 	private LocalTime checkInTime;
@@ -44,7 +45,4 @@ public class Accommodation {
 	private int cleaningFee;
 	private int serviceFee;
 	private int accommodationFee;
-
-
-
 }

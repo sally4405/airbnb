@@ -28,7 +28,7 @@ public class AccommodationController {
 	@GetMapping
 	public AccommodationSearchResponse getAccommodationSearch(
 		AccommodationSearchRequest accommodationSearchRequest) {
-		return mockAccommodationService.findAccommodations(accommodationSearchRequest);
+		return accommodationService.findAccommodations(accommodationSearchRequest);
 	}
 
 	@GetMapping("/{id}")
