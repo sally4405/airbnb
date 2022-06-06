@@ -17,29 +17,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccommodationController {
 
-	private final MockAccommodationService mockAccommodationService;
-	private final AccommodationService accommodationService;
+    private final MockAccommodationService mockAccommodationService;
+    private final AccommodationService accommodationService;
 
-	@GetMapping("/prices")
-	public AccommodationPriceResponse getAccommodationPrices(String country) {
-		return accommodationService.findPrices(country);
-	}
+    @GetMapping("/prices")
+    public AccommodationPriceResponse getAccommodationPrices(String country) {
+        return accommodationService.findPrices(country);
+    }
 
-	@GetMapping
-	public AccommodationSearchResponse getAccommodationSearch(
-		AccommodationSearchRequest accommodationSearchRequest) {
-		return accommodationService.findAccommodations(accommodationSearchRequest);
-	}
+    @GetMapping
+    public AccommodationSearchResponse getAccommodationSearch(
+        AccommodationSearchRequest accommodationSearchRequest) {
+        return accommodationService.findAccommodations(accommodationSearchRequest);
+    }
 
-	@GetMapping("/{id}")
-	public AccommodationDetailResponse getAccommodationDetail(@PathVariable Long id) {
-		return accommodationService.findById(id);
-	}
+    @GetMapping("/{id}")
+    public AccommodationDetailResponse getAccommodationDetail(@PathVariable Long id) {
+        return accommodationService.findById(id);
+    }
 
-	@GetMapping("/{id}/detail-price")
-	public AccommodationDetailPriceResponse getDetailPrice(@PathVariable Long id,
-		AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
-		return accommodationService.findDetailPrice(id, accommodationDetailPriceRequest);
-	}
+    @GetMapping("/{id}/detail-price")
+    public AccommodationDetailPriceResponse getDetailPrice(@PathVariable Long id,
+        AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
+        return accommodationService.findDetailPrice(id, accommodationDetailPriceRequest);
+    }
 
 }

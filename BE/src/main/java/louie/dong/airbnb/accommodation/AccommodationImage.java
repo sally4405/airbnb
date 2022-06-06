@@ -14,15 +14,16 @@ import lombok.Getter;
 @Entity
 public class AccommodationImage {
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn
-	private Accommodation accommodation;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private Accommodation accommodation;
 
-	@Column(length = 1000)
-	private String imageUrl;
+    @Column(length = 1000)
+    private String imageUrl;
 
-	private ImageType imageType;
+    private ImageType imageType;
 }

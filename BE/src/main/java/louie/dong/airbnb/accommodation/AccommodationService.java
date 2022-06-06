@@ -26,102 +26,103 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class AccommodationService {
 
-	private final AccommodationRepository accommodationRepository;
-	private final WishRepository wishRepository;
+    private final AccommodationRepository accommodationRepository;
+    private final WishRepository wishRepository;
 
-	public AccommodationPriceResponse findPrices(String country) {
-		List<Integer> prices = accommodationRepository.findByAccommodationPrices(country);
-		return new AccommodationPriceResponse(calculateAverage(prices), prices);
-	}
+    public AccommodationPriceResponse findPrices(String country) {
+        List<Integer> prices = accommodationRepository.findByAccommodationPrices(country);
+        return new AccommodationPriceResponse(calculateAverage(prices), prices);
+    }
 
-	public AccommodationDetailResponse findById(Long id) {
-		Accommodation accommodation = getAccommodation(id);
-		boolean wish = wishRepository.existsByAccommodationId(id);
-		return new AccommodationDetailResponse(accommodation, wish);
-	}
+    public AccommodationDetailResponse findById(Long id) {
+        Accommodation accommodation = getAccommodation(id);
+        boolean wish = wishRepository.existsByAccommodationId(id);
+        return new AccommodationDetailResponse(accommodation, wish);
+    }
 
-	public AccommodationDetailPriceResponse findDetailPrice(Long id,
-		AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
-		Accommodation accommodation = getAccommodation(id);
-		LocalDate checkIn = accommodationDetailPriceRequest.getCheckIn();
-		LocalDate checkOut = accommodationDetailPriceRequest.getCheckOut();
+    public AccommodationDetailPriceResponse findDetailPrice(Long id,
+        AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
+        Accommodation accommodation = getAccommodation(id);
+        LocalDate checkIn = accommodationDetailPriceRequest.getCheckIn();
+        LocalDate checkOut = accommodationDetailPriceRequest.getCheckOut();
 
-		int date = getDate(checkIn, checkOut);
-		int totalPrice = accommodation.getPrice() * date;
-		double discountRate = getDiscountRate(date) * 0.01;
-		int discountPrice = (int) (totalPrice * discountRate);
-		int finalPrice = totalPrice - discountPrice + accommodation.getCleaningFee()
-			+ accommodation.getServiceFee() + accommodation.getAccommodationFee();
+        int date = getDate(checkIn, checkOut);
+        int totalPrice = accommodation.getPrice() * date;
+        double discountRate = getDiscountRate(date) * 0.01;
+        int discountPrice = (int) (totalPrice * discountRate);
+        int finalPrice = totalPrice - discountPrice + accommodation.getCleaningFee()
+            + accommodation.getServiceFee() + accommodation.getAccommodationFee();
 
-		return new AccommodationDetailPriceResponse(accommodation.getPrice(), date, totalPrice,
-			WEEKLY.getDiscountRate(), discountPrice, accommodation.getCleaningFee(),
-			accommodation.getServiceFee(), accommodation.getAccommodationFee(), finalPrice);
-	}
+        return new AccommodationDetailPriceResponse(accommodation.getPrice(), date, totalPrice,
+            WEEKLY.getDiscountRate(), discountPrice, accommodation.getCleaningFee(),
+            accommodation.getServiceFee(), accommodation.getAccommodationFee(), finalPrice);
+    }
 
-	private int getDate(LocalDate checkIn, LocalDate checkOut) {
-		int date = (int) checkIn.until(checkOut, ChronoUnit.DAYS);
-		return date;
-	}
+    private int getDate(LocalDate checkIn, LocalDate checkOut) {
+        int date = (int) checkIn.until(checkOut, ChronoUnit.DAYS);
+        return date;
+    }
 
-	@Transactional
-	public AccommodationSearchResponse findAccommodations(
-		AccommodationSearchRequest accommodationSearchRequest) {
-		List<Accommodation> accommodations = accommodationRepository.findByAccommodations(accommodationSearchRequest.getCountry());
-		List<AccommodationResponse> accommodationResponses = new ArrayList<>();
+    @Transactional
+    public AccommodationSearchResponse findAccommodations(
+        AccommodationSearchRequest accommodationSearchRequest) {
+        List<Accommodation> accommodations = accommodationRepository.findByAccommodations(
+            accommodationSearchRequest.getCountry());
+        List<AccommodationResponse> accommodationResponses = new ArrayList<>();
 
-		for (Accommodation accommodation : accommodations) {
+        for (Accommodation accommodation : accommodations) {
 
-			if (accommodation.getRoomInformation().getMaxGuestCount()
-				< accommodationSearchRequest.getGuestCount()) {
-				continue;
-			}
+            if (accommodation.getRoomInformation().getMaxGuestCount()
+                < accommodationSearchRequest.getGuestCount()) {
+                continue;
+            }
 
-			if (accommodationSearchRequest.getMinPrice() > accommodation.getPrice()
-				&& accommodationSearchRequest.getMaxPrice() < accommodation.getPrice()) {
-				continue;
-			}
+            if (accommodationSearchRequest.getMinPrice() > accommodation.getPrice()
+                && accommodationSearchRequest.getMaxPrice() < accommodation.getPrice()) {
+                continue;
+            }
 
-			int date = getDate(accommodationSearchRequest.getCheckIn(),
-				accommodationSearchRequest.getCheckOut());
-			int totalPrice = date * accommodation.getPrice();
+            int date = getDate(accommodationSearchRequest.getCheckIn(),
+                accommodationSearchRequest.getCheckOut());
+            int totalPrice = date * accommodation.getPrice();
 
-			AccommodationResponse accommodationResponse = new AccommodationResponse(
-				accommodation.getId(), accommodation.getName(),
-				accommodation.getAccommodationImages().get(0).getImageUrl(),
-				accommodation.getRating(), accommodation.getReviewCount(), accommodation.getPrice(),
-				totalPrice, wishRepository.existsByAccommodationId(accommodation.getId()),
-				accommodation.getPoint());
+            AccommodationResponse accommodationResponse = new AccommodationResponse(
+                accommodation.getId(), accommodation.getName(),
+                accommodation.getAccommodationImages().get(0).getImageUrl(),
+                accommodation.getRating(), accommodation.getReviewCount(), accommodation.getPrice(),
+                totalPrice, wishRepository.existsByAccommodationId(accommodation.getId()),
+                accommodation.getPoint());
 
-			accommodationResponses.add(accommodationResponse);
-		}
-		return new AccommodationSearchResponse(accommodations.size(), accommodationResponses);
-	}
+            accommodationResponses.add(accommodationResponse);
+        }
+        return new AccommodationSearchResponse(accommodations.size(), accommodationResponses);
+    }
 
-	private Accommodation getAccommodation(Long id) {
-		return accommodationRepository.findById(id)
-			.orElseThrow(() -> new IllegalArgumentException("유효하지 않은 id입니다."));
-	}
+    private Accommodation getAccommodation(Long id) {
+        return accommodationRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 id입니다."));
+    }
 
-	private int getDiscountRate(int date) {
-		if (date < 7) {
-			return NONE.getDiscountRate();
-		}
+    private int getDiscountRate(int date) {
+        if (date < 7) {
+            return NONE.getDiscountRate();
+        }
 
-		if (date < 30) {
-			return WEEKLY.getDiscountRate();
-		}
+        if (date < 30) {
+            return WEEKLY.getDiscountRate();
+        }
 
-		if (date < 365) {
-			return MONTHLY.getDiscountRate();
-		}
-		return YEARLY.getDiscountRate();
-	}
+        if (date < 365) {
+            return MONTHLY.getDiscountRate();
+        }
+        return YEARLY.getDiscountRate();
+    }
 
-	private int calculateAverage(List<Integer> prices) {
-		int sum = 0;
-		for (Integer price : prices) {
-			sum += price;
-		}
-		return sum / prices.size();
-	}
+    private int calculateAverage(List<Integer> prices) {
+        int sum = 0;
+        for (Integer price : prices) {
+            sum += price;
+        }
+        return sum / prices.size();
+    }
 }

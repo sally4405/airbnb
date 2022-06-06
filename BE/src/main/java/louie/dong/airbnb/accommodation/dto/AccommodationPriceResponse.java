@@ -8,7 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class AccommodationPriceResponse {
 
-	private int average;
-	private List<Integer> prices;
+    private int average;
+    private List<Integer> prices;
 
 }

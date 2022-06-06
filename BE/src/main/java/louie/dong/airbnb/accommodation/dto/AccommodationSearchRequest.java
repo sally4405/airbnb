@@ -9,13 +9,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Setter
 public class AccommodationSearchRequest {
 
-	private String country;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate checkIn;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate checkOut;
-	private int minPrice;
-	private int maxPrice;
-	private int guestCount;
+    private String country;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate checkIn;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate checkOut;
+    private int minPrice;
+    private int maxPrice;
+    private int guestCount;
 }
 

@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class RoomInformation {
 
-	@Enumerated(EnumType.STRING)
-	private RoomType roomType;
-	private int maxGuestCount;
-	private int bedroomCount;
-	private int bathroomCount;
+    @Enumerated(EnumType.STRING)
+    private RoomType roomType;
+    private int maxGuestCount;
+    private int bedroomCount;
+    private int bathroomCount;
 }

@@ -8,6 +8,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class AccommodationSearchResponse {
 
-	private int count;
-	private List<AccommodationResponse> accommodations;
+    private int count;
+    private List<AccommodationResponse> accommodations;
 }
