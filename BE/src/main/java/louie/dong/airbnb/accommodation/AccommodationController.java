@@ -1,5 +1,6 @@
 package louie.dong.airbnb.accommodation;
 
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccommodationController {
 
-	private final MockAccommodationService mockAccommodationService;
 	private final AccommodationService accommodationService;
 
 	@GetMapping("/prices")
@@ -28,7 +28,7 @@ public class AccommodationController {
 	@GetMapping
 	public AccommodationSearchResponse getAccommodationSearch(
 		AccommodationSearchRequest accommodationSearchRequest) {
-		return mockAccommodationService.findAccommodations(accommodationSearchRequest);
+		return accommodationService.findAccommodations(accommodationSearchRequest);
 	}
 
 	@GetMapping("/{id}")
