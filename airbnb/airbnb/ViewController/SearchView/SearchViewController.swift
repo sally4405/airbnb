@@ -1,7 +1,13 @@
 import UIKit
+import RxSwift
 
 class SearchViewController: UIViewController {
 
+    private let searchView = SearchView()
+    private let viewModel = SearchViewModel()
+    private let disposeBag = DisposeBag()
+    private let imageCacheManager = ImageCacheManager.publicCacheManager
+    
     private var searchBar: UISearchBar = {
         var searchBar = UISearchBar()
         searchBar.placeholder = "어디로 여행가세요?"
@@ -28,16 +34,12 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = .systemGray6
         self.navigationItem.titleView = searchBar
 
-        setSearchView()
+        setView()
+        setHeroImage()
     }
     
-    private func setSearchView() {
-        
-        let searchView = SearchView()
-        let searchViewModel = SearchViewModel()
-        searchViewModel.configure(searchView)
+    private func setView() {
         self.view.addSubview(searchView)
-        
         searchView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             searchView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -45,6 +47,21 @@ class SearchViewController: UIViewController {
             searchView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             searchView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+    }
+    
+    private func setHeroImage() {
+        viewModel.getHeroImageURL()
+            .subscribe(onNext: { urlString in
+                guard let url = URL(string: urlString) else {
+                    return
+                }
+                let imageItem = ImageItem(url: url)
+                self.imageCacheManager.loadImage(url: url as NSURL, imageItem: imageItem) { imageItem, uiImage in
+                    if let image = uiImage {
+                        self.searchView.setHeroImage(image)
+                    }
+                }
+            })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

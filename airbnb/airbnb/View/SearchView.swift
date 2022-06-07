@@ -9,18 +9,15 @@ import UIKit
 
 class SearchView: UIView {
     
-    private let searchViewModel = SearchViewModel()
-    
     private lazy var heroImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.contentMode = .top
-        imageView.image = searchViewModel.heroImage
         return imageView
     }()
     
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
-        label.text = self.searchViewModel.titleText
+        label.text = "슬기로운 \n자연생활"
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.numberOfLines = 0
         return label
@@ -28,7 +25,7 @@ class SearchView: UIView {
     
     private lazy var contentLabel: UILabel = {
         var label = UILabel()
-        label.text = self.searchViewModel.contentText
+        label.text = "에어비앤비가 엄선한 \n위시리스트를 만나보세요."
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         return label
@@ -38,7 +35,7 @@ class SearchView: UIView {
         var buttonConfiguration = UIButton.Configuration.filled()
         var container = AttributeContainer()
         container.font = UIFont.systemFont(ofSize: 17)
-        buttonConfiguration.attributedTitle = AttributedString(self.searchViewModel.buttonText, attributes: container)
+        buttonConfiguration.attributedTitle = AttributedString("여행 아이디어 얻기", attributes: container)
         
         buttonConfiguration.baseBackgroundColor = .black
         buttonConfiguration.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)

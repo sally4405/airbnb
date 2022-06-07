@@ -44,6 +44,7 @@
 		0061237E2847446F002E17C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061237D2847446F002E17C7 /* UIImageExtension.swift */; };
 		008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74D283DD94E002441E5 /* WishViewController.swift */; };
 		008FD750283DD96F002441E5 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74F283DD96F002441E5 /* UserViewController.swift */; };
+		00CFA5C7284F2A1300C91C37 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFA5C6284F2A1300C91C37 /* ViewModelType.swift */; };
 		6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */; };
 		6F3513682844E60C00018A57 /* PopularLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3513672844E60C00018A57 /* PopularLocationView.swift */; };
 		6F35136A2845A94600018A57 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3513692845A94600018A57 /* SearchTableView.swift */; };
@@ -91,6 +92,7 @@
 		0061237D2847446F002E17C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		008FD74D283DD94E002441E5 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		008FD74F283DD96F002441E5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		00CFA5C6284F2A1300C91C37 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationTableViewCell.swift; path = airbnb/View/LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		6F3513672844E60C00018A57 /* PopularLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularLocationView.swift; sourceTree = "<group>"; };
 		6F3513692845A94600018A57 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		004C483628470C64002728FF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				00CFA5C6284F2A1300C91C37 /* ViewModelType.swift */,
 				004C483928470E6F002728FF /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
@@ -402,6 +405,7 @@
 				6F35136C2845AABC00018A57 /* SearchTableViewCell.swift in Sources */,
 				008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */,
 				00489B63283CA53F00201F55 /* SceneDelegate.swift in Sources */,
+				00CFA5C7284F2A1300C91C37 /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
