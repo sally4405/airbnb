@@ -6,13 +6,19 @@ import static louie.dong.airbnb.accommodation.DiscountPolicy.WEEKLY;
 import static louie.dong.airbnb.accommodation.DiscountPolicy.YEARLY;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationPriceResponse;
+import louie.dong.airbnb.accommodation.dto.AccommodationResponse;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchRequest;
+import louie.dong.airbnb.accommodation.dto.AccommodationSearchResponse;
 import louie.dong.airbnb.wishlist.WishRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +58,32 @@ public class AccommodationService {
 		return new AccommodationDetailPriceResponse(accommodation.getPrice(), date, totalPrice,
 			WEEKLY.getDiscountRate(), discountPrice, accommodation.getCleaningFee(),
 			accommodation.getServiceFee(), accommodation.getAccommodationFee(), finalPrice);
+	}
+
+	public AccommodationSearchResponse findAccommodations(
+		AccommodationSearchRequest accommodationSearchRequest) {
+		LocalDate checkIn = accommodationSearchRequest.getCheckIn();
+		LocalDate checkOut = accommodationSearchRequest.getCheckOut();
+
+		List<Accommodation> accommodations = accommodationRepository.searchAccommodations(
+			accommodationSearchRequest.getCountry(),
+			LocalDateTime.of(checkIn, LocalTime.of(0, 0)),
+			LocalDateTime.of(checkOut, LocalTime.of(0, 0)),
+			accommodationSearchRequest.getMinPrice(), accommodationSearchRequest.getMaxPrice(),
+			accommodationSearchRequest.getGuestCount());
+
+		List<AccommodationResponse> accommodationResponses = createAccommodationResponses(
+			accommodations, checkIn, checkOut);
+		return new AccommodationSearchResponse(accommodations.size(), accommodationResponses);
+	}
+
+	private List<AccommodationResponse> createAccommodationResponses(
+		List<Accommodation> accommodations, LocalDate checkIn, LocalDate checkOut) {
+		int stayNight = (int) ChronoUnit.DAYS.between(checkIn, checkOut);
+		return accommodations.stream()
+			.map(accommodation -> new AccommodationResponse(accommodation,
+				stayNight * accommodation.getPrice(), accommodation.existsWish()))
+			.collect(Collectors.toList());
 	}
 
 	private Accommodation getAccommodation(Long id) {
