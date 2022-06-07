@@ -1,9 +1,10 @@
 import UIKit
 import MapKit
 
-class LocationResultViewController: UIViewController {
+class LocationSearchViewController: UIViewController {
     
     private var popularLocationView = PopularLocationView()
+    private let popularLocationViewModel = PopularLocationViewModel()
     private var resultList: [MKLocalSearchCompletion] = []
 
     private lazy var searchCompleter: MKLocalSearchCompleter = {
@@ -81,7 +82,7 @@ class LocationResultViewController: UIViewController {
 
 }
 
-extension LocationResultViewController: UISearchBarDelegate, MKLocalSearchCompleterDelegate {
+extension LocationSearchViewController: UISearchBarDelegate, MKLocalSearchCompleterDelegate {
 
     @objc func eraseButtonClicked() {
         self.navigationItem.searchController?.searchBar.text = ""
@@ -104,7 +105,7 @@ extension LocationResultViewController: UISearchBarDelegate, MKLocalSearchComple
 
 }
 
-extension LocationResultViewController: UITableViewDelegate, UITableViewDataSource {
+extension LocationSearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultList.count

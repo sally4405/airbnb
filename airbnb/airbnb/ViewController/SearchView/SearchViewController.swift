@@ -62,6 +62,7 @@ class SearchViewController: UIViewController {
                     }
                 }
             })
+            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,7 +74,7 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         removeAutoFocusFromSearchBar()
-        let pushVC = LocationResultViewController()
+        let pushVC = LocationSearchViewController()
         self.navigationController?.pushViewController(pushVC, animated: true)
         
         let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
