@@ -42,27 +42,23 @@ class SearchViewController: UIViewController {
         self.view.addSubview(searchView)
         searchView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            searchView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            searchView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            searchView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            searchView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            searchView.topAnchor.constraint(equalTo: self.searchView.topAnchor),
+            searchView.leadingAnchor.constraint(equalTo: self.searchView.safeAreaLayoutGuide.leadingAnchor),
+            searchView.trailingAnchor.constraint(equalTo: self.searchView.safeAreaLayoutGuide.trailingAnchor),
+            searchView.bottomAnchor.constraint(equalTo: self.searchView.bottomAnchor)
         ])
     }
     
     private func setHeroImage() {
-        viewModel.getHeroImageURL()
-            .subscribe(onNext: { urlString in
-                guard let url = URL(string: urlString) else {
-                    return
+        print("view-setHeroImage()")
+        viewModel.getHeroImageURL().subscribe(onNext: { url in
+            print(url)
+            self.viewModel.getHeroImageData(imageURL: url).subscribe(onNext: { [weak self] data in
+                if let image = UIImage(data: data) {
+                    self?.searchView.setHeroImage(image)
                 }
-                let imageItem = ImageItem(url: url)
-                self.imageCacheManager.loadImage(url: url as NSURL, imageItem: imageItem) { imageItem, uiImage in
-                    if let image = uiImage {
-                        self.searchView.setHeroImage(image)
-                    }
-                }
-            })
-            .disposed(by: disposeBag)
+            }).dispose()
+        }).dispose()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

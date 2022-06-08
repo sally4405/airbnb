@@ -7,6 +7,7 @@
 
 import Foundation
 import os
+import RxSwift
 
 // HTTP 요청을 보내고, 그 결과를 받는 역할
 final class HTTPManager {
@@ -33,6 +34,16 @@ final class HTTPManager {
 
             complete(data) // complete에 담겨 온 디코더 클로저에 data를 넘김
         }.resume() // 해당 task를 실행함
+    }
+    
+    static func requestGetRx(url: String) -> Observable<Data> {
+        return Observable.create { emitter in
+            requestGET(url: url) { data in
+                emitter.onNext(data)
+                emitter.onCompleted()
+            }
+            return Disposables.create()
+        }
     }
 
     //Post - encode된 Data를 매개변수로 받아옴

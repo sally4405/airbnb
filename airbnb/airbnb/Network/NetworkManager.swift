@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 // HTTPManager와 JSONConverter를 사용해 HTTP요청을 보내고, 그 결과를 관리하는 클래스
 final class NetworkManager {
@@ -13,7 +14,6 @@ final class NetworkManager {
     public static let publicNetworkManager = NetworkManager()
     
     static let identifier = "NetworkManager"
-    static let homeDataNotification = "HomeDataNotificationName"
     
     private let baseURL = "http://louie-03.com"
     
@@ -29,14 +29,13 @@ final class NetworkManager {
         }
     }
     
-//    func getProductInfo(productCD: String, completion: @escaping (ProductInfo) -> Void) {
-//
-//        HTTPManager.requestPostByFormData(url: "https://www.starbucks.co.kr/menu/productViewAjax.do", key: "product_cd", value: productCD) { (data) in
-//            guard let data: ProductInfo = JSONConverter.decodeJson(data: data) else {
-//                return
-//            }
-//            completion(data)
-//        }
-//    }
-    
+    func getHeroImageRx() -> Observable<HeroImage?> {
+        return Observable.create { emitter in
+            self.getHeroImage { heroImage in
+                emitter.onNext(heroImage)
+                emitter.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
 }

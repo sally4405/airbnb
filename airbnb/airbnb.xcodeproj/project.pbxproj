@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003D6C37285043D3004F80C9 /* ImageDataCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003D6C36285043D3004F80C9 /* ImageDataCacheManager.swift */; };
 		0040918B283F4A000055B0D0 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0040918A283F4A000055B0D0 /* LocationSearchViewController.swift */; };
 		0040918F283F62720055B0D0 /* LocationCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0040918E283F62720055B0D0 /* LocationCalenderViewController.swift */; };
 		00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B60283CA53F00201F55 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		003D6C36285043D3004F80C9 /* ImageDataCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataCacheManager.swift; sourceTree = "<group>"; };
 		0040918A283F4A000055B0D0 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		0040918E283F62720055B0D0 /* LocationCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCalenderViewController.swift; sourceTree = "<group>"; };
 		00489B5D283CA53F00201F55 /* airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +211,7 @@
 				004C482C2847084B002728FF /* HTTPManager.swift */,
 				004C48302847089C002728FF /* JSONConverter.swift */,
 				004C4832284708B5002728FF /* ImageCacheManager.swift */,
+				003D6C36285043D3004F80C9 /* ImageDataCacheManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				004DACF72846356B00FB1D34 /* PopularLocation.swift in Sources */,
 				004DAD0128463C4000FB1D34 /* AccommodationPriceDetail.swift in Sources */,
 				0061237E2847446F002E17C7 /* UIImageExtension.swift in Sources */,
+				003D6C37285043D3004F80C9 /* ImageDataCacheManager.swift in Sources */,
 				0040918B283F4A000055B0D0 /* LocationSearchViewController.swift in Sources */,
 				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,
 				004C482F28470861002728FF /* HTTPMethod.swift in Sources */,

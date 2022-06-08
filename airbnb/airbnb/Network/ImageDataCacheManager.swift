@@ -1,17 +1,17 @@
 //
-//  ImageCacheManager.swift
+//  ImageDataCacheManager.swift
 //  airbnb
 //
-//  Created by Bibi on 2022/06/01.
+//  Created by Bibi on 2022/06/08.
 //
 
 import Foundation
 import UIKit
 import RxSwift
 
-public class ImageCacheManager {
+public class ImageDataCacheManager {
     
-    public static let publicCacheManager = ImageCacheManager() // 싱글톤?
+    public static let publicCacheManager = ImageDataCacheManager() // 싱글톤?
     // 사용 시 ImageCache.publicCacheManager.load()와 같이 사용..
     
     // URL에 대한 이미지를 저장하는 캐시 프로퍼티
@@ -19,7 +19,7 @@ public class ImageCacheManager {
     // key값으로 클래스를 요구하므로 URL대신 NSURL을, Data 대신 UIImage를 사용
     
     // 캐시에 이미지가 없는 경우, urlSession을 통해 이미지를 얻어오기 위해 response를 받은 후 결과값을 전달받기 위해 선언한 딕셔너리
-    private var loadingResponses = [NSURL: [(UIImage?) -> Swift.Void]]()
+    private var loadingResponses = [NSURL: [(Data?) -> Swift.Void]]()
     
 // URL을 인수로 받아 캐시된 이미지를 획득하는 메서드
     private final func getCachedImage(url: NSURL) -> UIImage? {
@@ -28,11 +28,11 @@ public class ImageCacheManager {
     
 // 이미지가 있다면 캐싱된 이미지를 반환하고, 그렇지 않으면 비동기적으로 이미지를 로드 및 캐시합니다.
 // image(url:)의 결과로 이미지가 있다면 그 이미지를 completion에 전달, 없으면 URLSession을 통해 받아와서 completion에 전달
-    final func loadImage(url: NSURL, completion: @escaping (UIImage?) -> Swift.Void) {
+    final func loadImage(url: NSURL, completion: @escaping (Data?) -> Swift.Void) {
         // 해당 이미지가 캐시되어 있다면 찾은 이미지를 반환합니다.
         if let cachedImage = getCachedImage(url: url) {
             DispatchQueue.main.async { // 왜 비동기?
-                completion(cachedImage)
+                completion(cachedImage.pngData())
             }
             return
         }
@@ -63,14 +63,14 @@ public class ImageCacheManager {
             // 해당 이미지의 요청들에 대해 반복해서 이미지를 전달합니다.
             for block in responseBlocks {
                 DispatchQueue.main.async {
-                    block(image)
+                    block(image.pngData())
                 }
                 return
             }
         }.resume()
     }
     
-    final func loadImageRx(url: NSURL) -> Observable<UIImage?> {
+    final func loadImageRx(url: NSURL) -> Observable<Data?> {
         return Observable.create { emitter in
             self.loadImage(url: url) { uiImage in
                 emitter.onNext(uiImage)
