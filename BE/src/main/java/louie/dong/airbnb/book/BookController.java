@@ -20,26 +20,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BookController {
 
-	private final MockBockService mockBockService;
+	private final BookService bookService;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public void save(@RequestBody BookSaveRequest bookSaveRequest) {
-		mockBockService.save(bookSaveRequest);
+		bookService.save(bookSaveRequest);
 	}
 
 	@GetMapping
 	public List<BookResponse> getBooks() {
-		return mockBockService.findAll();
+		return bookService.findAll();
 	}
 
 	@GetMapping("/{id}")
 	public BookDetailResponse getBookDetail(@PathVariable Long id) {
-		return mockBockService.findById(id);
+		return bookService.findById(id);
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		mockBockService.delete(id);
+	public void cancel(@PathVariable Long id) {
+		bookService.cancel(id);
 	}
 }

@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TravelController {
 
-    @GetMapping("/travel/popular")
+    @GetMapping("/travels/popular")
     public List<PopularTravelResponse> getPopularDestinations() {
         return List.of(
-            new PopularTravelResponse("서울", "", "차로 30분 거리"),
-            new PopularTravelResponse("광주", "", "차로 4시간 거리"),
-            new PopularTravelResponse("의정부시", "", "차로 30분 거리"),
-            new PopularTravelResponse("수원시", "", "차로 45분 거리"),
-            new PopularTravelResponse("대구", "", "차로 3.5시간 거리"),
-            new PopularTravelResponse("울산", "", "차로 4.5시간 거리"),
-            new PopularTravelResponse("대전", "", "차로 2시간 거리"),
-            new PopularTravelResponse("부천시", "", "차로 30분 거리")
+            new PopularTravelResponse("서울", "https://s3-alpha-sig.figma.com/img/4ee4/e169/870b792e3a4ae88671095fad825a8ef0?Expires=1655078400&Signature=EIrSNxPaFvj-98axTpoBNQce68DaGCdUpbcYfeX5SOATzix31nECjaroPUKlfrgPxsPVPNpWpxFd21d9C7p6MrWLucqKM3A-DMFcBzDeawce2ZL3h7Pvh4YP1Y8D6XE98pVgnp23t6a4~ZR8efMDUs2h3JHbIJ4Y7QTY2Tf4eYhWLypBOrNcxkIUwMyg5IzZEQ0IGGCV10z336zie-c3bybqHB~BvL2BHJMh1jR6qNH-2IhJgZW5FWmkC3YUy8PqmDwpc4aKXw8~2bwps6-k0WOAbAvdg~zKsuElJhnr~bl8vrHmLCg1LMloqxnccVIPNvskhfDMMrEhPBWFcg2aFQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 30분 거리"),
+            new PopularTravelResponse("광주", "https://s3-alpha-sig.figma.com/img/d11b/fafa/041959faaab5d3d5bd0c98fc56ab6feb?Expires=1655078400&Signature=UVu97EeonTnwgVld1jInrE8CpEzktSbkkKBJuEyO47xUWSUKDkAZcuIRi1RGUIYuE4qt~Q9L2oUpJS03sqSNRPAZqbBG8qIuQt5Zdx705opWB2uw3yFuH8fRSsocbT6MmAOsRip3pNaGiC55Tf3VouO5hE-YYhC-7KtRBYhNuqM2-PCYbI~UlcqBJztv0Nbzp-~quisREFC37yS~u-rusJvqp675eyRWR8vOTWz0lZgpphWwjUCupbTzm7TvsinqKMQp90nx~evjleNmcEJxKwIT8Bb81LxYWXuJWVEoXatvZkmoOFP3kDaHdHC-SVrwxZRXdU3U0M-bfZ~WKPoyYg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 4시간 거리"),
+            new PopularTravelResponse("의정부시", "https://s3-alpha-sig.figma.com/img/dc7c/1cca/adfe0f2fdecce75fdb0468e16779aa30?Expires=1655078400&Signature=fj6jv~gMsq~mS4pGvMlt4Log7Fk8t~m9q~HFMIYo-3tG9xBwWeHTaL1Nutkn9Elh~i~jWk6-7Tt0P9~xU284eeKfS7Un5QLfViV9Vpjjbc1yO9J3kR25JyQq01XAQDHEPuoU1mL9-GKZZMT5d3R~FCR8HWhi9Stmzx602D5h~uLVUdNCUQqB3xpKOO9EpDy1jf41VNn~wCNMdDzPn5WcyUgFyHVdVqXtWCQoIbrGZ0TYvtI4tdfSw~m2hFAbHEpG59QBZy9fZBCyhJzDnW8jL5QUZ6EWYgofrooV2doVLv1juNo6UxfqjRO2yZPfEk0wnCXMg2CajYYc7fy-lQ5Ebw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 30분 거리"),
+            new PopularTravelResponse("수원시", "https://s3-alpha-sig.figma.com/img/7973/486d/7007922ec307b112be05f475f1d9562a?Expires=1655078400&Signature=g-MKA5tctX-k2RxqowZIXDcI-cNh7i3dWBg9UlNrdjZnetk~TW8txXC5Djik1T9TToVjzmDZ6LreIToh47TUPQ7CYGVzbsO160Azcrtek8wiAVJb~BlLJTJFTIE8vYY8mF0tHWlcRLKrINLGLBbn9oH3R4GvcxR-N9wntELwjnlxhtrywSUFBitWHkaasob~8gyO4OPHKN9TL62QDYnbrP7lV6mHG0RGMn~-GlmIz1crnRBzOcvNW532-lmD9B~QZmpuiGjt~69Jli5MVnMgfS~ESmJxHxCSKPyvJz0gwBjxbfIN7H5AbA82gkaYEJ2LE9ydXUkGGtsrTu~Sh-aA7Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 45분 거리"),
+            new PopularTravelResponse("대구", "https://s3-alpha-sig.figma.com/img/3497/9da4/c9e527d110cd34329a0593c99da39165?Expires=1655078400&Signature=H10rSlxRG1G8qtHbzeALQq~LVtSQmuYrlWXyluPoz1mGu6XAbG6hbmPPR-WWVukIqRDbGu0mDrGus8EzuP6JDb3pgGeQyHETcSuzXZDnApIIUsWhrpDz2BIVlYx0qVTTlhGVZJRSNaEoQzjUjNVpBmUwEB3Rth~-0Q-H3V60FYvfHa3lk3-35fVuIsJH5jyWXmFT2w-6BQUPe4jnBm3B3B0G6RNfHMeXxKxKpF531WfuBNtC6jT4f48wTa~EY7ut9iFqVQnM1YpZbDBWxdUaTnmtXEO0ytrXGTTsKJtpBV9H-aJAJ4TGORNPDksHfISHqXKbcmh6JRcMx1WJ2pYXhw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 3.5시간 거리"),
+            new PopularTravelResponse("울산", "https://s3-alpha-sig.figma.com/img/ffea/22c8/40ada2fb0589568850868a7a2c800307?Expires=1655078400&Signature=P3y2~5~RtBMug9t3FNwaNWTj9AACNFENgEEV6QcFqirlWPR17-GdXKeHrd01UUb0seZVHfcak-iLuJIYDizfZkJsKHJPIHL075iVoVDYd4nPKKJEar-5DoHcxfoqBEHZ8XbViCTMc65u7ck9W4mDJmjkjux5fRHI9Sw~UqIvzFjBXN4FolL6MAFqxmeC9DN5ejWT78qb-HozOWA9w~jwMICAx6vCHlaLVDY2l-1OFy97SE-0m8jHtpAjGM3Lqy9CzAHB8EDByQ8VWoi5aIXfPWqYuAg~K9w~pG7HB1yAQRTRM0dELkVSxBLJDFtf8VeJOg24eGgJxMVS74iu644Zpw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 4.5시간 거리"),
+            new PopularTravelResponse("대전", "https://s3-alpha-sig.figma.com/img/b8c1/0d90/6a9a7ee89fc3cff52e456fc7df2eb0e8?Expires=1655078400&Signature=Jw9MjBPvOaDNyhF8xelbdvOCksbyiK5Ig4XGs7GqjfxEevDWFCI34Ys43BD8qmknlqnUp~vnV-CqOgMLe2Wrb6K6ugAaXTTcEgM2dNBsRKsvXXh93XFNHTdnZZgXjkPJl69xugDG7ZT2jEWhnIiLEstvlgRIrVY0nSNrx3vFAME7RB8FiblwkewMLPc-zjgmfgfvVv~TFESyX353ZWfddPZD8zLlYvZ3w56MQE-0qeeJGjvXG2QIY7F-jqO0gezbxjw6-tN7beoqqEuKLCpZucjsZoRLoaxc4barU8PZ7tiKsU8oGG8EA63Ol0W-Gj8S20-tYYlTVc19uI~-P4E~~w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 2시간 거리"),
+            new PopularTravelResponse("부천시", "https://s3-alpha-sig.figma.com/img/c47e/5375/da704e984510516a647ca1ce0414a099?Expires=1655078400&Signature=OFUbq1gH9NFB-rsObZaZqpxAZOCvvU9kGOsjdnqvpRm0NubR7gdoTvADvOFwci9mcbTwCcfd4ZwApLeUO~qT-KYxJHosChDn-o8TLWz~uYHop19BKhAbM0-LN5VXvgjQZWb3vwmlznyYa3ouT59UaHqdcaL58tJHTU2f0a4tn2~Hzpm9g8TWdnBdMwvuAvgbmVBvrqE38-xWOK1VD~Ls3oQUy~HtrUCnQnmrFFvEVseBDal1sFuhLotLRovWkJynvZNVxj8M0i48m3WLD8RmVuZcuOCaEcyph4nUzE6U1CoJuAWkYnt-yzawI9lcnAR~DZ95SRXh1l7278Zb-1gYwg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA", "차로 30분 거리")
         );
     }
 }

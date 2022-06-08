@@ -1,6 +1,9 @@
 package louie.dong.airbnb.wishlist.dto;
 
-public class WishListSaveRequest {
+import lombok.Getter;
+
+@Getter
+public class WishSaveRequest {
 
     private Long memberId;
     private Long accommodationId;

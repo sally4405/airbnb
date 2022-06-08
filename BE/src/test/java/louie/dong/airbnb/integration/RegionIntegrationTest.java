@@ -56,8 +56,8 @@ class RegionIntegrationTest {
             .assertThat()
             .body("", hasSize(4))
             .body("[0].country", equalTo("양재동, 서초구, 서울특별시"))
-            .body("[0].imageUrl", equalTo(""))
+            .body("[0].imageUrl", equalTo("https://user-images.githubusercontent.com/92966772/171333901-d1cd469c-0a4d-404f-a277-6ba9e083034a.png"))
             .body("[1].country", equalTo("양재역 사거리, 양재1동"))
-            .body("[1].imageUrl", equalTo(""));
+            .body("[1].imageUrl", equalTo("https://user-images.githubusercontent.com/92966772/171333901-d1cd469c-0a4d-404f-a277-6ba9e083034a.png"));
     }
 }

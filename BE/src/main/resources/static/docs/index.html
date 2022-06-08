@@ -451,9 +451,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_request">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /main HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /banners/main HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -464,13 +464,13 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:57 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 122
+Content-Length: 125
 
 {
-  "imageUrl" : "https://user-images.githubusercontent.com/92966772/169965428-e12f898a-1f72-4510-8ddb-8086519366c0.PNG"
+  "imageUrl" : "https://user-images.githubusercontent.com/73376468/171333357-01d5146b-bdf2-45a0-a49d-234ee9f133b7.jpeg"
 }</code></pre>
 </div>
 </div>
@@ -484,9 +484,9 @@ Content-Length: 122
 <h3 id="_request_2">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /travel/popular HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /travels/popular HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -497,42 +497,42 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:58 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 682
+Content-Length: 4586
 
 [ {
   "name" : "서울",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/4ee4/e169/870b792e3a4ae88671095fad825a8ef0?Expires=1655078400&amp;Signature=EIrSNxPaFvj-98axTpoBNQce68DaGCdUpbcYfeX5SOATzix31nECjaroPUKlfrgPxsPVPNpWpxFd21d9C7p6MrWLucqKM3A-DMFcBzDeawce2ZL3h7Pvh4YP1Y8D6XE98pVgnp23t6a4~ZR8efMDUs2h3JHbIJ4Y7QTY2Tf4eYhWLypBOrNcxkIUwMyg5IzZEQ0IGGCV10z336zie-c3bybqHB~BvL2BHJMh1jR6qNH-2IhJgZW5FWmkC3YUy8PqmDwpc4aKXw8~2bwps6-k0WOAbAvdg~zKsuElJhnr~bl8vrHmLCg1LMloqxnccVIPNvskhfDMMrEhPBWFcg2aFQ__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 30분 거리"
 }, {
   "name" : "광주",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/d11b/fafa/041959faaab5d3d5bd0c98fc56ab6feb?Expires=1655078400&amp;Signature=UVu97EeonTnwgVld1jInrE8CpEzktSbkkKBJuEyO47xUWSUKDkAZcuIRi1RGUIYuE4qt~Q9L2oUpJS03sqSNRPAZqbBG8qIuQt5Zdx705opWB2uw3yFuH8fRSsocbT6MmAOsRip3pNaGiC55Tf3VouO5hE-YYhC-7KtRBYhNuqM2-PCYbI~UlcqBJztv0Nbzp-~quisREFC37yS~u-rusJvqp675eyRWR8vOTWz0lZgpphWwjUCupbTzm7TvsinqKMQp90nx~evjleNmcEJxKwIT8Bb81LxYWXuJWVEoXatvZkmoOFP3kDaHdHC-SVrwxZRXdU3U0M-bfZ~WKPoyYg__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 4시간 거리"
 }, {
   "name" : "의정부시",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/dc7c/1cca/adfe0f2fdecce75fdb0468e16779aa30?Expires=1655078400&amp;Signature=fj6jv~gMsq~mS4pGvMlt4Log7Fk8t~m9q~HFMIYo-3tG9xBwWeHTaL1Nutkn9Elh~i~jWk6-7Tt0P9~xU284eeKfS7Un5QLfViV9Vpjjbc1yO9J3kR25JyQq01XAQDHEPuoU1mL9-GKZZMT5d3R~FCR8HWhi9Stmzx602D5h~uLVUdNCUQqB3xpKOO9EpDy1jf41VNn~wCNMdDzPn5WcyUgFyHVdVqXtWCQoIbrGZ0TYvtI4tdfSw~m2hFAbHEpG59QBZy9fZBCyhJzDnW8jL5QUZ6EWYgofrooV2doVLv1juNo6UxfqjRO2yZPfEk0wnCXMg2CajYYc7fy-lQ5Ebw__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 30분 거리"
 }, {
   "name" : "수원시",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/7973/486d/7007922ec307b112be05f475f1d9562a?Expires=1655078400&amp;Signature=g-MKA5tctX-k2RxqowZIXDcI-cNh7i3dWBg9UlNrdjZnetk~TW8txXC5Djik1T9TToVjzmDZ6LreIToh47TUPQ7CYGVzbsO160Azcrtek8wiAVJb~BlLJTJFTIE8vYY8mF0tHWlcRLKrINLGLBbn9oH3R4GvcxR-N9wntELwjnlxhtrywSUFBitWHkaasob~8gyO4OPHKN9TL62QDYnbrP7lV6mHG0RGMn~-GlmIz1crnRBzOcvNW532-lmD9B~QZmpuiGjt~69Jli5MVnMgfS~ESmJxHxCSKPyvJz0gwBjxbfIN7H5AbA82gkaYEJ2LE9ydXUkGGtsrTu~Sh-aA7Q__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 45분 거리"
 }, {
   "name" : "대구",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/3497/9da4/c9e527d110cd34329a0593c99da39165?Expires=1655078400&amp;Signature=H10rSlxRG1G8qtHbzeALQq~LVtSQmuYrlWXyluPoz1mGu6XAbG6hbmPPR-WWVukIqRDbGu0mDrGus8EzuP6JDb3pgGeQyHETcSuzXZDnApIIUsWhrpDz2BIVlYx0qVTTlhGVZJRSNaEoQzjUjNVpBmUwEB3Rth~-0Q-H3V60FYvfHa3lk3-35fVuIsJH5jyWXmFT2w-6BQUPe4jnBm3B3B0G6RNfHMeXxKxKpF531WfuBNtC6jT4f48wTa~EY7ut9iFqVQnM1YpZbDBWxdUaTnmtXEO0ytrXGTTsKJtpBV9H-aJAJ4TGORNPDksHfISHqXKbcmh6JRcMx1WJ2pYXhw__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 3.5시간 거리"
 }, {
   "name" : "울산",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/ffea/22c8/40ada2fb0589568850868a7a2c800307?Expires=1655078400&amp;Signature=P3y2~5~RtBMug9t3FNwaNWTj9AACNFENgEEV6QcFqirlWPR17-GdXKeHrd01UUb0seZVHfcak-iLuJIYDizfZkJsKHJPIHL075iVoVDYd4nPKKJEar-5DoHcxfoqBEHZ8XbViCTMc65u7ck9W4mDJmjkjux5fRHI9Sw~UqIvzFjBXN4FolL6MAFqxmeC9DN5ejWT78qb-HozOWA9w~jwMICAx6vCHlaLVDY2l-1OFy97SE-0m8jHtpAjGM3Lqy9CzAHB8EDByQ8VWoi5aIXfPWqYuAg~K9w~pG7HB1yAQRTRM0dELkVSxBLJDFtf8VeJOg24eGgJxMVS74iu644Zpw__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 4.5시간 거리"
 }, {
   "name" : "대전",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/b8c1/0d90/6a9a7ee89fc3cff52e456fc7df2eb0e8?Expires=1655078400&amp;Signature=Jw9MjBPvOaDNyhF8xelbdvOCksbyiK5Ig4XGs7GqjfxEevDWFCI34Ys43BD8qmknlqnUp~vnV-CqOgMLe2Wrb6K6ugAaXTTcEgM2dNBsRKsvXXh93XFNHTdnZZgXjkPJl69xugDG7ZT2jEWhnIiLEstvlgRIrVY0nSNrx3vFAME7RB8FiblwkewMLPc-zjgmfgfvVv~TFESyX353ZWfddPZD8zLlYvZ3w56MQE-0qeeJGjvXG2QIY7F-jqO0gezbxjw6-tN7beoqqEuKLCpZucjsZoRLoaxc4barU8PZ7tiKsU8oGG8EA63Ol0W-Gj8S20-tYYlTVc19uI~-P4E~~w__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 2시간 거리"
 }, {
   "name" : "부천시",
-  "imageUrl" : "",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/c47e/5375/da704e984510516a647ca1ce0414a099?Expires=1655078400&amp;Signature=OFUbq1gH9NFB-rsObZaZqpxAZOCvvU9kGOsjdnqvpRm0NubR7gdoTvADvOFwci9mcbTwCcfd4ZwApLeUO~qT-KYxJHosChDn-o8TLWz~uYHop19BKhAbM0-LN5VXvgjQZWb3vwmlznyYa3ouT59UaHqdcaL58tJHTU2f0a4tn2~Hzpm9g8TWdnBdMwvuAvgbmVBvrqE38-xWOK1VD~Ls3oQUy~HtrUCnQnmrFFvEVseBDal1sFuhLotLRovWkJynvZNVxj8M0i48m3WLD8RmVuZcuOCaEcyph4nUzE6U1CoJuAWkYnt-yzawI9lcnAR~DZ95SRXh1l7278Zb-1gYwg__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "distance" : "차로 30분 거리"
 } ]</code></pre>
 </div>
@@ -549,7 +549,7 @@ Content-Length: 682
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /regions/search?country=양재동 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -560,23 +560,23 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:58 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 311
+Content-Length: 727
 
 [ {
   "country" : "양재동, 서초구, 서울특별시",
-  "imageUrl" : ""
+  "imageUrl" : "https://user-images.githubusercontent.com/92966772/171333901-d1cd469c-0a4d-404f-a277-6ba9e083034a.png"
 }, {
   "country" : "양재역 사거리, 양재1동",
-  "imageUrl" : ""
+  "imageUrl" : "https://user-images.githubusercontent.com/92966772/171333901-d1cd469c-0a4d-404f-a277-6ba9e083034a.png"
 }, {
   "country" : "서울특별시 양재2동 시민의숲앞",
-  "imageUrl" : ""
+  "imageUrl" : "https://user-images.githubusercontent.com/92966772/171333901-d1cd469c-0a4d-404f-a277-6ba9e083034a.png"
 }, {
   "country" : "서울특별시 양재2동 양재IC",
-  "imageUrl" : ""
+  "imageUrl" : "https://user-images.githubusercontent.com/92966772/171333901-d1cd469c-0a4d-404f-a277-6ba9e083034a.png"
 } ]</code></pre>
 </div>
 </div>
@@ -592,7 +592,7 @@ Content-Length: 311
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations/prices?country=양재동 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -603,14 +603,14 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:21 GMT
+Date: Tue, 07 Jun 2022 00:11:55 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 69
+Content-Length: 64
 
 {
-  "average" : 165556,
-  "prices" : [ 12345, 56780, 12455, 12350 ]
+  "average" : 33333,
+  "prices" : [ 50000, 30000, 20000 ]
 }</code></pre>
 </div>
 </div>
@@ -626,7 +626,7 @@ Content-Length: 69
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations?country=양재동&amp;checkIn=2022-05-17&amp;checkOut=2022-06-12&amp;minPrice=10000&amp;maxPrice=100000&amp;guestCount=3 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -637,35 +637,68 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:21 GMT
+Date: Tue, 07 Jun 2022 00:11:57 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 572
+Content-Length: 3780
 
 {
-  "count" : 300,
+  "count" : 5,
   "accommodations" : [ {
     "id" : 1,
-    "name" : "숙소 이름",
-    "imageUrl" : "https://~~~",
+    "name" : "Spacious and Comfortable cozy house #1",
+    "imageUrl" : "https://s3-alpha-sig.figma.com/img/2b24/5101/2265996f97a70986d95f1d6fdd40009f?Expires=1655078400&amp;Signature=D2aMRMQGvcfCORWvl9jrqgr6Rubf2044ovniztRQgTreOhAr8yzz~xQ7m0FHd1NC9DD0Z1C69F8XAODD44kfW9NDc~EHKhjdNzgBdgWZnYZRnB41avlSb2auh6ynKlaKD8yPs-St-sgrNy9QANbQguoDmDLixQXMRI1osY8zYNc4QPtUonohHD5Td71wqsLzMAWqSWsqWq5YquBmVG8iZ3nc9KjiujFSWhotD7bt0SpwoUl59w0WeuO~G~sSU7ns1FexmtPW8KYL~UIyiVXGGux23EqwOIIOZJRBWXkoSasdpczl0l4gwaXHDkpbFWSDE7lmc23B7waBAsF2I9SraA__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
     "rating" : 4.8,
     "reviewCount" : 127,
-    "price" : 82953,
-    "totalPrice" : 1493159,
-    "wishlist" : false,
-    "latitude" : 32.12332561,
-    "longitude" : 107.21512421
+    "price" : 71466,
+    "totalPrice" : 1858116,
+    "wishlist" : true,
+    "latitude" : 37.49784,
+    "longitude" : 127.03029
   }, {
     "id" : 2,
-    "name" : "숙소 이름 2",
-    "imageUrl" : "https://~~~~~~~",
-    "rating" : 4.35,
-    "reviewCount" : 105,
-    "price" : 333,
-    "totalPrice" : 1333332,
+    "name" : "숙소 이름1",
+    "imageUrl" : "https://s3-alpha-sig.figma.com/img/6922/44b3/5c34d655bb2bab8f252f8742ee10b2c0?Expires=1655078400&amp;Signature=fhXsW20hxN0uoDN899YKaWakMnhf6R0wzpatwbUNXYTo02mrK518vP7kNRE5P8rxN6-3Tawww7NQTFfB1cTU~cZRsR2Gfeuj~6oyEQIYEqERdjIKd6raeQaDR19bml-qUo3jDBGH2EubyzWtDeM0wMfPnaHOrG-XZOh1UGvWM921EuNI9b8AZ4CJ6KEE71SS7iq08HyyQscmkmrM2-c89HNqBH7keKXwfozKU6m2nMYiBe427qPxqP2IeKr0yU6K81fMHHuVM2gai5NKJ5vGpis74Omt4JcgQ1o5GuFfa9NbcBlAiI0rpeR2-aq1swK4gLuQp6IEdTJzmglpFSQy8Q__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+    "rating" : 4.8,
+    "reviewCount" : 40,
+    "price" : 50000,
+    "totalPrice" : 1300000,
     "wishlist" : true,
-    "latitude" : 32.33256112,
-    "longitude" : 107.33333321
+    "latitude" : 37.49784,
+    "longitude" : 127.03029
+  }, {
+    "id" : 3,
+    "name" : "숙소 이름2",
+    "imageUrl" : "https://s3-alpha-sig.figma.com/img/6922/44b3/5c34d655bb2bab8f252f8742ee10b2c0?Expires=1655078400&amp;Signature=fhXsW20hxN0uoDN899YKaWakMnhf6R0wzpatwbUNXYTo02mrK518vP7kNRE5P8rxN6-3Tawww7NQTFfB1cTU~cZRsR2Gfeuj~6oyEQIYEqERdjIKd6raeQaDR19bml-qUo3jDBGH2EubyzWtDeM0wMfPnaHOrG-XZOh1UGvWM921EuNI9b8AZ4CJ6KEE71SS7iq08HyyQscmkmrM2-c89HNqBH7keKXwfozKU6m2nMYiBe427qPxqP2IeKr0yU6K81fMHHuVM2gai5NKJ5vGpis74Omt4JcgQ1o5GuFfa9NbcBlAiI0rpeR2-aq1swK4gLuQp6IEdTJzmglpFSQy8Q__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+    "rating" : 4.8,
+    "reviewCount" : 40,
+    "price" : 30000,
+    "totalPrice" : 780000,
+    "wishlist" : false,
+    "latitude" : 37.49784,
+    "longitude" : 127.03029
+  }, {
+    "id" : 4,
+    "name" : "숙소 이름3",
+    "imageUrl" : "https://s3-alpha-sig.figma.com/img/6922/44b3/5c34d655bb2bab8f252f8742ee10b2c0?Expires=1655078400&amp;Signature=fhXsW20hxN0uoDN899YKaWakMnhf6R0wzpatwbUNXYTo02mrK518vP7kNRE5P8rxN6-3Tawww7NQTFfB1cTU~cZRsR2Gfeuj~6oyEQIYEqERdjIKd6raeQaDR19bml-qUo3jDBGH2EubyzWtDeM0wMfPnaHOrG-XZOh1UGvWM921EuNI9b8AZ4CJ6KEE71SS7iq08HyyQscmkmrM2-c89HNqBH7keKXwfozKU6m2nMYiBe427qPxqP2IeKr0yU6K81fMHHuVM2gai5NKJ5vGpis74Omt4JcgQ1o5GuFfa9NbcBlAiI0rpeR2-aq1swK4gLuQp6IEdTJzmglpFSQy8Q__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+    "rating" : 4.8,
+    "reviewCount" : 40,
+    "price" : 20000,
+    "totalPrice" : 520000,
+    "wishlist" : false,
+    "latitude" : 37.49784,
+    "longitude" : 127.03029
+  }, {
+    "id" : 5,
+    "name" : "숙소 이름4 except 양재",
+    "imageUrl" : "https://s3-alpha-sig.figma.com/img/6922/44b3/5c34d655bb2bab8f252f8742ee10b2c0?Expires=1655078400&amp;Signature=fhXsW20hxN0uoDN899YKaWakMnhf6R0wzpatwbUNXYTo02mrK518vP7kNRE5P8rxN6-3Tawww7NQTFfB1cTU~cZRsR2Gfeuj~6oyEQIYEqERdjIKd6raeQaDR19bml-qUo3jDBGH2EubyzWtDeM0wMfPnaHOrG-XZOh1UGvWM921EuNI9b8AZ4CJ6KEE71SS7iq08HyyQscmkmrM2-c89HNqBH7keKXwfozKU6m2nMYiBe427qPxqP2IeKr0yU6K81fMHHuVM2gai5NKJ5vGpis74Omt4JcgQ1o5GuFfa9NbcBlAiI0rpeR2-aq1swK4gLuQp6IEdTJzmglpFSQy8Q__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+    "rating" : 4.8,
+    "reviewCount" : 40,
+    "price" : 50000,
+    "totalPrice" : 1300000,
+    "wishlist" : false,
+    "latitude" : 37.49784,
+    "longitude" : 127.03029
   } ]
 }</code></pre>
 </div>
@@ -682,7 +715,7 @@ Content-Length: 572
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations/1 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -693,29 +726,29 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:21 GMT
+Date: Tue, 07 Jun 2022 00:11:57 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 567
+Content-Length: 1194
 
 {
   "id" : 1,
-  "name" : "숙소 이름",
-  "imageUrl" : "https://~~~",
+  "name" : "Spacious and Comfortable cozy house #1",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/2b24/5101/2265996f97a70986d95f1d6fdd40009f?Expires=1655078400&amp;Signature=D2aMRMQGvcfCORWvl9jrqgr6Rubf2044ovniztRQgTreOhAr8yzz~xQ7m0FHd1NC9DD0Z1C69F8XAODD44kfW9NDc~EHKhjdNzgBdgWZnYZRnB41avlSb2auh6ynKlaKD8yPs-St-sgrNy9QANbQguoDmDLixQXMRI1osY8zYNc4QPtUonohHD5Td71wqsLzMAWqSWsqWq5YquBmVG8iZ3nc9KjiujFSWhotD7bt0SpwoUl59w0WeuO~G~sSU7ns1FexmtPW8KYL~UIyiVXGGux23EqwOIIOZJRBWXkoSasdpczl0l4gwaXHDkpbFWSDE7lmc23B7waBAsF2I9SraA__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "rating" : 4.8,
   "reviewCount" : 127,
   "country" : "서초구, 서울, 한국",
   "hostName" : "Jong",
-  "hostImageUrl" : "http://~~~~~~~~~",
+  "hostImageUrl" : "https://user-images.githubusercontent.com/92966772/171337583-5428b133-eea4-4f02-9f27-7a53a414842f.png",
   "roomInformation" : {
+    "roomType" : "PENSION",
     "maxGuestCount" : 3,
-    "roomType" : "APARTMENT",
     "bedroomCount" : 1,
-    "bathroomCont" : 1
+    "bathroomCount" : 1
   },
-  "description" : "강남역 5번 출구에서 도보로 이동 가능합니다. 지하철, 버스 노선이 다양하고 맛집, 마트 등 주변 시설이 풍부합니다.",
-  "price" : 82953,
-  "wishlist" : false
+  "description" : "강남역 5번 출구에서 도보로 이동가능합니다 지하철, 버스 노선이 다양하고 맛집, 마트등 주변 시설이 풍부합니다. 깨끗하고, 아늑한 시설",
+  "price" : 71466,
+  "wishlist" : true
 }</code></pre>
 </div>
 </div>
@@ -731,7 +764,7 @@ Content-Length: 567
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /accommodations/1/detail-price?checkIn=2022-10-23&amp;checkOut=2022-10-30&amp;guestCount=3 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -742,21 +775,21 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:21 GMT
+Date: Tue, 07 Jun 2022 00:11:57 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 213
+Content-Length: 220
 
 {
   "price" : 71466,
-  "date" : 18,
-  "totalPrice" : 1322396,
+  "date" : 7,
+  "totalPrice" : 500262,
   "discountRate" : 4,
-  "discountPrice" : 55948,
+  "discountPrice" : 20010,
   "cleaningFee" : 25996,
   "serviceFee" : 8188,
   "accommodationFee" : 819,
-  "finalPrice" : 1488195
+  "finalPrice" : 515255
 }</code></pre>
 </div>
 </div>
@@ -772,7 +805,7 @@ Content-Length: 213
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /wishlists HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -783,26 +816,26 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:59 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 317
+Content-Length: 1299
 
 [ {
   "id" : 1,
-  "name" : "숙소 이름",
-  "imageUrl" : "https://~~~",
+  "name" : "Spacious and Comfortable cozy house #1",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/2b24/5101/2265996f97a70986d95f1d6fdd40009f?Expires=1655078400&amp;Signature=D2aMRMQGvcfCORWvl9jrqgr6Rubf2044ovniztRQgTreOhAr8yzz~xQ7m0FHd1NC9DD0Z1C69F8XAODD44kfW9NDc~EHKhjdNzgBdgWZnYZRnB41avlSb2auh6ynKlaKD8yPs-St-sgrNy9QANbQguoDmDLixQXMRI1osY8zYNc4QPtUonohHD5Td71wqsLzMAWqSWsqWq5YquBmVG8iZ3nc9KjiujFSWhotD7bt0SpwoUl59w0WeuO~G~sSU7ns1FexmtPW8KYL~UIyiVXGGux23EqwOIIOZJRBWXkoSasdpczl0l4gwaXHDkpbFWSDE7lmc23B7waBAsF2I9SraA__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "rating" : 4.8,
   "reviewCount" : 127,
-  "price" : 82953,
+  "price" : 71466,
   "wishlist" : true
 }, {
   "id" : 2,
-  "name" : "숙소 이름 2",
-  "imageUrl" : "https://~~~~~~~",
-  "rating" : 4.35,
-  "reviewCount" : 105,
-  "price" : 333,
+  "name" : "숙소 이름1",
+  "imageUrl" : "https://s3-alpha-sig.figma.com/img/6922/44b3/5c34d655bb2bab8f252f8742ee10b2c0?Expires=1655078400&amp;Signature=fhXsW20hxN0uoDN899YKaWakMnhf6R0wzpatwbUNXYTo02mrK518vP7kNRE5P8rxN6-3Tawww7NQTFfB1cTU~cZRsR2Gfeuj~6oyEQIYEqERdjIKd6raeQaDR19bml-qUo3jDBGH2EubyzWtDeM0wMfPnaHOrG-XZOh1UGvWM921EuNI9b8AZ4CJ6KEE71SS7iq08HyyQscmkmrM2-c89HNqBH7keKXwfozKU6m2nMYiBe427qPxqP2IeKr0yU6K81fMHHuVM2gai5NKJ5vGpis74Omt4JcgQ1o5GuFfa9NbcBlAiI0rpeR2-aq1swK4gLuQp6IEdTJzmglpFSQy8Q__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+  "rating" : 4.8,
+  "reviewCount" : 40,
+  "price" : 50000,
   "wishlist" : true
 } ]</code></pre>
 </div>
@@ -817,11 +850,11 @@ Content-Length: 317
 <h3 id="_request_9">Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /wishlists HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">PATCH /wishlists HTTP/1.1
 Accept: application/json
 Content-Type: application/json
-Host: localhost:51703
-Content-Length: 45
+Host: localhost:64714
+Content-Length: 48
 
 {
   "memberId" : 1,
@@ -835,7 +868,7 @@ Content-Length: 45
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:59 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive</code></pre>
 </div>
@@ -852,7 +885,7 @@ Connection: keep-alive</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /wishlists/1 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -861,7 +894,7 @@ Host: localhost:51703</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:59 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive</code></pre>
 </div>
@@ -879,8 +912,8 @@ Connection: keep-alive</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /books HTTP/1.1
 Accept: application/json
 Content-Type: application/json
-Host: localhost:51703
-Content-Length: 104
+Host: localhost:64714
+Content-Length: 109
 
 {
   "accommodationId" : 1,
@@ -896,7 +929,7 @@ Content-Length: 104
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:58 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive</code></pre>
 </div>
@@ -913,7 +946,7 @@ Connection: keep-alive</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /books HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -924,32 +957,18 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:58 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 737
+Content-Length: 724
 
 [ {
   "bookId" : 1,
-  "accommodationImageUrl" : "http://~~~~~ 1",
+  "accommodationImageUrl" : "https://s3-alpha-sig.figma.com/img/2b24/5101/2265996f97a70986d95f1d6fdd40009f?Expires=1655078400&amp;Signature=D2aMRMQGvcfCORWvl9jrqgr6Rubf2044ovniztRQgTreOhAr8yzz~xQ7m0FHd1NC9DD0Z1C69F8XAODD44kfW9NDc~EHKhjdNzgBdgWZnYZRnB41avlSb2auh6ynKlaKD8yPs-St-sgrNy9QANbQguoDmDLixQXMRI1osY8zYNc4QPtUonohHD5Td71wqsLzMAWqSWsqWq5YquBmVG8iZ3nc9KjiujFSWhotD7bt0SpwoUl59w0WeuO~G~sSU7ns1FexmtPW8KYL~UIyiVXGGux23EqwOIIOZJRBWXkoSasdpczl0l4gwaXHDkpbFWSDE7lmc23B7waBAsF2I9SraA__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
   "checkIn" : "2022-03-05",
   "checkOut" : "2022-03-11",
   "accommodationCountry" : "서초구, 서울, 한국",
   "accommodationName" : "Spacious and Comfortable cozy house #1"
-}, {
-  "bookId" : 2,
-  "accommodationImageUrl" : "http://~~~~~ 2",
-  "checkIn" : "2022-03-11",
-  "checkOut" : "2022-03-17",
-  "accommodationCountry" : "서초구, 서울, 한국",
-  "accommodationName" : "Spacious and Comfortable cozy house #2"
-}, {
-  "bookId" : 3,
-  "accommodationImageUrl" : "http://~~~~~ 3",
-  "checkIn" : "2022-03-22",
-  "checkOut" : "2022-03-25",
-  "accommodationCountry" : "서초구, 서울, 한국",
-  "accommodationName" : "Spacious and Comfortable cozy house #3"
 } ]</code></pre>
 </div>
 </div>
@@ -965,7 +984,7 @@ Content-Length: 737
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /books/1 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -976,22 +995,22 @@ Host: localhost:51703</code></pre>
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:58 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive
-Content-Length: 415
+Content-Length: 841
 
 {
   "bookId" : 1,
-  "accommodationImageUrls" : [ "http://~~~~~ 1", "http://~~~~~ 2", "http://~~~~~ 3", "http://~~~~~ 4" ],
+  "accommodationImageUrls" : [ "https://s3-alpha-sig.figma.com/img/2b24/5101/2265996f97a70986d95f1d6fdd40009f?Expires=1655078400&amp;Signature=D2aMRMQGvcfCORWvl9jrqgr6Rubf2044ovniztRQgTreOhAr8yzz~xQ7m0FHd1NC9DD0Z1C69F8XAODD44kfW9NDc~EHKhjdNzgBdgWZnYZRnB41avlSb2auh6ynKlaKD8yPs-St-sgrNy9QANbQguoDmDLixQXMRI1osY8zYNc4QPtUonohHD5Td71wqsLzMAWqSWsqWq5YquBmVG8iZ3nc9KjiujFSWhotD7bt0SpwoUl59w0WeuO~G~sSU7ns1FexmtPW8KYL~UIyiVXGGux23EqwOIIOZJRBWXkoSasdpczl0l4gwaXHDkpbFWSDE7lmc23B7waBAsF2I9SraA__&amp;Key-Pair-Id=APKAINTVSUGEWH5XD5UA" ],
   "checkIn" : "2022-03-05T16:00:00",
-  "checkOut" : "2022-03-11T10:00:00",
+  "checkOut" : "2022-03-11T12:00:00",
   "accommodationCountry" : "서초구, 서울, 한국",
   "accommodationName" : "Spacious and Comfortable cozy house #1",
-  "guestCount" : 3,
-  "roomCount" : "원룸",
+  "guestCount" : 2,
+  "roomType" : "PENSION",
   "hostName" : "Jong",
-  "finalPrice" : 1488195
+  "finalPrice" : 393793
 }</code></pre>
 </div>
 </div>
@@ -1007,7 +1026,7 @@ Content-Length: 415
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /books/1 HTTP/1.1
 Accept: application/json
-Host: localhost:51703</code></pre>
+Host: localhost:64714</code></pre>
 </div>
 </div>
 </div>
@@ -1016,7 +1035,7 @@ Host: localhost:51703</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Date: Tue, 31 May 2022 07:18:22 GMT
+Date: Tue, 07 Jun 2022 00:11:58 GMT
 Keep-Alive: timeout=60
 Connection: keep-alive</code></pre>
 </div>
@@ -1028,7 +1047,7 @@ Connection: keep-alive</code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-05-31 16:15:58 +0900
+Last updated 2022-06-01 15:12:42 +0900
 </div>
 </div>
 </body>

@@ -2,13 +2,13 @@ package louie.dong.airbnb.wishlist;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import louie.dong.airbnb.wishlist.dto.WishListResponse;
-import louie.dong.airbnb.wishlist.dto.WishListSaveRequest;
+import louie.dong.airbnb.wishlist.dto.WishResponse;
+import louie.dong.airbnb.wishlist.dto.WishSaveRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -17,23 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/wishlists")
 @RestController
-public class WishListController {
+public class WishController {
 
-    private final MockWishListService mockWishListService;
+    private final WishService wishService;
 
     @GetMapping
-    public List<WishListResponse> getWishlists() {
-        return mockWishListService.findAll();
+    public List<WishResponse> getWishlist() {
+        return wishService.findAll();
     }
 
-    @PostMapping
+    @PatchMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody WishListSaveRequest wishListSaveRequest) {
-        mockWishListService.save(wishListSaveRequest);
+    public void save(@RequestBody WishSaveRequest wishSaveRequest) {
+        wishService.save(wishSaveRequest);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        mockWishListService.delete(id);
+        wishService.delete(id);
     }
 }

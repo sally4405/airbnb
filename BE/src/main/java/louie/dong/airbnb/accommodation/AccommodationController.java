@@ -1,5 +1,6 @@
 package louie.dong.airbnb.accommodation;
 
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
@@ -17,28 +18,28 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccommodationController {
 
-	private final MockAccommodationService mockAccommodationService;
+	private final AccommodationService accommodationService;
 
 	@GetMapping("/prices")
-	public AccommodationPriceResponse getAccommodationPrice(String country) {
-		return mockAccommodationService.findPrices(country);
+	public AccommodationPriceResponse getAccommodationPrices(String country) {
+		return accommodationService.findPrices(country);
 	}
 
 	@GetMapping
 	public AccommodationSearchResponse getAccommodationSearch(
 		AccommodationSearchRequest accommodationSearchRequest) {
-		return mockAccommodationService.findAccommodations(accommodationSearchRequest);
+		return accommodationService.findAccommodations(accommodationSearchRequest);
 	}
 
 	@GetMapping("/{id}")
 	public AccommodationDetailResponse getAccommodationDetail(@PathVariable Long id) {
-		return mockAccommodationService.findById(id);
+		return accommodationService.findById(id);
 	}
 
 	@GetMapping("/{id}/detail-price")
 	public AccommodationDetailPriceResponse getDetailPrice(@PathVariable Long id,
 		AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
-		return mockAccommodationService.findDetailPrice(id, accommodationDetailPriceRequest);
+		return accommodationService.findDetailPrice(id, accommodationDetailPriceRequest);
 	}
 
 }
