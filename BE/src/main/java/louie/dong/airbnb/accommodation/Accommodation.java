@@ -70,6 +70,10 @@ public class Accommodation {
 		this.point = point;
 	}
 
+	public boolean notExistsImage() {
+		return accommodationImages.isEmpty();
+	}
+
 	public boolean existsWish() {
 		return !wishlist.isEmpty();
 	}
