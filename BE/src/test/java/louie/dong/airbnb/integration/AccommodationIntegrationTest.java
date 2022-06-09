@@ -71,12 +71,12 @@ class AccommodationIntegrationTest {
                 preprocessResponse(prettyPrint())))
 
             .when()
-            .get("/accommodations?country=양재동&checkIn=2022-05-17&checkOut=2022-06-12&minPrice=10000&maxPrice=100000&guestCount=3")
+            .get("/accommodations?country=서울&checkIn=2022-05-17&checkOut=2022-06-12&minPrice=50000&maxPrice=100000&guestCount=3")
 
             .then()
             .statusCode(HttpStatus.OK.value())
             .assertThat()
-            .body("count", equalTo(5))
+            .body("count", equalTo(3))
             .body("accommodations[0].id", equalTo(1))
             .body("accommodations[0].name", equalTo("Spacious and Comfortable cozy house #1"))
             .body("accommodations[0].imageUrl", equalTo("https://s3-alpha-sig.figma.com/img/2b24/5101/2265996f97a70986d95f1d6fdd40009f?Expires=1655078400&Signature=D2aMRMQGvcfCORWvl9jrqgr6Rubf2044ovniztRQgTreOhAr8yzz~xQ7m0FHd1NC9DD0Z1C69F8XAODD44kfW9NDc~EHKhjdNzgBdgWZnYZRnB41avlSb2auh6ynKlaKD8yPs-St-sgrNy9QANbQguoDmDLixQXMRI1osY8zYNc4QPtUonohHD5Td71wqsLzMAWqSWsqWq5YquBmVG8iZ3nc9KjiujFSWhotD7bt0SpwoUl59w0WeuO~G~sSU7ns1FexmtPW8KYL~UIyiVXGGux23EqwOIIOZJRBWXkoSasdpczl0l4gwaXHDkpbFWSDE7lmc23B7waBAsF2I9SraA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"))

@@ -1,6 +1,8 @@
 package louie.dong.airbnb.accommodation.dto;
 
 import java.time.LocalDate;
+import javax.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -9,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Setter
 public class AccommodationSearchRequest {
 
+	@NotEmpty
 	private String country;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -17,8 +20,8 @@ public class AccommodationSearchRequest {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate checkOut;
 
-	private int minPrice;
-	private int maxPrice;
-	private int guestCount;
+	private Integer minPrice;
+	private Integer maxPrice;
+	private Integer guestCount;
 }
 

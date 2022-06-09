@@ -65,12 +65,8 @@ public class AccommodationService {
 		LocalDate checkIn = accommodationSearchRequest.getCheckIn();
 		LocalDate checkOut = accommodationSearchRequest.getCheckOut();
 
-		List<Accommodation> accommodations = accommodationRepository.searchAccommodations(
-			accommodationSearchRequest.getCountry(),
-			LocalDateTime.of(checkIn, LocalTime.of(0, 0)),
-			LocalDateTime.of(checkOut, LocalTime.of(0, 0)),
-			accommodationSearchRequest.getMinPrice(), accommodationSearchRequest.getMaxPrice(),
-			accommodationSearchRequest.getGuestCount());
+		List<Accommodation> accommodations = accommodationRepository.
+			searchAccommodations(accommodationSearchRequest);
 
 		List<AccommodationResponse> accommodationResponses = createAccommodationResponses(
 			accommodations, checkIn, checkOut);
