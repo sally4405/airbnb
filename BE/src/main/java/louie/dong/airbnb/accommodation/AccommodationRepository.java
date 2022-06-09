@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface AccommodationRepository extends JpaRepository<Accommodation, Long> {
 
 	@Query("SELECT ac.price FROM Accommodation AS ac WHERE ac.country LIKE %:country%")
-	List<Integer> findByAccommodationPrices(@Param("country") String country);
+	List<Integer> findPricesByAccommodation(@Param("country") String country);
 
 	@Query("SELECT a FROM Accommodation a "
 		+ "WHERE a.id NOT IN "
