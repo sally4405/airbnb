@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import RxCocoa
 
 class SearchViewController: UIViewController {
 
@@ -51,14 +52,11 @@ class SearchViewController: UIViewController {
     
     private func setHeroImage() {
         print("view-setHeroImage()")
-        viewModel.getHeroImageURL().subscribe(onNext: { url in
-            print(url)
-            self.viewModel.getHeroImageData(imageURL: url).subscribe(onNext: { [weak self] data in
-                if let image = UIImage(data: data) {
-                    self?.searchView.setHeroImage(image)
-                }
-            }).dispose()
-        }).dispose()
+        viewModel.heroImageData
+            .observe(on: MainScheduler.instance)
+            .map { UIImage(data: $0)?.scalePreservingAspectRatio(targetWidth: self.view.bounds.width) }
+            .bind(to: self.searchView.heroImageView.rx.image)
+            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

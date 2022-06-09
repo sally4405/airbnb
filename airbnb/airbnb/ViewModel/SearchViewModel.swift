@@ -28,6 +28,17 @@ class SearchViewModel {
     private let imageCacheManager = ImageCacheManager.publicCacheManager
     private let imageDataCacheManager = ImageDataCacheManager.publicCacheManager
     
+    var heroImageData = PublishSubject<Data>()
+    
+    init() {
+        getHeroImageURL().subscribe(onNext: { url in
+            self.getHeroImageData(imageURL: url).subscribe(onNext: { data in
+                self.heroImageData.onNext(data)
+            })
+        })
+        
+    }
+    
     func getHeroImageURL() -> Observable<String> {
         return Observable.create { emitter in
             self.networkManager.getHeroImage { heroImage in

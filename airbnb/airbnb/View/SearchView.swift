@@ -1,15 +1,8 @@
-//
-//  SearchView.swift
-//  airbnb
-//
-//  Created by Bibi on 2022/06/01.
-//
-
 import UIKit
 
 class SearchView: UIView {
     
-    private lazy var heroImageView: UIImageView = {
+    lazy var heroImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.contentMode = .top
         return imageView
