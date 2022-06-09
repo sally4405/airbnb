@@ -38,4 +38,24 @@ final class NetworkManager {
             return Disposables.create()
         }
     }
+    
+    func getPopularLocation(completion: @escaping ([PopularLocationElement]) -> Void) {
+        let urlStub = "/travels/popular"
+        HTTPManager.requestGET(url: baseURL + urlStub) { data in
+            guard let data: [PopularLocationElement] = JSONConverter.decodeJsonArray(data: data) else {
+                return
+            }
+            completion(data)
+        }
+    }
+    
+    func getPopularLoactaionRx() -> Observable<[PopularLocationElement]?> {
+        return Observable.create { emitter in
+            self.getPopularLocation { location in
+                emitter.onNext(location)
+                emitter.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
 }

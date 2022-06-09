@@ -1,14 +1,15 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class PopularLocationView: UIView {
 
-    private var locationList: [[String]] = [["서울", "차로 30분 거리"], ["광주", "차로 4시간 거리"]]
-    private var imageList: [String] = ["seoul", "gwangju"]
+    private var viewModel = PopularLocationViewModel()
+    private var disposeBag = DisposeBag()
 
     private lazy var tableView: UITableView = {
         var table = UITableView()
         table.delegate = self
-        table.dataSource = self
         table.register(LocationTableViewCell.self, forCellReuseIdentifier: LocationTableViewCell.identifier)
         table.separatorStyle = .none
         return table
@@ -26,6 +27,16 @@ class PopularLocationView: UIView {
 
     private func setUp() {
         backgroundColor = .systemBackground
+        viewModel.popularLocation
+            .observe(on: MainScheduler.instance)
+            .bind(to: tableView.rx.items(cellIdentifier: LocationTableViewCell.identifier, cellType: LocationTableViewCell.self)) { index, item, cell in
+                cell.selectionStyle = .none
+                cell.setTitle(item.name)
+                cell.setDistance(item.distance)
+                cell.setImage(UIImage())
+            }
+            .disposed(by: disposeBag)
+        
         setTableView()
     }
 
@@ -43,21 +54,7 @@ class PopularLocationView: UIView {
 
 }
 
-extension PopularLocationView: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locationList.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
-        cell.selectionStyle = .none
-        let location = locationList[indexPath.row]
-        cell.setTitle(location[0])
-        cell.setDistance(location[1])
-        cell.setImage(UIImage(named: imageList[indexPath.row]) ?? UIImage())
-        return cell
-    }
+extension PopularLocationView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: .init(x: 0, y: 0, width: tableView.frame.width, height: 32))

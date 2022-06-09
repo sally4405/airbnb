@@ -6,13 +6,27 @@
 //
 
 import Foundation
+import RxSwift
 
 class PopularLocationViewModel {
     
-    private let popularLocation = PopularLocation()
+    let popularLocation = PublishSubject<[PopularLocationElement]>()
     private let networkManager = NetworkManager.publicNetworkManager
     
-    func getPopularLocation() {
-        
+    init() {
+        getPopularLocation().subscribe(onNext: {
+            self.popularLocation.onNext($0)
+        })
     }
+    
+    func getPopularLocation() -> Observable<[PopularLocationElement]> {
+        return Observable.create { emitter in
+            self.networkManager.getPopularLocation { location in
+                emitter.onNext(location)
+                emitter.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
+
 }
