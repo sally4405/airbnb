@@ -107,10 +107,9 @@ public class AccommodationService {
 	}
 
 	private int calculateAverage(List<Integer> prices) {
-		int sum = 0;
-		for (Integer price : prices) {
-			sum += price;
-		}
-		return sum / prices.size();
+		return (int) prices.stream()
+			.mapToInt(Integer::intValue)
+			.average()
+			.orElseThrow();
 	}
 }
