@@ -50,7 +50,7 @@ public class AccommodationService {
 
 		int date = (int) checkIn.until(checkOut, ChronoUnit.DAYS);
 		int totalPrice = accommodation.getPrice() * date;
-		double discountRate = getDiscountRate(date) * 0.01;
+		double discountRate = DiscountPolicy.getDiscountRate(date) * 0.01;
 		int discountPrice = (int) (totalPrice * discountRate);
 		int finalPrice = totalPrice - discountPrice + accommodation.getCleaningFee()
 			+ accommodation.getServiceFee() + accommodation.getAccommodationFee();
@@ -89,21 +89,6 @@ public class AccommodationService {
 	private Accommodation getAccommodation(Long id) {
 		return accommodationRepository.findById(id)
 			.orElseThrow(() -> new IllegalArgumentException("유효하지 않은 id입니다."));
-	}
-
-	private int getDiscountRate(int date) {
-		if (date < 7) {
-			return NONE.getDiscountRate();
-		}
-
-		if (date < 30) {
-			return WEEKLY.getDiscountRate();
-		}
-
-		if (date < 365) {
-			return MONTHLY.getDiscountRate();
-		}
-		return YEARLY.getDiscountRate();
 	}
 
 	private int calculateAverage(List<Integer> prices) {
