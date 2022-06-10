@@ -1,13 +1,6 @@
 package louie.dong.airbnb.accommodation;
 
-import static louie.dong.airbnb.accommodation.DiscountPolicy.MONTHLY;
-import static louie.dong.airbnb.accommodation.DiscountPolicy.NONE;
-import static louie.dong.airbnb.accommodation.DiscountPolicy.WEEKLY;
-import static louie.dong.airbnb.accommodation.DiscountPolicy.YEARLY;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,22 +53,20 @@ public class AccommodationService {
 			accommodation.getServiceFee(), accommodation.getAccommodationFee(), finalPrice);
 	}
 
-	public AccommodationSearchResponse findAccommodations(
-		AccommodationSearchRequest accommodationSearchRequest) {
-		LocalDate checkIn = accommodationSearchRequest.getCheckIn();
-		LocalDate checkOut = accommodationSearchRequest.getCheckOut();
+    public AccommodationSearchResponse findAccommodations(
+        AccommodationSearchRequest accommodationSearchRequest) {
+        List<Accommodation> accommodations = accommodationRepository.searchAccommodations(
+            accommodationSearchRequest.getCountry(),
+            accommodationSearchRequest.getCheckInWithTime(),
+            accommodationSearchRequest.getCheckOutWithTime(),
+            accommodationSearchRequest.getMinPrice(), accommodationSearchRequest.getMaxPrice(),
+            accommodationSearchRequest.getGuestCount());
 
-		List<Accommodation> accommodations = accommodationRepository.searchAccommodations(
-			accommodationSearchRequest.getCountry(),
-			LocalDateTime.of(checkIn, LocalTime.of(0, 0)),
-			LocalDateTime.of(checkOut, LocalTime.of(0, 0)),
-			accommodationSearchRequest.getMinPrice(), accommodationSearchRequest.getMaxPrice(),
-			accommodationSearchRequest.getGuestCount());
-
-		List<AccommodationResponse> accommodationResponses = createAccommodationResponses(
-			accommodations, checkIn, checkOut);
-		return new AccommodationSearchResponse(accommodations.size(), accommodationResponses);
-	}
+        List<AccommodationResponse> accommodationResponses = createAccommodationResponses(
+            accommodations, accommodationSearchRequest.getCheckIn(),
+            accommodationSearchRequest.getCheckOut());
+        return new AccommodationSearchResponse(accommodations.size(), accommodationResponses);
+    }
 
 	private List<AccommodationResponse> createAccommodationResponses(
 		List<Accommodation> accommodations, LocalDate checkIn, LocalDate checkOut) {
