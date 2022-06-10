@@ -35,23 +35,13 @@ public class AccommodationService {
 		return new AccommodationDetailResponse(accommodation, wish);
 	}
 
-	public AccommodationDetailPriceResponse findDetailPrice(Long id,
-		AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
-		Accommodation accommodation = getAccommodation(id);
-		LocalDate checkIn = accommodationDetailPriceRequest.getCheckIn();
-		LocalDate checkOut = accommodationDetailPriceRequest.getCheckOut();
-
-		int date = (int) checkIn.until(checkOut, ChronoUnit.DAYS);
-		int totalPrice = accommodation.getPrice() * date;
-		double discountRate = DiscountPolicy.getDiscountRate(date) * 0.01;
-		int discountPrice = (int) (totalPrice * discountRate);
-		int finalPrice = totalPrice - discountPrice + accommodation.getCleaningFee()
-			+ accommodation.getServiceFee() + accommodation.getAccommodationFee();
-
-		return new AccommodationDetailPriceResponse(accommodation.getPrice(), date, totalPrice,
-			WEEKLY.getDiscountRate(), discountPrice, accommodation.getCleaningFee(),
-			accommodation.getServiceFee(), accommodation.getAccommodationFee(), finalPrice);
-	}
+    public AccommodationDetailPriceResponse findDetailPrice(Long id,
+        AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
+        Accommodation accommodation = getAccommodationOrThrow(id);
+        LocalDate checkIn = accommodationDetailPriceRequest.getCheckIn();
+        LocalDate checkOut = accommodationDetailPriceRequest.getCheckOut();
+        return new AccommodationDetailPriceResponse(checkIn, checkOut, accommodation);
+    }
 
     public AccommodationSearchResponse findAccommodations(
         AccommodationSearchRequest accommodationSearchRequest) {
