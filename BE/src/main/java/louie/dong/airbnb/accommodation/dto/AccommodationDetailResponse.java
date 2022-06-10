@@ -23,7 +23,7 @@ public class AccommodationDetailResponse {
 	private RoomInformation roomInformation;
 	private String description;
 	private int price;
-	private boolean wishlist;
+	private boolean isWish;
 
 	public AccommodationDetailResponse(Accommodation accommodation, boolean wish) {
 		this.id = accommodation.getId();
@@ -37,7 +37,7 @@ public class AccommodationDetailResponse {
 		this.roomInformation = accommodation.getRoomInformation();
 		this.description = accommodation.getDescription();
 		this.price = accommodation.getPrice();
-		this.wishlist = wish;
+		this.isWish = wish;
 	}
 
 	private String getImageUrl(List<AccommodationImage> accommodationImages) {
