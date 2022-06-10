@@ -12,6 +12,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailResponse;
@@ -26,91 +27,63 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@Slf4j
 public class AccommodationService {
 
-	private final AccommodationRepository accommodationRepository;
-	private final WishRepository wishRepository;
+    private final AccommodationRepository accommodationRepository;
+    private final WishRepository wishRepository;
 
-	public AccommodationPriceResponse findPrices(String country) {
-		List<Integer> prices = accommodationRepository.findByAccommodationPrices(country);
-		return new AccommodationPriceResponse(calculateAverage(prices), prices);
-	}
+    public AccommodationPriceResponse findPrices(String country) {
+        List<Integer> prices = accommodationRepository.findPricesByAccommodation(country);
+        return new AccommodationPriceResponse(calculateAverage(prices), prices);
+    }
 
-	public AccommodationDetailResponse findById(Long id) {
-		Accommodation accommodation = getAccommodation(id);
-		boolean wish = wishRepository.existsByAccommodationId(id);
-		return new AccommodationDetailResponse(accommodation, wish);
-	}
+    public AccommodationDetailResponse findById(Long id) {
+        Accommodation accommodation = getAccommodationOrThrow(id);
+        boolean wish = wishRepository.existsByAccommodationId(id);
+        return new AccommodationDetailResponse(accommodation, wish);
+    }
 
-	public AccommodationDetailPriceResponse findDetailPrice(Long id,
-		AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
-		Accommodation accommodation = getAccommodation(id);
-		LocalDate checkIn = accommodationDetailPriceRequest.getCheckIn();
-		LocalDate checkOut = accommodationDetailPriceRequest.getCheckOut();
+    public AccommodationDetailPriceResponse findDetailPrice(Long id,
+        AccommodationDetailPriceRequest accommodationDetailPriceRequest) {
+        Accommodation accommodation = getAccommodationOrThrow(id);
+        LocalDate checkIn = accommodationDetailPriceRequest.getCheckIn();
+        LocalDate checkOut = accommodationDetailPriceRequest.getCheckOut();
+        return new AccommodationDetailPriceResponse(checkIn, checkOut, accommodation);
+    }
 
-		int date = (int) checkIn.until(checkOut, ChronoUnit.DAYS);
-		int totalPrice = accommodation.getPrice() * date;
-		double discountRate = getDiscountRate(date) * 0.01;
-		int discountPrice = (int) (totalPrice * discountRate);
-		int finalPrice = totalPrice - discountPrice + accommodation.getCleaningFee()
-			+ accommodation.getServiceFee() + accommodation.getAccommodationFee();
-
-		return new AccommodationDetailPriceResponse(accommodation.getPrice(), date, totalPrice,
-			WEEKLY.getDiscountRate(), discountPrice, accommodation.getCleaningFee(),
-			accommodation.getServiceFee(), accommodation.getAccommodationFee(), finalPrice);
-	}
-
-	public AccommodationSearchResponse findAccommodations(
-		AccommodationSearchRequest accommodationSearchRequest) {
+    public AccommodationSearchResponse findAccommodations(
+        AccommodationSearchRequest accommodationSearchRequest) {
 		LocalDate checkIn = accommodationSearchRequest.getCheckIn();
 		LocalDate checkOut = accommodationSearchRequest.getCheckOut();
 
-		List<Accommodation> accommodations = accommodationRepository.searchAccommodations(
-			accommodationSearchRequest.getCountry(),
-			LocalDateTime.of(checkIn, LocalTime.of(0, 0)),
-			LocalDateTime.of(checkOut, LocalTime.of(0, 0)),
-			accommodationSearchRequest.getMinPrice(), accommodationSearchRequest.getMaxPrice(),
-			accommodationSearchRequest.getGuestCount());
+		List<Accommodation> accommodations = accommodationRepository.
+			searchAccommodations(accommodationSearchRequest);
 
-		List<AccommodationResponse> accommodationResponses = createAccommodationResponses(
-			accommodations, checkIn, checkOut);
-		return new AccommodationSearchResponse(accommodations.size(), accommodationResponses);
-	}
+        validAccommodations(accommodations);
 
-	private List<AccommodationResponse> createAccommodationResponses(
-		List<Accommodation> accommodations, LocalDate checkIn, LocalDate checkOut) {
-		int stayNight = (int) ChronoUnit.DAYS.between(checkIn, checkOut);
-		return accommodations.stream()
-			.map(accommodation -> new AccommodationResponse(accommodation,
-				stayNight * accommodation.getPrice(), accommodation.existsWish()))
-			.collect(Collectors.toList());
-	}
+        int nights = (int) ChronoUnit.DAYS.between(checkIn, checkOut);
+        return new AccommodationSearchResponse(accommodations, nights);
+    }
 
-	private Accommodation getAccommodation(Long id) {
-		return accommodationRepository.findById(id)
-			.orElseThrow(() -> new IllegalArgumentException("유효하지 않은 id입니다."));
-	}
+    public Accommodation getAccommodationOrThrow(Long id) {
+        return accommodationRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 id입니다."));
 
-	private int getDiscountRate(int date) {
-		if (date < 7) {
-			return NONE.getDiscountRate();
-		}
+    }
 
-		if (date < 30) {
-			return WEEKLY.getDiscountRate();
-		}
+    private void validAccommodations(List<Accommodation> accommodations) {
+        for (Accommodation accommodation : accommodations) {
+            if (accommodation.notExistsImage()) {
+                throw new IllegalStateException("숙소의 메인 이미지가 존재하지 않습니다");
+            }
+        }
+    }
 
-		if (date < 365) {
-			return MONTHLY.getDiscountRate();
-		}
-		return YEARLY.getDiscountRate();
-	}
-
-	private int calculateAverage(List<Integer> prices) {
-		int sum = 0;
-		for (Integer price : prices) {
-			sum += price;
-		}
-		return sum / prices.size();
-	}
+    private int calculateAverage(List<Integer> prices) {
+        return (int) prices.stream()
+            .mapToInt(Integer::intValue)
+            .average()
+            .orElseThrow();
+    }
 }

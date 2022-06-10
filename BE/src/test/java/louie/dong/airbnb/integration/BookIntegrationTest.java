@@ -46,8 +46,8 @@ class BookIntegrationTest {
     void 예약_저장() {
         Map<String, Object> content = Map.of(
             "accommodationId", 1L,
-            "checkIn", "2022-03-05",
-            "checkOut", "2022-03-11",
+            "checkInDate", "2022-03-05",
+            "checkOutDate", "2022-03-11",
             "guestCount", 3
         );
 
@@ -75,8 +75,7 @@ class BookIntegrationTest {
 
             .then()
             .statusCode(HttpStatus.OK.value())
-            .body("", hasSize(1));
-//            .body("books[0].book_id", equalTo(1L));
+            .body("", hasSize(5));
     }
 
     @Test

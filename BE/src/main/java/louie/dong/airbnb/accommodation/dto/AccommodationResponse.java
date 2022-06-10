@@ -14,25 +14,25 @@ public class AccommodationResponse {
 	private int reviewCount;
 	private int price;
 	private int totalPrice;
-	private boolean wishlist;
+	private boolean existsWish;
 	private double latitude;
 	private double longitude;
 
-	public AccommodationResponse(Accommodation accommodation, int totalPrice, boolean wishlist) {
+	public AccommodationResponse(Accommodation accommodation, int nights) {
 		this.id = accommodation.getId();
 		this.name = accommodation.getName();
-		this.imageUrl = accommodation.getAccommodationImages().get(0).getImageUrl();
 		this.rating = accommodation.getRating();
 		this.reviewCount = accommodation.getReviewCount();
 		this.price = accommodation.getPrice();
-		this.totalPrice = totalPrice;
-		this.wishlist = wishlist;
 		this.latitude = accommodation.getPoint().getY();
 		this.longitude = accommodation.getPoint().getX();
+		this.totalPrice = accommodation.getPrice() * nights;
+		this.existsWish = accommodation.existsWish();
+		this.imageUrl = accommodation.getAccommodationImages().get(0).getImageUrl();
 	}
 
 	public AccommodationResponse(Long id, String name, String imageUrl, double rating,
-		int reviewCount, int price, int totalPrice, boolean wishlist, Point point) {
+		int reviewCount, int price, int totalPrice, boolean existsWish, Point point) {
 		this.id = id;
 		this.name = name;
 		this.imageUrl = imageUrl;
@@ -40,7 +40,7 @@ public class AccommodationResponse {
 		this.reviewCount = reviewCount;
 		this.price = price;
 		this.totalPrice = totalPrice;
-		this.wishlist = wishlist;
+		this.existsWish = existsWish;
 		this.latitude = point.getY();
 		this.longitude = point.getX();
 	}

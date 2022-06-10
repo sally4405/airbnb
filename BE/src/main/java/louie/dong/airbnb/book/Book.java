@@ -18,28 +18,30 @@ import louie.dong.airbnb.accommodation.Accommodation;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Book {
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn
-	private Accommodation accommodation;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private Accommodation accommodation;
 
-	private LocalDateTime checkIn;
-	private LocalDateTime checkOut;
-	private int guestCount;
-	private int finalPrice;
-	private boolean isCanceled;
+    private LocalDateTime checkIn;
+    private LocalDateTime checkOut;
+    private int guestCount;
+    private int finalPrice;
+    private boolean isCanceled;
 
-	public Book(Accommodation accommodation, LocalDateTime checkIn, LocalDateTime checkOut,
-		int guestCount, int finalPrice) {
-		this.accommodation = accommodation;
-		this.checkIn = checkIn;
-		this.checkOut = checkOut;
-		this.guestCount = guestCount;
-		this.finalPrice = finalPrice;
-	}
+    public Book(Accommodation accommodation, LocalDateTime checkIn, LocalDateTime checkOut,
+        int guestCount, int finalPrice) {
+        this.accommodation = accommodation;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.guestCount = guestCount;
+        this.finalPrice = finalPrice;
+        this.isCanceled = false;
+    }
 
-	public void changeCanceled(boolean isCanceled) {
-		this.isCanceled = isCanceled;
-	}
+    public void cancel() {
+        this.isCanceled = true;
+    }
 }

@@ -1,6 +1,6 @@
 package louie.dong.airbnb.accommodation;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceRequest;
 import louie.dong.airbnb.accommodation.dto.AccommodationDetailPriceResponse;
@@ -27,7 +27,7 @@ public class AccommodationController {
 
 	@GetMapping
 	public AccommodationSearchResponse getAccommodationSearch(
-		AccommodationSearchRequest accommodationSearchRequest) {
+		@Valid AccommodationSearchRequest accommodationSearchRequest) {
 		return accommodationService.findAccommodations(accommodationSearchRequest);
 	}
 
